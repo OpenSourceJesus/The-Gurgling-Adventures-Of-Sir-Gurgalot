@@ -1,0 +1,1202 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"GetPix",
+				"GetPixels()\tColor[]"
+			],
+			[
+				"text",
+				"texture\tTexture2D"
+			],
+			[
+				"OVerlap",
+				"OverlapPoint(Vector2 point)\tCollider2D"
+			],
+			[
+				"coll",
+				"colliderCheckDistInterval\tfloat"
+			],
+			[
+				"isplay",
+				"isPlaying\tbool"
+			],
+			[
+				"Input",
+				"InputManager"
+			],
+			[
+				"INput",
+				"InputManager"
+			],
+			[
+				"Save",
+				"SavedObjectEntry"
+			],
+			[
+				"EraseC",
+				"EraseConfirmRoutine"
+			],
+			[
+				"Player",
+				"PlayerPrefsExtensions"
+			],
+			[
+				"Appl",
+				"ApplyKnowledgeIfShould"
+			],
+			[
+				"Anal",
+				"AnalyticsManager"
+			],
+			[
+				"zOrdere",
+				"zOrderedObject\tzOrderedObject"
+			],
+			[
+				"zOrder",
+				"zOrderedObjects\tzOrderedObjects"
+			],
+			[
+				"mana",
+				"manaBarAlphaWhileDisabled\tfloat"
+			],
+			[
+				"dest",
+				"destroyerAfterTime\tDestroyAfterTime"
+			],
+			[
+				"previou",
+				"previousPlayerVel\tVector2"
+			],
+			[
+				"previousPlay",
+				"previousPlayerVel\tVector2"
+			],
+			[
+				"del",
+				"deltaVelocity\tVector2"
+			],
+			[
+				"reload",
+				"reloading\tbool"
+			],
+			[
+				"boun",
+				"bounds\tBounds"
+			],
+			[
+				"destr",
+				"destroyGraphicsDist\tfloat"
+			],
+			[
+				"Box",
+				"BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask)\tRaycastHit2D"
+			],
+			[
+				"acti",
+				"activeSelf\tbool"
+			],
+			[
+				"bull",
+				"bulletPattern\tBulletPattern"
+			],
+			[
+				"attack",
+				"attackPattern\tAttackPattern"
+			],
+			[
+				"Find",
+				"FindChild(string childName)\tTransform"
+			],
+			[
+				"PlayeRPre",
+				"PlayerPrefsExtensions\tPlayerPrefsExtensions"
+			],
+			[
+				"earse",
+				"eraseConfirmObj\tGameObject"
+			],
+			[
+				"copyC",
+				"copyConfirmObj\tGameObject"
+			],
+			[
+				"copyCon",
+				"copyConfirmObj\tGameObject"
+			],
+			[
+				"cop",
+				"copyingAccountTextObj\tGameObject"
+			],
+			[
+				"Game",
+				"GameObject\tGameObject"
+			],
+			[
+				"Single",
+				"SingletonMonoBehaviour<T>\tSingletonMonoBehaviour<T>"
+			],
+			[
+				"e",
+				"erasedNotificationObj\tTemporaryDisplayObject"
+			],
+			[
+				"REIG",
+				"REGISTRY_SEPERATOR\tstring"
+			],
+			[
+				"PlayerPrefs",
+				"PlayerPrefsExtensions\tPlayerPrefsExtensions"
+			],
+			[
+				"Regis",
+				"REGISTRY_SEPERATOR\tstring"
+			],
+			[
+				"Playerpref",
+				"PlayerPrefsValueType\tPlayerPrefsValueType"
+			],
+			[
+				"accoun",
+				"accountOptionsParent\tRectTransform"
+			],
+			[
+				"account",
+				"accountOptionsPrefab\tAccountOptions"
+			],
+			[
+				"Remove",
+				"Remove_class(RectTransform element)\tRectTransform[]"
+			],
+			[
+				"spent",
+				"spentGoldEvent\tspentGoldEvent"
+			],
+			[
+				"Analyt",
+				"AnalyticsManager\tAnalyticsManager"
+			],
+			[
+				"dama",
+				"damage\tfloat"
+			],
+			[
+				"Add",
+				"AddMoney(ushort amount)\tvoid"
+			],
+			[
+				"got",
+				"gotGoldEvent\tGotGoldEvent"
+			],
+			[
+				"Analty",
+				"AnalyticsManager\tAnalyticsManager"
+			],
+			[
+				"ANalyt",
+				"AnalyticsManager\tAnalyticsManager"
+			],
+			[
+				"time",
+				"timeSinceLastLogged\ttimeSinceLastLogged"
+			],
+			[
+				"analy",
+				"analyticsManager\tanalyticsManager"
+			],
+			[
+				"graph",
+				"graphicRects\tRect[]"
+			],
+			[
+				"canvas",
+				"canvasRectTrs\tRectTransform"
+			],
+			[
+				"GetRec",
+				"GetRectInCanvasNormalized(RectTransform canvasRectTrs)\tRect"
+			],
+			[
+				"ancho",
+				"anchoredPosition\tVector2"
+			],
+			[
+				"SetSize",
+				"SetInsetAndSizeFromParentEdge(Edge edge, float inset, float size)\tvoid"
+			],
+			[
+				"SetRect",
+				"SetSizeWithCurrentAnchors(Axis axis, float size)\tvoid"
+			],
+			[
+				"Mask",
+				"MaskableGraphic\tMaskableGraphic"
+			],
+			[
+				"grap",
+				"graphic\tMaskableGraphic"
+			],
+			[
+				"graphic",
+				"graphics\tMaskableGraphic[]"
+			],
+			[
+				"ispLay",
+				"isPlaying\tbool"
+			],
+			[
+				"spriteen",
+				"spriteEntry\tSpriteEntry"
+			],
+			[
+				"orig",
+				"originalSprite\tSprite"
+			],
+			[
+				"spriteEn",
+				"spriteEntry\tSpriteEntry"
+			],
+			[
+				"spritene",
+				"spriteEntryAnchorPosition\tVector2"
+			],
+			[
+				"origi",
+				"originalSpriteTextureRect\tRectInt"
+			],
+			[
+				"orignalSPrite",
+				"originalSpriteTextureRect\tRectInt"
+			],
+			[
+				"origin",
+				"originalSprite\tSprite"
+			],
+			[
+				"normali",
+				"normalizedSpriteRegion\tnormalizedSpriteRegion"
+			],
+			[
+				"textur",
+				"textureRect\tRect"
+			],
+			[
+				"norma",
+				"normalizedSpriteRegion\tnormalizedSpriteRegion"
+			],
+			[
+				"normal",
+				"normalizedSpriteRegion\tNormalizedSpriteRegion"
+			],
+			[
+				"Ref",
+				"Refresh()\tvoid"
+			],
+			[
+				"confi",
+				"configurable\tIConfigurable"
+			],
+			[
+				"regs",
+				"registeredKey\tstring"
+			],
+			[
+				"regis",
+				"registeredKey\tstring"
+			],
+			[
+				"Dele",
+				"DeleteAll()\tvoid"
+			],
+			[
+				"Sub",
+				"Substring(int startIndex)\tstring"
+			],
+			[
+				"REG",
+				"REGISTRY_SEPERATOR\tstring"
+			],
+			[
+				"accout",
+				"accountNumber\tushort"
+			],
+			[
+				"Playerpres",
+				"PlayerPrefsExtensionsSlider\tPlayerPrefsExtensionsSlider"
+			],
+			[
+				"PlayerPRef",
+				"PlayerPrefsExtensions\tPlayerPrefsExtensions"
+			],
+			[
+				"Delete",
+				"DeleteKey(string key)\tvoid"
+			],
+			[
+				"PlayePRef",
+				"PlayerPrefsException\tPlayerPrefsException"
+			],
+			[
+				"debug",
+				"debugMode\tbool"
+			],
+			[
+				"REGIS",
+				"REGISTRY_SEPERATOR\tstring"
+			],
+			[
+				"Set",
+				"SetFloat(string key, float value)\tvoid"
+			],
+			[
+				"Cancel",
+				"CancelRecording()\tvoid"
+			],
+			[
+				"savel",
+				"saveables\tISavableAndLoadable[]"
+			],
+			[
+				"save",
+				"savableAndLoadable\tsavableAndLoadable"
+			],
+			[
+				"active",
+				"activeInHierarchy\tbool"
+			],
+			[
+				"Serial",
+				"SerializeField\tSerializeField"
+			],
+			[
+				"futur",
+				"futureShadowTrs\tTransform"
+			],
+			[
+				"future",
+				"futureShadowDurationDifference\tfloat"
+			],
+			[
+				"Waitfor",
+				"WaitForSeconds(float seconds)\tWaitForSeconds(float seconds)"
+			],
+			[
+				"furu",
+				"futureShadowDurationDifference\tfloat"
+			],
+			[
+				"timelin",
+				"timelinePoint\ttimelinePoint"
+			],
+			[
+				"previous",
+				"previousPlayerVel\tVector2"
+			],
+			[
+				"ver",
+				"versionIndex\tint"
+			],
+			[
+				"Layer",
+				"LayersCollideWithSameLayers(int layer1, int layer2)\tbool"
+			],
+			[
+				"layer",
+				"layerMask\tlayerMask"
+			],
+			[
+				"defau",
+				"defaultSpriteFacingProp\tSerializedProperty"
+			],
+			[
+				"MakeConfi",
+				"MakeConfigurableAttribute\tMakeConfigurableAttribute"
+			],
+			[
+				"SaveAnd",
+				"SaveAndLoadValue\tSaveAndLoadValue"
+			],
+			[
+				"accou",
+				"accountNumber\tushort"
+			],
+			[
+				"accountSee",
+				"accountSelectButton\taccountSelectButton"
+			],
+			[
+				"Mon",
+				"MonoBehaviour\tMonoBehaviour"
+			],
+			[
+				"language",
+				"languageManager\tlanguageManager"
+			],
+			[
+				"Langu",
+				"LanguageManager\tLanguageManager"
+			],
+			[
+				"keyframe",
+				"keyframe\tKeyframe"
+			],
+			[
+				"diss",
+				"dissolveDuration\tfloat"
+			],
+			[
+				"disso",
+				"dissolveTimer\tfloat"
+			],
+			[
+				"Unload",
+				"UnloadScene(string sceneName)\tbool"
+			],
+			[
+				"hide",
+				"hideCursorTimer\tTimer"
+			],
+			[
+				"valuetempla",
+				"valueTemplatePrefabFilePath\tstring"
+			],
+			[
+				"Seria",
+				"SerializeTranslations()\tvoid"
+			],
+			[
+				"SerializeTrasnl",
+				"SerializeTranslationsRoutine()\tIEnumerator"
+			],
+			[
+				"Unlo",
+				"UnloadScene(string sceneName)\tbool"
+			],
+			[
+				"isPLay",
+				"isPlaying\tbool"
+			],
+			[
+				"tra",
+				"translationString\tstring"
+			],
+			[
+				"Subs",
+				"Substring(int startIndex)\tstring"
+			],
+			[
+				"tran",
+				"translationString\tstring"
+			],
+			[
+				"unique",
+				"uniqueIdString\tstring"
+			],
+			[
+				"langau",
+				"languages\tLanguage[]"
+			],
+			[
+				"ReadAll",
+				"ReadAllLines(string path)\tstring[]"
+			],
+			[
+				"Open",
+				"OpenScene(string scenePath)\tScene"
+			],
+			[
+				"Unitye",
+				"UnityEditor\tUnityEditor"
+			],
+			[
+				"IEN",
+				"IEnumerator<T>\tIEnumerator<T>"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Standard Assets/Scripts/Objects/Player.cs",
+			"settings":
+			{
+				"buffer_size": 8883,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Break My Heart/Assets/Standard Assets/Scripts/Objects (Scripts)/Enemies (Scripts)/Enemy_Bounce.cs",
+			"settings":
+			{
+				"buffer_size": 525,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Standard Assets/Scripts/Concepts/PlatformerController.cs",
+			"settings":
+			{
+				"buffer_size": 2118,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Standard Assets/Scripts/Editor Helpers/Editor Scripts/MakeSpriteFromCollider2D.cs",
+			"settings":
+			{
+				"buffer_size": 1263,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Standard Assets/Scripts/Concepts/Platformer.cs",
+			"settings":
+			{
+				"buffer_size": 5587,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 304.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Concepts",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Editor Helpers",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Editor Helpers/Editor Scripts",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Objects"
+	],
+	"file_history":
+	[
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Editor Helpers/Editor Scripts/MakeSpriteFromCollider2D.cs",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Concepts/BorderedSelectable.cs",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Extensions/RectTransformExtensions.cs",
+		"/D/the_gurgling_adventures_of-sir_gurgalot/Assets/Standard Assets/Scripts/Extensions/ArrayExtensions.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ButtonMapper.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ControlsMapper.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/UIControlManager.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Extensions/RectExtensions.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Extensions/RectTransformExtensions.cs",
+		"/C/Users/gilea/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Unity Overrides/_Selectable.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/Rain God/Assets/Standard Assets/Scripts/Concepts/VoxelTerrain.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Tools/MeshUtilities.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ButtonMapper.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/ControlMapper.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/AimingVisualizer.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/InputManager.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/Camera Scripts/GameplayCamera.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Watson/Scripts/Connection/RESTConnector.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/The Gurgling Adventures of Sir Gurgalot/The Gurgling Adventures of Sir Gurgalot.sublime-project",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ControlsMap.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/ControlMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ControlsMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Controls Mapper (Scripts)/ButtonMapper.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/Rain God/Assets/Standard Assets/Scripts/Managers (Scripts)/InputManager.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/Rain God/Assets/Standard Assets/Scripts/Managers (Scripts)/BuildManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/TimeManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/SaveAndLoadManager.cs",
+		"/C/Users/cosma/Desktop/Gili's Stuff/Rain God/Assets/Standard Assets/Scripts/Altered/RewiredStandaloneInputModule.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/UIControlManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Watson/Examples/ServiceExamples/Scripts/ExampleStreamingSplitSamples.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Control Mapper/ControlsMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Control Mapper/ButtonMapper.cs",
+		"/C/Users/cosma/Desktop/Cover And Clear/Assets/Scripts/Concepts/SyncTransform.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/ControlMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/ControlMapper_Classes.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/CustomButton.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Altered/RewiredStandaloneInputModule.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/ICustomSelectable.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Rewired/Extras/ControlMapper/Scripts/ButtonInfo.cs",
+		"/C/Users/cosma/Desktop/Cover And Clear/DarkRift Server (Cover And Clear)/Plugins/CoverAndClear/Player.cs",
+		"/C/Users/cosma/Desktop/Cover And Clear/DarkRift Server (Cover And Clear)/Plugins/CoverAndClear/CoverAndClearPlugin.cs",
+		"/C/Users/cosma/Desktop/Cover And Clear/DarkRift Server (Cover And Clear)/Plugins/CoverAndClear/EntityOrientation.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Test.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/InputManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Extensions/PlayerPrefsExtensions.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/AccountOptions.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Unity Overrides/Selectables/Slider/PlayerPrefsSlider.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Unity Overrides/Selectables/PlayerPrefsToggle.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/SingletonMonoBehaviour.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Language Translation/LanguagesMenu.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/ObjectPool.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Extras/ControlMapper/Scripts/ControlMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Tools/ThreadingUtilities.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Rewired/Extras/ControlMapper/Scripts/ControlMapper_Classes.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Rewired/Extras/ControlMapper/Scripts/ControlMapper.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Fungus/Scripts/Components/SaveManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Attributes/MakeCoroutine.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/BuildManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Rewired/Extras/ControlMapper/Scripts/ButtonInfo.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/The Gurgling Adventures of Sir Gurgalot.sublime-project",
+		"/C/Users/cosma/Desktop/Break My Heart/Assets/Standard Assets/Scripts/Tools/ThreadingUtilities.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Attributes/MakeConfigrable.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/GameManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/SaveAndLoadObject.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Extensions/StringExtensions.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Skill Tree/Skill.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Fungus/Thirdparty/FungusLua/Scripts/Utils/FungusPrefs.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Altered/Flowchart.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Story (Scripts)/Quest.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Skill Tree/LearnSkillButton.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/RegisterObject.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Interfaces/ISavableAndLoadable.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Skill Tree/Skills/LongerInvulnerabilityAfterDamage.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/SkillTreeManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Unity Overrides/Selectables/FastTravelButton.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/AnalyticsManager.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/BorderedSelectable.cs",
+		"/C/Users/cosma/Desktop/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/ZOrderManager.cs",
+		"/D/Cover And Clear/Assets/Scripts/Managers (Scripts)/NetworkManager.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Bosses/Boss5.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Items/MagicScepter.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Player.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Boss.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Bomb.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Bullets (Scripts)/ExplodingBullet.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/UIControlManager.cs",
+		"/D/Break My Heart/Assets/Online.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Managers (Scripts)/AnalyticsManager.cs",
+		"/D/Phone Game/Assets/Standard Assets/Scripts/Managers/BuildManager.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/DestroyAfterTime.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Bullets (Scripts)/Exploding Bullets/HomingExplodingBullet.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Extensions/VectorExtensions.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Bullet Patterns (Scripts)/BulletPattern.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Bullet Patterns (Scripts)/AimAtPlayer.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Bullet.cs",
+		"/D/Break My Heart/Assets/Scripts/MenuOption.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/ObjectPool.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Hazard.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Bullet Patterns (Scripts)/AimAtPlayerWithOffsetThenBurstInArcAimedTowardsPlayerWithOffset.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Bullets (Scripts)/Boulder.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Bullet Patterns (Scripts)/RepeatBulletPattern.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/The Gurgling Adventures of Sir Gurgalot.sublime-project",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Concepts/Item.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/Assets/Standard Assets/Scripts/Objects/Tiles (Scripts)/MagicHaze.cs",
+		"/D/Cover And Clear/Assets/Standard Assets/Scripts/Objects (Scripts)/Player.cs",
+		"/D/Cover And Clear/Assets/ViveportSceneSDK/Htc.Viveport.SDK/Viewer/VivePackageViewer.cs",
+		"/D/Cover And Clear/Assets/ViveportSceneSDK/Htc.Viveport.SDK/Vive-Teleporter/Scripts/TeleportVive.cs",
+		"/D/The Gurgling Adventures of Sir Gurgalot/The Gurgling Adventures of The Gurgler.sublime-project",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Bosses/Boss4.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Bosses/Boss3.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Bosses/Boss1.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Boss.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemy.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Hazard.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Bullets (Scripts)/ExplodingBullet.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Bullet.cs",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Extensions/VectorExtensions.cs",
+		"/D/The Gurgling Adventures of The Gurgler/The Gurgling Adventures of The Gurgler.sublime-project",
+		"/D/The Gurgling Adventures of The Gurgler/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Bosses/Boss5.cs",
+		"/D/The Gurgling Adventures of The Gurgler/The Adventures of Leeroy Jenkins.sublime-project",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Bullet.cs",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Player.cs",
+		"/D/The Adventures of Leeroy Jenkins/The Adventures of Leeroy Jenkins.sublime-project",
+		"/D/Unity Projects/UFOV/Assets/Standard Assets/Scripts/Managers/GameManager.cs",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Hazards (Scripts)/SpikeWave.cs",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Hazard.cs",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Enemy.cs",
+		"/D/The Adventures of Leeroy Jenkins/Assets/Standard Assets/Scripts/Objects/Enemies (Scripts)/Boss.cs"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 622.0,
+		"where_history":
+		[
+			"C:\\Users\\gilea\\Desktop\\The Gurgling Adventures of Sir Gurgalot\\Assets\\Standard Assets",
+			"C:\\Users\\cosma\\Desktop\\Gili's Stuff\\The Gurgling Adventures of Sir Gurgalot\\Assets\\Standard Assets",
+			"C:\\Users\\cosma\\Desktop\\The Gurgling Adventures of Sir Gurgalot\\Assets\\Standard Assets",
+			"D:\\The Gurgling Adventures of Sir Gurgalot\\Assets\\Standard Assets",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\Standard Assets\\",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\Standard Assets",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\Standard Assets\\Scripts",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\Standard Assets\\Scripts",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets\\Standard Assets\\Scripts",
+			"<current file>",
+			"D:\\The Adventures of Leeroy Jenkins\\Assets"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"StopJump",
+			"state",
+			"currentSelected",
+			"ColorSelected",
+			"_Selectable",
+			"BorderedSelectable",
+			"InputManager.usingController",
+			"GetLastActiveController",
+			"Poll",
+			"OnBeginElement",
+			"pendingInputMapping",
+			"poll",
+			".polling.Poll",
+			"poll",
+			"_InputPollingEndedEvent",
+			"Poll",
+			"maps",
+			"onCli",
+			"references",
+			"Container",
+			"controllerGroupLabel",
+			"canvas",
+			"rewiredInputManager",
+			"InputManager",
+			" \" + GameManager.accountNumber",
+			"PlayerPrefsExtensionsKeysPrefix",
+			",",
+			"\",\"",
+			"Update",
+			"EraseConfirm",
+			"OnDisable",
+			"SetGosActive",
+			"Register",
+			"Stop",
+			"IEnumerator",
+			"LogEvent",
+			"ApplyKnowledgeIfShould",
+			"controllingWithJoystick",
+			"ChangeSelected",
+			"justCanceledControlMode",
+			"controllingWithJoystick",
+			"HandleMovementInput",
+			"controllingWithJoystick",
+			"justCanceledControlMode",
+			"controllingWithJoystick",
+			"justCanceledControlMode",
+			"deltaVelocity",
+			"versionIndex",
+			"portal",
+			"portal1",
+			"timelinePoints.Clear",
+			"timelinePoint",
+			"inRecordMode",
+			"anim",
+			"timelinePoints",
+			"previousPlayerPos",
+			"previousPlayerVel",
+			"movement",
+			"previousPlayerVel",
+			"velocity",
+			"Cooldown",
+			"manaBar",
+			"canUse",
+			"SetupWatcher",
+			"teleportReload",
+			"range",
+			"currentLength",
+			"flipped",
+			"position",
+			"destroyDelay",
+			"DestroyRoutine",
+			"portalTrs",
+			"hasTeleported",
+			"teleportHeight",
+			"topTeleportBo",
+			"toPlayer",
+			"Move",
+			"MakeSpikeWaves",
+			"Shoot",
+			"HandleAttack",
+			"attackPatternsNames",
+			"debug",
+			"dotMaskColors",
+			"canvasTrsScaler",
+			"gameModifierTogglesParent",
+			"Toggle",
+			"totalCentimetersUsed",
+			"screenCentimeters",
+			"accountNumber",
+			"EnabledGosString",
+			"copyingToAccountOptions",
+			"isCopying",
+			"copyingToAccountOptions",
+			"Debug.Log",
+			"accountNumber",
+			"Account",
+			"registerKey",
+			"copiedNotificationObj",
+			":",
+			"accountNumber",
+			"buildManagerPrefab",
+			"FastTravel",
+			"FastTravel\\",
+			"DisabledGosString",
+			"enemySpawnPoints",
+			"toNewPos",
+			"void OnEnable ()\n\t\t{\n\t\t\tEditorApplication.update += DoUpdate;\n\t\t}\n\t\t\n\t\tvoid OnDisable ()\n\t\t{\n\t\t\tEditorApplication.update -= DoUpdate;\n\t\t}\n\t\t\n\t\t",
+			"playerRect",
+			"minPlayerDistFromEdge",
+			"Unblocked",
+			"worldViewRect",
+			"screenAspect",
+			"screenAspect\\",
+			"screenAspect",
+			"HandleViewSize",
+			"worldViewRect",
+			"AimingSensitivity",
+			"UnblockedWorldViewRect",
+			"IncludeFullRectInViewIfCan",
+			"Pause Menu",
+			"JoystickDeadzone",
+			"Aiming Axis Deadzone",
+			"yDiffToPlayerTillJump",
+			"Clear",
+			"bleedBounds.enabled",
+			"bleedBounds",
+			"defaultGravityScale",
+			"colliderRect"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"InputManager.usingJoystick",
+			"",
+			"PlayerPrefs",
+			"PlayerPrefsExtensions",
+			"_event",
+			"AnalyticsEvent",
+			"TAoKR",
+			"",
+			"if (learned)",
+			"if (learned.value)",
+			"worldViewRect",
+			"MakeConfigurable",
+			"",
+			"TAoLJ"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Standard Assets/Scripts/Objects/Player.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8883,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/Break My Heart/Assets/Standard Assets/Scripts/Objects (Scripts)/Enemies (Scripts)/Enemy_Bounce.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Standard Assets/Scripts/Concepts/PlatformerController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1214,
+								1214
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 92.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Standard Assets/Scripts/Editor Helpers/Editor Scripts/MakeSpriteFromCollider2D.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								476,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Assets/Standard Assets/Scripts/Concepts/Platformer.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5587,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5430,
+								5430
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1676.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 78.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 96.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 96.0
+	},
+	"output.variable_get":
+	{
+		"height": 96.0
+	},
+	"pinned_build_system": "",
+	"project": "The Gurgling Adventures of Sir Gurgalot.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "Break My Hear",
+		"selected_items":
+		[
+			[
+				"Break My Hear",
+				"D:\\Break My Heart\\Break My Heart.sublime-project"
+			],
+			[
+				"",
+				"D:\\Blender Projects\\Test\\Test.sublime-project"
+			],
+			[
+				"Break My Heart",
+				"D:\\Unity Projects\\Break My Heart\\Break My Heart.sublime-project"
+			],
+			[
+				"ambitiou",
+				"D:\\Unity Projects\\Ambitious Snake\\Ambitious Snake.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 411.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

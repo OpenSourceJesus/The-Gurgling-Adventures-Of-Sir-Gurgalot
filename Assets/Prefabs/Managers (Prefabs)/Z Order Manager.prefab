@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9087904631569909238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262515501866150758}
+  - component: {fileID: 29474212328339999}
+  m_Layer: 0
+  m_Name: Z Order Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1262515501866150758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087904631569909238}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29474212328339999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087904631569909238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4910c107ee412ea44993fb9f0b6edc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleMultipleInstances: 0
+  persistant: 0
+  addToZOrderedObjects: []
+  zOrderedObjects:
+  - objectName: Argos
+    orderController: 0
+    renderer: {fileID: 212584364315242022, guid: 5e6d4c53dfb591041b6f4d190a6cfb00,
+      type: 3}
+    order: -32768
+    layerName: Default
+    layerIndex: 0
+  - objectName: Enrot
+    orderController: 1
+    renderer: {fileID: 212025675211350788, guid: 31798eb7ab9f2934f91648c83e964c42,
+      type: 3}
+    order: -1
+    layerName: Default
+    layerIndex: 0
+  - objectName: Green Slime
+    orderController: 2
+    renderer: {fileID: 212040245508662168, guid: bc35eaa5b9158bf4fb058a75e30337a2,
+      type: 3}
+    order: 16382
+    layerName: Default
+    layerIndex: 0
+  - objectName: Kiroq
+    orderController: 3
+    renderer: {fileID: 212868625673107762, guid: d38208f86a5f75f4da9acc64e3cea435,
+      type: 3}
+    order: 24573
+    layerName: Default
+    layerIndex: 0
+  - objectName: Kutari
+    orderController: 4
+    renderer: {fileID: 212628088976980410, guid: 8efd5a5e8b078874e875e04e08e28d9c,
+      type: 3}
+    order: 28668
+    layerName: Default
+    layerIndex: 0
+  - objectName: Monjo
+    orderController: 5
+    renderer: {fileID: 212128557520158734, guid: 7344a9ce8e4409a418b2f339690bace8,
+      type: 3}
+    order: 30715
+    layerName: Default
+    layerIndex: 0
+  - objectName: Orlob
+    orderController: 6
+    renderer: {fileID: 212300863559690620, guid: 6bdda691eca4f7f409f5333fa2bcaf97,
+      type: 3}
+    order: 31738
+    layerName: Default
+    layerIndex: 0
+  - objectName: Purple Uriad
+    orderController: 7
+    renderer: {fileID: 212887686405100042, guid: 7894e7187794e99479ac30b6e5263ffc,
+      type: 3}
+    order: 32249
+    layerName: Default
+    layerIndex: 0
+  - objectName: Red Slime
+    orderController: 8
+    renderer: {fileID: 212040245508662168, guid: 4f109345ef4aeb144a3057e06bb8d102,
+      type: 3}
+    order: 32504
+    layerName: Default
+    layerIndex: 0
+  - objectName: Rock Golem
+    orderController: 9
+    renderer: {fileID: 212128557520158734, guid: c998a8555ef224543ab77bed0bdbf7cf,
+      type: 3}
+    order: 32631
+    layerName: Default
+    layerIndex: 0
+  - objectName: Urag
+    orderController: 10
+    renderer: {fileID: 212868625673107762, guid: a12063958cded8447a6dd4a19de86fdc,
+      type: 3}
+    order: 32694
+    layerName: Default
+    layerIndex: 0
+  - objectName: "Deahk\xF3ria"
+    orderController: 11
+    renderer: {fileID: 212186457581637626, guid: deedd1b63f6eafa4687acf487de0048f,
+      type: 3}
+    order: 32725
+    layerName: Back
+    layerIndex: 1435168185

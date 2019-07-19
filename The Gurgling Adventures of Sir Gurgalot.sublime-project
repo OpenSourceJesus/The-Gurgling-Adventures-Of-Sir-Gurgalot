@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.dll",
+				"*.meta"
+			],
+			"path": "Assets"
+		}
+	],
+	"solution_file": "./The Gurgling Adventures of Sir Gurgalot.sln"
+}

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1314434268487258}
+  m_IsPrefabAsset: 1
+--- !u!1 &1314434268487258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4651416178133544}
+  - component: {fileID: 114977859378064610}
+  - component: {fileID: 114890004322935382}
+  m_Layer: 0
+  m_Name: Enemy Spawn Point (Air)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4651416178133544
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314434268487258}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114890004322935382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314434268487258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b70bb04d00063141bd00fb7dd938228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapTo: {x: 1, y: 1, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+  trs: {fileID: 4651416178133544}
+  useLocalPosition: 1
+--- !u!114 &114977859378064610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314434268487258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab2be9bd7ea71d4ca3e4c9df00df1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTypesThatUseMe:
+  - {fileID: 114822936051461482, guid: deedd1b63f6eafa4687acf487de0048f, type: 2}
+  - {fileID: 114177746294469506, guid: 64b8807ebecab1743b4478bb0c1b61ec, type: 2}
+  - {fileID: 114687011497389484, guid: 4ffd7fe2eb0b57f4992cecad578cce10, type: 2}
+  - {fileID: 114653884817888054, guid: 5e6d4c53dfb591041b6f4d190a6cfb00, type: 2}
+  - {fileID: 114424594924324674, guid: 7894e7187794e99479ac30b6e5263ffc, type: 2}
+  anchorPosition: {x: 0, y: 0}
+  trs: {fileID: 4651416178133544}

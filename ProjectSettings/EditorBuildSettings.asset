@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Dialog.unity
+    guid: c5f876fb0d0d0d74f80cb2c387d29072
+  - enabled: 0
+    path: Assets/Scenes/Quests.unity
+    guid: 708d09d2981e07543829408e2b4379ec
+  - enabled: 0
+    path: Assets/Scenes/Test.unity
+    guid: a7cd60bf482d43645bf7978e30bc873a
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: b0e2b24818ab464458e5d65f551928a2
+  - enabled: 1
+    path: Assets/Scenes/Pause Menu.unity
+    guid: 4f9d0370693a94440854b1833f0dafaa
+  - enabled: 1
+    path: Assets/Scenes/Skill Tree.unity
+    guid: be825bd6ed7851a47b4bcedd1ef040d3
+  - enabled: 1
+    path: Assets/Scenes/Other/Simulation.unity
+    guid: 84ca89f60be72c74db1a4ad4196ce542
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Jorlinion's House.unity
+    guid: 446af151b7ccc424bb23ab8e8de19bad
+  - enabled: 1
+    path: Assets/Scenes/Arat/Kalimri Grove.unity
+    guid: 0fef6947ff407544ba577a304944c2d9
+  - enabled: 1
+    path: Assets/Scenes/Arat/Talahasus.unity
+    guid: 6577b767354f42f4d94a8f52bdc1b1a3
+  - enabled: 1
+    path: Assets/Scenes/Arat/Urilious's House.unity
+    guid: cc9d30540f48d2b4aa3dc6e040f5f104
+  - enabled: 1
+    path: Assets/Scenes/Arat/Larkion Mountains.unity
+    guid: 3d116e7eeb997274898e38f1840072c5
+  - enabled: 1
+    path: Assets/Scenes/Arat/Hermit's Cave.unity
+    guid: 6fb13463f9c8cf44eb7480acf5756ab2
+  - enabled: 1
+    path: Assets/Scenes/Arat/Mulag's Caverns.unity
+    guid: 916abb8c26ab66a49910f3b0a2bbb4da
+  - enabled: 1
+    path: Assets/Scenes/Arat/Mulag's Lair.unity
+    guid: 695fa7504e724c34280b8d42ac1fa219
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Jorloon Forest.unity
+    guid: f6173c35f6b9a294283d767017b14501
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Vargendale.unity
+    guid: b15bf194d5cbfda4382f25e342e9a099
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Eastern Nalcumbra Desert.unity
+    guid: 4a3680c7f5e324a44b65717ae135e118
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Western Nalcumbra Desert.unity
+    guid: d5a7cfb0d906d43b2b18694014b4bd82
+  - enabled: 1
+    path: Assets/Scenes/Varlesh/Icy Hollow.unity
+    guid: 9bbd42b4e0c64a143aae2663c2ebc349
+  - enabled: 1
+    path: Assets/Scenes/Varlesh/Oragog's Alcove.unity
+    guid: ef577314a73367b4cb5d2bd2097ef412
+  - enabled: 1
+    path: Assets/Scenes/Varlesh/Korgin's Den.unity
+    guid: 2c4a751a689a52f4585b022893c05bb2
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Durgin Foothills.unity
+    guid: 2ac62c880ff16714e81c4a69041e29d9
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Valley of Simul.unity
+    guid: 4f8751480a69f3c4186b318834a3bea6
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Thurengard.unity
+    guid: ff7c485e089577d49ae71de705e3caf9
+  - enabled: 1
+    path: Assets/Scenes/Nazur/Thurengard Arena.unity
+    guid: ddeec1fa8734481458ca598bc4b722a2
+  - enabled: 1
+    path: Assets/Scenes/Arat/Infernal Plains.unity
+    guid: cd9e76d4e0289224597ef78e1d507691
+  - enabled: 1
+    path: Assets/Scenes/Varlesh/Navusari Peaks.unity
+    guid: 160d9c309af1d3049baf14a36bf30ecf
+  - enabled: 1
+    path: Assets/Scenes/Arat/Temple to Helris.unity
+    guid: f6961673324af1d48964c2e1c159290d
+  - enabled: 1
+    path: Assets/Scenes/Varlesh/Ancient Palace.unity
+    guid: fbef9f3c5a4a26e438f47f49299cffe2
+  m_configObjects: {}

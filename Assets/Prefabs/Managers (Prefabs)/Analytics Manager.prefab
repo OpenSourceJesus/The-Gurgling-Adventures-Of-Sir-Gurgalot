@@ -1,0 +1,276 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151}
+  - component: {fileID: 2527}
+  m_Layer: 0
+  m_Name: Analytics Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d0f6931aa29b4caf9a4f80515d322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleMultipleInstances: 1
+  persistant: 1
+  trs: {fileID: 1151}
+  formUrl: https://docs.google.com/forms/d/e/1FAIpQLSdQXqmhl5n0ImfWW8qb5nN2KUsonybJQWkoQD4GFY1QjiL1aA/formResponse
+  _AnalyticsEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+  _PlayerHurtEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    hurtBy:
+      dataColumnName: Object Name
+      value: 
+  _PlayerDiedEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    killedBy:
+      dataColumnName: Object Name
+      value: 
+  _EnemyDiedEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    killedEnemyName:
+      dataColumnName: Object Name
+      value: 
+  _ArenaWaveClearedEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    scoreAfterCleared:
+      dataColumnName: Arena Score
+      value: 0
+  _SpentGoldEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    amount:
+      dataColumnName: Gold Amount Changed
+      value: 0
+    upgradeName:
+      dataColumnName: Object Name
+      value: 
+  _GotGoldEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    amount:
+      dataColumnName: Gold Amount Changed
+      value: 0
+    chestName:
+      dataColumnName: Object Name
+      value: 
+  _SavedEvent:
+    gameVersion:
+      dataColumnName: Game Version
+    player:
+      dataColumnName: Player
+    scene:
+      dataColumnName: Scene
+    timeSinceLastLog:
+      dataColumnName: Time Since Last Log
+    eventName:
+      dataColumnName: Event
+      value: 
+    sessionDuration:
+      dataColumnName: Session Duration
+    totalGameplayDuration:
+      dataColumnName: Total Gameplay Duration
+    sessionNumber:
+      dataColumnName: Session Number
+    totalGold:
+      dataColumnName: Total Gold
+    saveSource:
+      dataColumnName: Object Name
+      value: 
+  collectAnalyticsDefault: 0
+  logAnalyticsLocallyDefault: 1
+  sessionTimer:
+    duration: Infinity
+    timeRemaining: Infinity
+    loop: 0
+    realtime: 0
+    autoStopIfNotLooping: 0
+  timerSinceLastLog:
+    duration: Infinity
+    timeRemaining: Infinity
+    loop: 0
+    realtime: 0
+    autoStopIfNotLooping: 0
+  localLogFolderPath: Analytics
+  dataColumns:
+  - name: Game Version
+    fieldNameInForm: entry.191080733
+  - name: Player
+    fieldNameInForm: entry.1155882827
+  - name: Scene
+    fieldNameInForm: entry.1371194402
+  - name: Time Since Last Log
+    fieldNameInForm: entry.464587178
+  - name: Event
+    fieldNameInForm: entry.804658211
+  - name: Arena Score
+    fieldNameInForm: entry.599028446
+  - name: Object Name
+    fieldNameInForm: entry.1820988644
+  - name: Session Duration
+    fieldNameInForm: entry.2008544955
+  - name: Total Gameplay Duration
+    fieldNameInForm: entry.1623562985
+  - name: Session Number
+    fieldNameInForm: entry.2070406701
+  - name: Gold Amount Changed
+    fieldNameInForm: entry.568046225
+  - name: Total Gold
+    fieldNameInForm: entry.740749580

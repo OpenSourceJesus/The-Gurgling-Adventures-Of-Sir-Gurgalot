@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8631073831190615725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8631073831190615070}
+  - component: {fileID: 8631073831190617669}
+  m_Layer: 0
+  m_Name: Build Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8631073831190615070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631073831190615725}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8631073831190617669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631073831190615725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19047afad9cadf4e82647c1635d5306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleMultipleInstances: 0
+  persistant: 0
+  versionIndex: 0
+  versionNumberPrefix: 'Version number: '
+  buildActions:
+  - name: Windows x32
+    enabled: 1
+    target: 5
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32)\The Adventures of Kilroy Rankins.exe
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32).zip
+    excludeScenes: 1
+    scenes: []
+  - name: Windows x64
+    enabled: 1
+    target: 19
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64)\The Adventures of Kilroy Rankins.exe
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64).zip
+    excludeScenes: 1
+    scenes: []
+  - name: Mac
+    enabled: 1
+    target: 2
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app.zip
+    excludeScenes: 1
+    scenes: []
+  - name: Linux x64
+    enabled: 1
+    target: 24
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)\The Adventures of Kilroy Rankins.x86_64
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64).zip
+    excludeScenes: 1
+    scenes:
+    - 
+    - 
+    - 
+  - name: Thurengard Arena Only (Linux x64)
+    enabled: 1
+    target: 24
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)\The Adventures of Kilroy Rankins.x86_64
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64).zip
+    excludeScenes: 0
+    scenes:
+    - Thurengard Arena
+  versionNumberText: {fileID: 0}
+  buildManagerPrefab: {fileID: 8631073831190617669}
+  configurationManagerPrefab: {fileID: 1979, guid: 4e7670c5d61894a47b1c9615123bfb2c,
+    type: 3}
+  analyticsManagerPrefab: {fileID: 2527, guid: 490bf48a03e61b2448d1bbc2ec3d40d8, type: 3}
+  saveAndLoadManagerPrefab: {fileID: 29, guid: cada0cd5b07df5c43abaff2b794dc0d9, type: 3}
+  languageManagerPrefab: {fileID: 359361523977761301, guid: c432cf71f3944ce49913ea9b7852c4cf,
+    type: 3}

@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &856085757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1427908799954296, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26, type: 3}
+      propertyPath: m_Name
+      value: (You) I should ask people here
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: connections.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: sceneName
+      value: Talahasus
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: content
+      value: I should ask people here where to find Urilious and also if this is even
+        the right world. I should also remember to have fun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 114198137391772459, guid: 5a04d7ee7c4787a479312799f5925f2b,
+        type: 3}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: voiceOverClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e1c6b75329b8dd4baa875705371cc5a, type: 3}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: title
+      value: (You) I should ask people here
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: connectTo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: connections.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: deleteEntry
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114198137676605398, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: connections.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224152351094713914, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114530915450781340, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26,
+        type: 3}
+      propertyPath: m_Text
+      value: (You) I should ask people here
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bcd5ce6748d1fa4d8b07a525fed8a26, type: 3}
