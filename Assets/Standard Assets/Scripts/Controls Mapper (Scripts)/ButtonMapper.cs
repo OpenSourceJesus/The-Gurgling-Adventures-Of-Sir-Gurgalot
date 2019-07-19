@@ -9,6 +9,14 @@ using InputManager = TAoKR.InputManager;
 public class ButtonMapper : MonoBehaviour
 {
 	public Transform trs;
+	[HideInInspector]
+	public string actionName;
+	[HideInInspector]
+	public ControllerType controllerType;
+	[HideInInspector]
+	public Pole axisContribution;
+	[HideInInspector]
+	public AxisRange axisRange;
 	public Text actionNameText;
 	public Text buttonNameText;
 
@@ -30,11 +38,8 @@ public class ButtonMapper : MonoBehaviour
 				{
 					if (pollInfo.success)
 					{
-						if (OnPollInputSuccess (pollInfo))
-						{
-							UpdateRemappedAction ();
-							yield break;
-						}
+						OnPollInputSuccess (pollInfo);
+						yield break;
 					}
 				}
 			}
@@ -43,11 +48,8 @@ public class ButtonMapper : MonoBehaviour
 			{
 				if (pollInfo.success)
 				{
-					if (OnPollInputSuccess (pollInfo))
-					{
-						UpdateRemappedAction ();
-						yield break;
-					}
+					OnPollInputSuccess (pollInfo);
+					yield break;
 				}
 			}
 			pollInfos = ReInput.controllers.polling.PollControllerForAllButtons(ControllerType.Mouse, ReInput.controllers.Mouse.id);
@@ -55,11 +57,8 @@ public class ButtonMapper : MonoBehaviour
 			{
 				if (pollInfo.success)
 				{
-					if (OnPollInputSuccess (pollInfo))
-					{
-						UpdateRemappedAction ();
-						yield break;
-					}
+					OnPollInputSuccess (pollInfo);
+					yield break;
 				}
 			}
 			yield return new WaitForEndOfFrame();
@@ -67,51 +66,49 @@ public class ButtonMapper : MonoBehaviour
 		yield break;
 	}
 
-	public virtual void UpdateRemappedAction ()
+	public virtual void OnPollInputSuccess (ControllerPollingInfo pollInfo)
 	{
 		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
 		{
-			foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(actionNameText.text))
+			foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(actionName))
 			{
-				Debug.Log(actionElementMap.elementIdentifierName);
-				buttonNameText.text = actionElementMap.elementIdentifierName;
-				Save ();
+				if (actionElementMap.axisContribution == axisContribution && actionElementMap.axisRange == axisRange)
+				{
+					ElementAssignment elementAssignment = new ElementAssignment(pollInfo.controllerType, ControllerElementType.Button, pollInfo.elementIdentifierId, axisRange, pollInfo.keyboardKey, ModifierKeyFlags.None, actionElementMap.actionId, axisContribution, false, actionElementMap.id);
+					if (pollInfo.controllerType != controllerMap.controllerType)
+					{
+						Debug.Log(pollInfo.controllerType);
+						controllerMap.DeleteButtonMapsWithAction(actionName);
+						foreach (ControllerMap otherControllerMap in InputManager.inputter.controllers.maps.GetAllMaps(pollInfo.controllerType))
+							otherControllerMap.CreateElementMap(elementAssignment);
+					}
+					else
+						controllerMap.ReplaceElementMap(elementAssignment);
+					buttonNameText.text = pollInfo.elementIdentifierName;
+					controllerType = pollInfo.controllerType;
+					Save ();
+					return;
+				}
 			}
 		}
-	}
-
-	public virtual bool OnPollInputSuccess (ControllerPollingInfo pollInfo)
-	{
-		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
-		{
-			foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(actionNameText.text))
-			{
-				if (actionElementMap.elementIdentifierName == "Mouse Horizontal" || actionElementMap.elementIdentifierName == "Mouse Vertical")
-					return false;
-				ElementAssignment elementAssignment = new ElementAssignment();
-				elementAssignment.elementIdentifierId = pollInfo.elementIndex;
-				elementAssignment.actionId = actionElementMap.actionId;
-				elementAssignment.elementMapId = actionElementMap.id;
-				elementAssignment.axisContribution = actionElementMap.axisContribution;
-				elementAssignment.axisRange = actionElementMap.axisRange;
-				if (pollInfo.controllerType == ControllerType.Keyboard)
-					elementAssignment.keyboardKey = pollInfo.keyboardKey;
-				return controllerMap.ReplaceElementMap (elementAssignment);
-			}
-		}
-		return false;
 	}
 
 	public virtual void Save ()
 	{
-		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
+		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps(controllerType))
 		{
-			foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(actionNameText.text))
+			foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(actionName))
 			{
-				string elementAssignmentData = actionElementMap.elementIndex + ControlsMapper.VALUE_SEPARATOR;
-				if (actionElementMap.keyCode != KeyCode.None)
+				if (actionElementMap.axisContribution == axisContribution && actionElementMap.axisRange == axisRange)
+				{
+					string elementAssignmentData = actionElementMap.elementIndex + ControlsMapper.VALUE_SEPARATOR;
 					elementAssignmentData += actionElementMap.keyCode.GetHashCode() + ControlsMapper.VALUE_SEPARATOR;
-				PlayerPrefs.SetString(actionNameText.text + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, elementAssignmentData);
+					elementAssignmentData += controllerType.GetHashCode() + ControlsMapper.VALUE_SEPARATOR;
+					elementAssignmentData += axisContribution.GetHashCode() + ControlsMapper.VALUE_SEPARATOR;
+					elementAssignmentData += axisRange.GetHashCode() + ControlsMapper.VALUE_SEPARATOR;
+					PlayerPrefs.SetString(actionNameText.text + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, elementAssignmentData);
+					return;
+				}
 			}
 		}
 	}

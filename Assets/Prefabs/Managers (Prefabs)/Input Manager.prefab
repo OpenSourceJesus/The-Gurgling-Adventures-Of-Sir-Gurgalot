@@ -410,7 +410,7 @@ MonoBehaviour:
       _descriptiveName: 
       _tag: 
       _id: 0
-      _userAssignable: 1
+      _userAssignable: 0
     - _name: Game
       _descriptiveName: 
       _tag: 
@@ -420,7 +420,7 @@ MonoBehaviour:
       _descriptiveName: 
       _tag: 
       _id: 2
-      _userAssignable: 1
+      _userAssignable: 0
     actionCategoryMap:
       list:
       - categoryId: 0

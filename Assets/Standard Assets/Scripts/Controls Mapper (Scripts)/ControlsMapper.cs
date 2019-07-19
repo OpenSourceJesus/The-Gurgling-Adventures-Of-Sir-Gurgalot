@@ -22,17 +22,24 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 		{
 			foreach (ActionElementMap actionElementMap in controllerMap.AllMaps)
 			{
-				ButtonMapper buttonMapper = Instantiate(buttonMapperPrefab, buttonMappersParent);
-				buttonMapper.trs.SetSiblingIndex(0);
 				InputAction inputAction = ReInput.mapping.GetAction(actionElementMap.actionId);
-				if (inputAction.type == InputActionType.Button)
-					buttonMapper.actionNameText.text = inputAction.name;
-				else if (actionElementMap.axisContribution == Pole.Positive)
-					buttonMapper.actionNameText.text = inputAction.positiveDescriptiveName;
-				else
-					buttonMapper.actionNameText.text = inputAction.negativeDescriptiveName;
-				buttonMapper.buttonNameText.text = actionElementMap.elementIdentifierName;
-				buttonMappers = buttonMappers.Add_class(buttonMapper);
+				if (ReInput.mapping.ActionCategories[inputAction.categoryId].userAssignable)
+				{
+					ButtonMapper buttonMapper = Instantiate(buttonMapperPrefab, buttonMappersParent);
+					buttonMapper.trs.SetSiblingIndex(0);
+					buttonMapper.actionName = inputAction.name;
+					if (inputAction.type == InputActionType.Button)
+						buttonMapper.actionNameText.text = inputAction.name;
+					else if (actionElementMap.axisContribution == Pole.Positive)
+						buttonMapper.actionNameText.text = inputAction.positiveDescriptiveName;
+					else
+						buttonMapper.actionNameText.text = inputAction.negativeDescriptiveName;
+					buttonMapper.buttonNameText.text = actionElementMap.elementIdentifierName;
+					buttonMapper.controllerType = controllerMap.controllerType;
+					buttonMapper.axisContribution = actionElementMap.axisContribution;
+					buttonMapper.axisRange = actionElementMap.axisRange;
+					buttonMappers = buttonMappers.Add_class(buttonMapper);
+				}
 			}
 		}
 	}
@@ -45,25 +52,32 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 			{
 				ActionElementMap actionElementMap = controllerMap.AllMaps[i];
 				InputAction inputAction = ReInput.mapping.GetAction(actionElementMap.actionId);
-				string actionName = inputAction.name;
-				if (inputAction.type != InputActionType.Button)
-				{
-					if (actionElementMap.axisContribution == Pole.Positive)
-						actionName = inputAction.positiveDescriptiveName;
-					else
-						actionName = inputAction.negativeDescriptiveName;
-				}
+				string actionName;
+				if (inputAction.type == InputActionType.Button)
+					actionName = inputAction.name;
+				else if (actionElementMap.axisContribution == Pole.Positive)
+					actionName = inputAction.positiveDescriptiveName;
+				else
+					actionName = inputAction.negativeDescriptiveName;
 				string elementAssignmentData = PlayerPrefs.GetString(actionName + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, "");
 				if (string.IsNullOrEmpty(elementAssignmentData))
 					return;
 				string[] elementAssignmentDataPieces = elementAssignmentData.Split(new string[] { VALUE_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
-				ElementAssignment elementAssignment = new ElementAssignment();
-				elementAssignment.elementIdentifierId = int.Parse(elementAssignmentDataPieces[0]);
-				elementAssignment.actionId = actionElementMap.actionId;
-				elementAssignment.elementMapId = actionElementMap.id;
-				if (elementAssignmentDataPieces.Length > 1)
-					elementAssignment.keyboardKey = (KeyCode) Enum.ToObject(typeof(KeyCode), int.Parse(elementAssignmentDataPieces[1]));
-				controllerMap.ReplaceElementMap (elementAssignment);
+				int elementIdentifierId = int.Parse(elementAssignmentDataPieces[0]);
+				KeyCode keyCode = (KeyCode) Enum.ToObject(typeof(KeyCode), int.Parse(elementAssignmentDataPieces[1]));
+				ControllerType controllerType = (ControllerType) Enum.ToObject(typeof(ControllerType), int.Parse(elementAssignmentDataPieces[2]));
+				Pole axisContribution = (Pole) Enum.ToObject(typeof(Pole), int.Parse(elementAssignmentDataPieces[3]));
+				AxisRange axisRange = (AxisRange) Enum.ToObject(typeof(AxisRange), int.Parse(elementAssignmentDataPieces[4]));
+				ElementAssignment elementAssignment = new ElementAssignment(controllerType, ControllerElementType.Button, elementIdentifierId, axisRange, keyCode, ModifierKeyFlags.None, actionElementMap.actionId, axisContribution, false, actionElementMap.id);
+				if (controllerType != controllerMap.controllerType)
+				{
+					controllerMap.DeleteButtonMapsWithAction(inputAction.name);
+					foreach (ControllerMap otherControllerMap in InputManager.inputter.controllers.maps.GetAllMaps(controllerType))
+						otherControllerMap.CreateElementMap(elementAssignment);
+				}
+				else
+					controllerMap.ReplaceElementMap(elementAssignment);
+				Debug.Log(elementAssignmentData);
 			}
 		}
 	}
@@ -77,10 +91,14 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 		{
 			foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
 			{
-				foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(buttonMapper.actionNameText.text))
+				foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(buttonMapper.actionName))
 				{
-					buttonMapper.buttonNameText.text = actionElementMap.elementIdentifierName;
-					buttonMapper.Save ();
+					if (actionElementMap.axisContribution == buttonMapper.axisContribution && actionElementMap.axisRange == buttonMapper.axisRange)
+					{
+						buttonMapper.buttonNameText.text = actionElementMap.elementIdentifierName;
+						buttonMapper.controllerType = controllerMap.controllerType;
+						buttonMapper.Save ();
+					}
 				}
 			}
 		}

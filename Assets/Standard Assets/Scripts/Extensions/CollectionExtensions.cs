@@ -156,12 +156,11 @@ namespace Extensions
 			return output.ToArray();
 		}
 
-		public static string[] _ToString<T> (this T[] array)
+		public static T[] DebugToString<T> (this T[] array)
 		{
-			List<string> output = new List<string>();
 			foreach (T element in array)
-				output.Add(element.ToString());
-			return output.ToArray();
+				Debug.Log(element.ToString());
+			return array;
 		}
 
 		public static T[] RemoveEach<T> (this T[] array, IEnumerable<T> array2)

@@ -32,11 +32,6 @@ namespace TAoKR
 		public SaveAndLoadManager saveAndLoadManagerPrefab;
 		public LanguageManager languageManagerPrefab;
 #endif
-
-		public virtual void Start ()
-		{
-			Debug.Log(GetScenePathsInBuild()._ToString());
-		}
 		
 #if UNITY_EDITOR
 		public static string[] GetScenePathsInBuild ()
@@ -96,6 +91,7 @@ namespace TAoKR
 			
 			public virtual void Do ()
 			{
+				Directory.CreateDirectory(locationPath);
 				bool previousSaveAndLoadManagerDebugMode = GetInstance().saveAndLoadManagerPrefab.debugMode;
 				if (instance.versionNumberText != null)
 					instance.versionNumberText.text = instance.versionNumberPrefix + DateTime.Now.Date.ToString("MMdd");
@@ -125,7 +121,9 @@ namespace TAoKR
 				if (moveCrashHandler)
 				{
 					string extrasPath = locationPath + Path.DirectorySeparatorChar + "Extras";
-					string crashHandlerFileName = "UnityCrashHandler64.exe";
+					string crashHandlerFileName = "UnityCrashHandler32.exe";
+					if (target == BuildTarget.StandaloneWindows64)
+						crashHandlerFileName = "UnityCrashHandler64.exe";
 					if (!Directory.Exists(extrasPath))
 						Directory.CreateDirectory(extrasPath);
 					else if (File.Exists(extrasPath + Path.DirectorySeparatorChar + crashHandlerFileName))
