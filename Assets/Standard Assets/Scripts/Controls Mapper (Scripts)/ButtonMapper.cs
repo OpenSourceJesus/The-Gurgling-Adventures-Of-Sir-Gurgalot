@@ -19,6 +19,7 @@ public class ButtonMapper : MonoBehaviour
 	public AxisRange axisRange;
 	public Text actionNameText;
 	public Text buttonNameText;
+	public _Selectable selectable;
 
 	public virtual void PollInput ()
 	{
@@ -28,12 +29,14 @@ public class ButtonMapper : MonoBehaviour
 
 	public virtual IEnumerator PollInputRoutine ()
 	{
+		yield return new WaitForEndOfFrame();
+		yield return new WaitForEndOfFrame();
 		IEnumerable<ControllerPollingInfo> pollInfos;
 		while (true)
 		{
 			if (InputManager.usingJoystick)
 			{
-				pollInfos = ReInput.controllers.polling.PollControllerForAllButtons(ControllerType.Joystick, ReInput.controllers.Joysticks[0].id);
+				pollInfos = ReInput.controllers.polling.PollControllerForAllElementsDown(ControllerType.Joystick, ReInput.controllers.Joysticks[0].id);
 				foreach (ControllerPollingInfo pollInfo in pollInfos)
 				{
 					if (pollInfo.success)
@@ -43,7 +46,7 @@ public class ButtonMapper : MonoBehaviour
 					}
 				}
 			}
-			pollInfos = ReInput.controllers.polling.PollControllerForAllButtons(ControllerType.Keyboard, ReInput.controllers.Keyboard.id);
+			pollInfos = ReInput.controllers.polling.PollControllerForAllElementsDown(ControllerType.Keyboard, ReInput.controllers.Keyboard.id);
 			foreach (ControllerPollingInfo pollInfo in pollInfos)
 			{
 				if (pollInfo.success)
@@ -52,7 +55,7 @@ public class ButtonMapper : MonoBehaviour
 					yield break;
 				}
 			}
-			pollInfos = ReInput.controllers.polling.PollControllerForAllButtons(ControllerType.Mouse, ReInput.controllers.Mouse.id);
+			pollInfos = ReInput.controllers.polling.PollControllerForAllElementsDown(ControllerType.Mouse, ReInput.controllers.Mouse.id);
 			foreach (ControllerPollingInfo pollInfo in pollInfos)
 			{
 				if (pollInfo.success)
@@ -70,7 +73,7 @@ public class ButtonMapper : MonoBehaviour
 	{
 		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
 		{
-			foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(actionName))
+			foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(actionName))
 			{
 				if (actionElementMap.axisContribution == axisContribution && actionElementMap.axisRange == axisRange)
 				{
@@ -78,7 +81,7 @@ public class ButtonMapper : MonoBehaviour
 					if (pollInfo.controllerType != controllerMap.controllerType)
 					{
 						Debug.Log(pollInfo.controllerType);
-						controllerMap.DeleteButtonMapsWithAction(actionName);
+						controllerMap.DeleteElementMapsWithAction(actionName);
 						foreach (ControllerMap otherControllerMap in InputManager.inputter.controllers.maps.GetAllMaps(pollInfo.controllerType))
 							otherControllerMap.CreateElementMap(elementAssignment);
 					}
@@ -97,7 +100,7 @@ public class ButtonMapper : MonoBehaviour
 	{
 		foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps(controllerType))
 		{
-			foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(actionName))
+			foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(actionName))
 			{
 				if (actionElementMap.axisContribution == axisContribution && actionElementMap.axisRange == axisRange)
 				{

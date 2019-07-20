@@ -14,6 +14,8 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 	public Transform buttonMappersParent;
 	ButtonMapper[] buttonMappers = new ButtonMapper[0];
 	public const string VALUE_SEPARATOR = "⧫";
+	public Scrollbar scrollbar;
+	public RectTransform viewport;
 
 	public override void Start ()
 	{
@@ -23,7 +25,7 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 			foreach (ActionElementMap actionElementMap in controllerMap.AllMaps)
 			{
 				InputAction inputAction = ReInput.mapping.GetAction(actionElementMap.actionId);
-				if (ReInput.mapping.ActionCategories[inputAction.categoryId].userAssignable)
+				if (inputAction.userAssignable && ReInput.mapping.ActionCategories[inputAction.categoryId].userAssignable)
 				{
 					ButtonMapper buttonMapper = Instantiate(buttonMapperPrefab, buttonMappersParent);
 					buttonMapper.trs.SetSiblingIndex(0);
@@ -38,6 +40,8 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 					buttonMapper.controllerType = controllerMap.controllerType;
 					buttonMapper.axisContribution = actionElementMap.axisContribution;
 					buttonMapper.axisRange = actionElementMap.axisRange;
+					buttonMapper.selectable.scrollbarThatMovesMe = scrollbar;
+					buttonMapper.selectable.container = viewport;
 					buttonMappers = buttonMappers.Add_class(buttonMapper);
 				}
 			}
@@ -91,7 +95,7 @@ public class ControlsMapper : SingletonMonoBehaviour<ControlsMapper>
 		{
 			foreach (ControllerMap controllerMap in InputManager.inputter.controllers.maps.GetAllMaps())
 			{
-				foreach (ActionElementMap actionElementMap in controllerMap.ButtonMapsWithAction(buttonMapper.actionName))
+				foreach (ActionElementMap actionElementMap in controllerMap.ElementMapsWithAction(buttonMapper.actionName))
 				{
 					if (actionElementMap.axisContribution == buttonMapper.axisContribution && actionElementMap.axisRange == buttonMapper.axisRange)
 					{

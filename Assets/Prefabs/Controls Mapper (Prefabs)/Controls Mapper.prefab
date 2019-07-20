@@ -388,6 +388,8 @@ MonoBehaviour:
   buttonMapperPrefab: {fileID: 5447431227253642240, guid: 5fde03baa3e2e8d48ad42a57210fcc39,
     type: 3}
   buttonMappersParent: {fileID: 7311270665758734776}
+  scrollbar: {fileID: 4632556851711167617}
+  viewport: {fileID: 7446023448018469417}
 --- !u!1 &4563818049382836974
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_AnchoredPosition: {x: -5, y: -2}
+  m_SizeDelta: {x: 15, y: -4}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &514293942430008333
 CanvasRenderer:
@@ -1005,10 +1007,20 @@ PrefabInstance:
       propertyPath: m_Text
       value: Reset To Defaults
       objectReference: {fileID: 0}
+    - target: {fileID: 2540547371200105629, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
+        type: 3}
+      propertyPath: scrollbarThatMovesMe
+      value: 
+      objectReference: {fileID: 4632556851711167617}
+    - target: {fileID: 2540547371200105629, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
+        type: 3}
+      propertyPath: container
+      value: 
+      objectReference: {fileID: 7446023448018469417}
     - target: {fileID: 6067732874866356824, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
         type: 3}
       propertyPath: uniqueId
-      value: -687961458
+      value: 297968820
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b72aaa3405f09428bfc58f3ea96d4e, type: 3}
@@ -1232,10 +1244,20 @@ PrefabInstance:
       propertyPath: m_Text
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 2540547371200105629, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
+        type: 3}
+      propertyPath: scrollbarThatMovesMe
+      value: 
+      objectReference: {fileID: 4632556851711167617}
+    - target: {fileID: 2540547371200105629, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
+        type: 3}
+      propertyPath: container
+      value: 
+      objectReference: {fileID: 7446023448018469417}
     - target: {fileID: 6067732874866356824, guid: b8b72aaa3405f09428bfc58f3ea96d4e,
         type: 3}
       propertyPath: uniqueId
-      value: -1645457253
+      value: -950381638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b72aaa3405f09428bfc58f3ea96d4e, type: 3}

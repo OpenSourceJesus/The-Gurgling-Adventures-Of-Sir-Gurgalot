@@ -11,24 +11,24 @@ namespace TAoKR
 		{
 			get
 			{
-				return PlayerPrefs.GetFloat("Volume", 1);
+				return PlayerPrefs.GetFloat("Volume" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, 1);
 			}
 			set
 			{
 				AudioListener.volume = value;
-				PlayerPrefsExtensions.SetFloat("Volume", value);
+				PlayerPrefsExtensions.SetFloat("Volume" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
 			}
 		}
 		public bool Mute
 		{
 			get
 			{
-				return PlayerPrefsExtensions.GetBool("Mute", false);
+				return PlayerPrefsExtensions.GetBool("Mute" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, false);
 			}
 			set
 			{
 				AudioListener.pause = value;
-				PlayerPrefsExtensions.SetBool("Mute", value);
+				PlayerPrefsExtensions.SetBool("Mute" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
 			}
 		}
 		public SoundEffect soundEffectPrefab;

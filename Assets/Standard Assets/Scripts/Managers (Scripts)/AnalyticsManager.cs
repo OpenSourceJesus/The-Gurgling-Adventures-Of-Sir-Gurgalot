@@ -31,11 +31,11 @@ namespace TAoKR.Analytics
 		{
 			get
 			{
-				return PlayerPrefsExtensions.GetBool("Collect Analytics", collectAnalyticsDefault);
+				return PlayerPrefsExtensions.GetBool("Collect Analytics" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, collectAnalyticsDefault);
 			}
 			set
 			{
-				PlayerPrefsExtensions.SetBool("Collect Analytics", value);
+				PlayerPrefsExtensions.SetBool("Collect Analytics" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
 			}
 		}
 		public bool LogAnalyticsLocally

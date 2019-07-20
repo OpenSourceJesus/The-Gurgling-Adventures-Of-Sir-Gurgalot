@@ -19,43 +19,46 @@ public class _Slider : _Selectable
 	
 	public virtual void Awake ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (!Application.isPlaying)
 			return;
-		#endif
+#endif
 		if (displayValue != null)
 			initDisplayValue = displayValue.text;
-		SetDisplayValue ();
 		if (snapValues.Length > 0)
+		{
 			indexOfCurrentSnapValue = MathfExtensions.GetIndexOfClosestNumber(slider.value, snapValues);
+			slider.value = snapValues[indexOfCurrentSnapValue];
+		}
+		SetDisplayValue ();
+		slider.onValueChanged.AddListener(OnValueChanged);
 	}
 
+#if UNITY_EDITOR
 	public override void OnEnable ()
 	{
-		if (slidingArea == null)
+		if (!Application.isPlaying)
 		{
-			slidingArea = GetComponent<RectTransform>();
-			slidingArea = slidingArea.Find("Handle Slide Area") as RectTransform;
-		}
-		if (rectTrs == null)
-		{
-			rectTrs = GetComponent<RectTransform>();
-			rectTrs = rectTrs.Find("Handle") as RectTransform;
+			if (rectTrs == null)
+				rectTrs = GetComponent<RectTransform>().Find("Handle") as RectTransform;
+			if (slidingArea == null)
+				slidingArea = GetComponent<RectTransform>().Find("Handle Slide Area") as RectTransform;
+			return;
 		}
 		base.OnEnable ();
 	}
+#endif
 	
-	#if UNITY_EDITOR
+#if UNITY_EDITOR
 	public override void Update ()
 	{
 		base.Update ();
 		if (!Application.isPlaying)
 			return;
-	#endif
-	#if !UNITY_EDITOR
+#else
 	public virtual void Update ()
 	{
-	#endif
+#endif
 		if (snapValues.Length > 0)
 			slider.value = MathfExtensions.GetClosestNumber(slider.value, snapValues);
 	}
@@ -63,5 +66,21 @@ public class _Slider : _Selectable
 	public virtual void SetDisplayValue ()
 	{
 		displayValue.text = initDisplayValue + slider.value;
+	}
+
+	public virtual void ChangeValue (float amount)
+	{
+		slider.value += amount * Time.unscaledDeltaTime;
+	}
+
+	public virtual void ChangeValue (int direction)
+	{
+		indexOfCurrentSnapValue = Mathf.Clamp(indexOfCurrentSnapValue + direction, 0, snapValues.Length - 1);
+		slider.value = snapValues[indexOfCurrentSnapValue];
+	}
+
+	public virtual void OnValueChanged (float value)
+	{
+		SetDisplayValue ();
 	}
 }

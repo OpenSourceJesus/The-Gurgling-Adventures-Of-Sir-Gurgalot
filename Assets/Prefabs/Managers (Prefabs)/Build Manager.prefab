@@ -49,7 +49,7 @@ MonoBehaviour:
   versionNumberPrefix: 'Version number: '
   buildActions:
   - name: Windows x32
-    enabled: 0
+    enabled: 1
     target: 5
     locationPath: /home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
       Gurgling Adventures Of Sir Gurgalot (Windows x32)
@@ -69,7 +69,7 @@ MonoBehaviour:
     - Assets/Scenes/Quests.unity
     - Assets/Scenes/Test.unity
   - name: Windows x64
-    enabled: 0
+    enabled: 1
     target: 19
     locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
       Gurgling Adventures of Sir Gurgalot (Windows x64\x13)"
@@ -89,7 +89,7 @@ MonoBehaviour:
     - Assets/Scenes/Quests.unity
     - "Assets/Scenes/Test.unity\x13"
   - name: Mac
-    enabled: 0
+    enabled: 1
     target: 2
     locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
       Gurgling Adventures of Sir Gurgalot (Mac\x13).app"
@@ -109,7 +109,7 @@ MonoBehaviour:
     - Assets/Scenes/Quests.unity
     - Assets/Scenes/Test.unity
   - name: Linux x64
-    enabled: 0
+    enabled: 1
     target: 24
     locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
       Gurgling Adventures of Sir Gurgalot (Linux x64)"
@@ -145,7 +145,7 @@ MonoBehaviour:
       Gurgling Adventures of Sir Gurgalot (Linux x64).zip"
     excludeScenes: 0
     scenes:
-    - Thurengard Arena
+    - Assets/Scenes/Nazur/Thurengard Arena.unity
   versionNumberText: {fileID: 0}
   buildManagerPrefab: {fileID: 8631073831190617669}
   configurationManagerPrefab: {fileID: 1979, guid: 4e7670c5d61894a47b1c9615123bfb2c,

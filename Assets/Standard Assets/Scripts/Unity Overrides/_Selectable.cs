@@ -8,9 +8,9 @@ public class _Selectable : MonoBehaviour
 {
 	public Canvas canvas;
 	public RectTransform canvasRectTrs;
-	#if UNITY_EDITOR
+#if UNITY_EDITOR
 	public bool updateCanvas = true;
-	#endif
+#endif
 	public RectTransform rectTrs;
 	public Selectable selectable;
 	public float priority;
@@ -32,6 +32,8 @@ public class _Selectable : MonoBehaviour
 			selectable.interactable = value;
 		}
 	}
+	public Scrollbar scrollbarThatMovesMe;
+	public RectTransform container;
 	
 	public virtual void UpdateCanvas ()
 	{
@@ -46,7 +48,7 @@ public class _Selectable : MonoBehaviour
 	
 	public virtual void OnEnable ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (!Application.isPlaying)
 		{
 			if (rectTrs == null)
@@ -55,20 +57,21 @@ public class _Selectable : MonoBehaviour
 				selectable = GetComponent<Selectable>();
 			return;
 		}
-		#endif
+#endif
 		UIControlManager.GetInstance().AddSelectable (this);
 		UpdateCanvas ();
 	}
 	
 	public virtual void OnDisable ()
 	{
-		#if UNITY_EDITOR
-		if (Application.isPlaying)
-		#endif
+#if UNITY_EDITOR
+		if (!Application.isPlaying)
+			return;
+#endif
 		UIControlManager.instance.RemoveSelectable (this);
 	}
 	
-	#if UNITY_EDITOR
+#if UNITY_EDITOR
 	public virtual void Update ()
 	{
 		if (updateCanvas)
@@ -77,5 +80,5 @@ public class _Selectable : MonoBehaviour
 			UpdateCanvas ();
 		}
 	}
-	#endif
+#endif
 }
