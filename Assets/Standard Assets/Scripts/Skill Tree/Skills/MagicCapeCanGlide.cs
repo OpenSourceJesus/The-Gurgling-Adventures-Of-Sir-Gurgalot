@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 
-namespace TAoKR.SkillTree
+namespace TGAOSG.SkillTree
 {
 	public class MagicCapeCanGlide : Skill
 	{

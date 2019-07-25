@@ -5,7 +5,7 @@ using System;
 using Random = UnityEngine.Random;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Boss5 : Boss
 	{

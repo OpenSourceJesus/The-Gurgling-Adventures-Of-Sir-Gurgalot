@@ -2,7 +2,7 @@
 using System.Collections;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteInEditMode]
 	public class SetPosition : MonoBehaviour

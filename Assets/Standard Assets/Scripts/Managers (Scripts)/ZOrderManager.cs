@@ -6,7 +6,7 @@ using System;
 using UnityEditor;
 #endif
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class ZOrderManager : SingletonMonoBehaviour<ZOrderManager>

@@ -4,7 +4,7 @@ using UnityEngine;
 using Extensions;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[Serializable]
 	public class BloodExplosion

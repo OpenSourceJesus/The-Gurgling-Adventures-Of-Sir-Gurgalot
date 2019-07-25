@@ -3,7 +3,7 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TAoKR;
+using TGAOSG;
 using Rewired.Integration.UnityUI;
 
 namespace Fungus

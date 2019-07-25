@@ -4,7 +4,7 @@ using UnityEngine;
 using Extensions;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(Toggle))]
 	public class PlayerPrefsToggle : _Selectable

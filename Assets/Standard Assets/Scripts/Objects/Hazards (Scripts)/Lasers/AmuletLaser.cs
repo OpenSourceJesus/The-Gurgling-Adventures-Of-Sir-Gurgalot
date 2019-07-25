@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 using UnityEngine.Tilemaps;
-using TAoKR.Analytics;
+using TGAOSG.Analytics;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class AmuletLaser : Laser
 	{
@@ -67,7 +67,7 @@ namespace TAoKR
 			destructable = other.GetComponent<IDestructable>();
 			if (destructable != null)
 			{
-				if (destructable.Hp.value <= damageOverTime * Time.deltaTime)
+				if (destructable.Hp <= damageOverTime * Time.deltaTime)
 				{
 					enemy = destructable as Enemy;
 					if (enemy != null)

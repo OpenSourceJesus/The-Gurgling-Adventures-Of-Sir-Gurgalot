@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(Rigidbody2D))]
 	public class AwakableEnemy : Enemy

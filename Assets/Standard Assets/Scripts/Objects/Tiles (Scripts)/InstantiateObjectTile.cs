@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[CreateAssetMenu]
 	public class InstantiateObjectTile : Tile

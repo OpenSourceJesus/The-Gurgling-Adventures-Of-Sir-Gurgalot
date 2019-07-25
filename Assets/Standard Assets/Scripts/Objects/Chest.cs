@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
-using TAoKR.Analytics;
+using TGAOSG.Analytics;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class Chest : MonoBehaviour, IConfigurable, IMoneyCarrier
@@ -53,15 +53,15 @@ namespace TAoKR
 			}
 		}
 		public ushort goldReward;
-		public _ushort Money
+		public ushort Money
 		{
 			get
 			{
-				return new _ushort(goldReward);
+				return goldReward;
 			}
 			set
 			{
-				goldReward = value.value;
+				goldReward = value;
 			}
 		}
 		public int uniqueId;

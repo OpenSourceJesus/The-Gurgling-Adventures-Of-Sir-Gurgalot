@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
-using TAoKR.Analytics;
-using TAoKR.SkillTree;
+using TGAOSG.Analytics;
+using TGAOSG.SkillTree;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Sword : Hazard
 	{
@@ -80,7 +80,7 @@ namespace TAoKR
 		{
 			if (Player.instance.Invulnerable)
 				return;
-			if (destructable.Hp.value <= damage)
+			if (destructable.Hp <= damage)
 			{
 				enemy = destructable as Enemy;
 				if (enemy != null)

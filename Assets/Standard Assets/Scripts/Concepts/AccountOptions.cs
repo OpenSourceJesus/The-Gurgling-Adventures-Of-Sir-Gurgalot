@@ -6,7 +6,7 @@ using Extensions;
 using System.IO;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[DisallowMultipleComponent]
     public class AccountOptions : MonoBehaviour
@@ -167,18 +167,13 @@ namespace TAoKR
 
 		public virtual void EraseConfirm ()
 		{
-			string[] registeredKeys = PlayerPrefs.GetString(PlayerPrefsExtensions.REGISTRY_KEY, "").Split(new string[] { PlayerPrefsExtensions.REGISTRY_SEPERATOR }, StringSplitOptions.RemoveEmptyEntries);
-			string registeredKey;
-			for (int i = 0; i < registeredKeys.Length; i ++)
+			GameManager.enabledGosString = "";
+			GameManager.disabledGosString = "";
+			foreach (string key in SaveAndLoadManager.data.Keys)
 			{
-				registeredKey = registeredKeys[i] + PlayerPrefsExtensions.REGISTRY_SEPERATOR;
-				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + accountNumber) || registeredKey.Contains(accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
-					PlayerPrefsExtensions.DeleteKey(registeredKey);
+				if (key.IndexOf(accountNumber + SaveAndLoadManager.VALUE_SEPARATOR) == 0)
+					SaveAndLoadManager.data.Remove(key);
 			}
-			GameManager.EnabledGosString = new _string();
-			GameManager.DisabledGosString = new _string();
-			if (SaveAndLoadManager.instance.debugMode)
-				File.Delete(SaveAndLoadManager.instance.debugFilePath + accountNumber + ".txt");
 			playButtonObj.SetActive(false);
 			copyButtonObj.SetActive(false);
 			eraseButtonObj.SetActive(false);

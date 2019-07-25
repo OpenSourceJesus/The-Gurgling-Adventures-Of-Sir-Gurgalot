@@ -37,6 +37,7 @@ Transform:
   - {fileID: 224745535471161408}
   - {fileID: 4463124418322424}
   - {fileID: 4782749571393860}
+  - {fileID: 7569932956777231164}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,9 +158,6 @@ MonoBehaviour:
   randomizeBleedPosition: 0
   randomizeBleedDirection: 0
   trs: {fileID: 4929412923628598}
-  excludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
   collider: {fileID: 58980991335640330}
   moveSpeed: 2.5
   maxHp: 4
@@ -573,9 +571,6 @@ MonoBehaviour:
   randomizeBleedPosition: 0
   randomizeBleedDirection: 0
   trs: {fileID: 4782749571393860}
-  excludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
   collider: {fileID: 58502438588220566}
 --- !u!58 &58502438588220566
 CircleCollider2D:
@@ -714,3 +709,106 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.46666667
+--- !u!1 &9173261156926562340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7569932956777231164}
+  - component: {fileID: 3324934364830233040}
+  - component: {fileID: 4815480505767882292}
+  m_Layer: 12
+  m_Name: Hitbox Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7569932956777231164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173261156926562340}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4666667, y: 0.4666667, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4929412923628598}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3324934364830233040
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173261156926562340}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 798485719
+  m_SortingLayer: 1
+  m_SortingOrder: 500
+  m_Sprite: {fileID: 21300000, guid: 36f4490ec629d7265b7226f83106098c, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.2, y: 2.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &4815480505767882292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173261156926562340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba4fab043045684ea91887d84b13c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateHotkey:
+    keys: 1a010000
+    previousKeys: 1a010000
+    isPressingKeys: 00
+  collider: {fileID: 58980991335640330}
+  colliderChecks: {x: 200, y: 200}
+  behaviour: 2
+  assetPath: Assets/Art/Textures/Hitbox Visualizers/Bullet Follow Hitbox.asset
+  checkDiagonals: 1
+  outlineRadius: 5
+  textureBorder: 10

@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 using Fungus;
 using System;
 using UnityEngine.UI;
-using TAoKR.SkillTree;
+using TGAOSG.SkillTree;
 using System.IO;
 using Extensions;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
     [ExecuteAlways]
 	public class GameManager : SingletonMonoBehaviour<GameManager>, ISavableAndLoadable
@@ -42,36 +42,10 @@ namespace TAoKR
 		public Text moneyText;
 		public Animator screenEffectAnimator;
 		public List<GameObject> registeredGos = new List<GameObject>();
-		static _string enabledGosString;
 		[SaveAndLoadValue]
-		public static _string EnabledGosString
-		{
-			get
-			{
-				if (enabledGosString == null)
-					enabledGosString = new _string();
-				return enabledGosString;
-			}
-			set
-			{
-				enabledGosString = value;
-			}
-		}
-		static _string disabledGosString;
+		public static string enabledGosString;
 		[SaveAndLoadValue]
-		public static _string DisabledGosString
-		{
-			get
-			{
-				if (disabledGosString == null)
-					disabledGosString = new _string();
-				return disabledGosString;
-			}
-			set
-			{
-				disabledGosString = value;
-			}
-		}
+		public static string disabledGosString;
 		public static bool paused;
 		public const string STRING_SEPERATOR = "|";
 		public MenuDialog menuDialogPrefab;
@@ -127,8 +101,8 @@ namespace TAoKR
 			#if UNITY_EDITOR
 			if (!Application.isPlaying)
 			{
-				EnabledGosString.value = "";
-				DisabledGosString.value = "";
+				enabledGosString = "";
+				disabledGosString = "";
 				return;
 			}
 			#endif
@@ -168,7 +142,7 @@ namespace TAoKR
 				return;
 			}
 			string[] stringSeperators = { STRING_SEPERATOR };
-			string[] enabledGos = EnabledGosString.value.Split(stringSeperators, StringSplitOptions.None);
+			string[] enabledGos = enabledGosString.Split(stringSeperators, StringSplitOptions.None);
 			foreach (string goName in enabledGos)
 			{
 				for (int i = 0; i < registeredGos.Count; i ++)
@@ -180,7 +154,7 @@ namespace TAoKR
 					}
 				}
 			}
-			string[] disabledGos = DisabledGosString.value.Split(stringSeperators, StringSplitOptions.None);
+			string[] disabledGos = disabledGosString.Split(stringSeperators, StringSplitOptions.None);
 			foreach (string goName in disabledGos)
 			{
 				GameObject go = GameObject.Find(goName);
@@ -203,16 +177,16 @@ namespace TAoKR
 		
 		public virtual void ActivateGoForever (string goName)
 		{
-			DisabledGosString.value = DisabledGosString.value.Replace(STRING_SEPERATOR + goName, "");
-			if (!EnabledGosString.value.Contains(goName))
-				EnabledGosString.value += STRING_SEPERATOR + goName;
+			disabledGosString = disabledGosString.Replace(STRING_SEPERATOR + goName, "");
+			if (!enabledGosString.Contains(goName))
+				enabledGosString += STRING_SEPERATOR + goName;
 		}
 		
 		public virtual void DeactivateGoForever (string goName)
 		{
-			EnabledGosString.value = EnabledGosString.value.Replace(STRING_SEPERATOR + goName, "");
-			if (!DisabledGosString.value.Contains(goName))
-				DisabledGosString.value += STRING_SEPERATOR + goName;
+			enabledGosString = enabledGosString.Replace(STRING_SEPERATOR + goName, "");
+			if (!disabledGosString.Contains(goName))
+				disabledGosString += STRING_SEPERATOR + goName;
 		}
 		
 		public virtual void LoadLevel (string levelName)

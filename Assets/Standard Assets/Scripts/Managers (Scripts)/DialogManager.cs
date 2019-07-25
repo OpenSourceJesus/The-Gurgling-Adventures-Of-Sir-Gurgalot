@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 
-namespace TAoKR.Dialog
+namespace TGAOSG.Dialog
 {
 	[ExecuteAlways]
 	public class DialogManager : SingletonMonoBehaviour<DialogManager>

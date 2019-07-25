@@ -4,7 +4,7 @@ using UnityEngine;
 using Extensions;
 using UnityEngine.Tilemaps;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class AreaMapCamera : CameraScript
 	{

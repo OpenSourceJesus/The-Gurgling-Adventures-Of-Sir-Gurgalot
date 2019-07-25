@@ -4,7 +4,7 @@ using UnityEngine;
 using Rewired;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class InputManager : SingletonMonoBehaviour<InputManager>
 	{

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[Serializable]
 	public class TemporaryDisplayObject

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteInEditMode]
 	public class LoadScene : MonoBehaviour

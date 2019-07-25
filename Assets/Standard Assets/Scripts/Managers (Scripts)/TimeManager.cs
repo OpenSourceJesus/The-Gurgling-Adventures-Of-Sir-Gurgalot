@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class TimeManager : SingletonMonoBehaviour<TimeManager>
 	{

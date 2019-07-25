@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using Extensions;
 using System.IO;
 
-namespace TAoKR.Analytics
+namespace TGAOSG.Analytics
 {
 	public class AnalyticsManager : SingletonMonoBehaviour<AnalyticsManager>
 	{
@@ -576,7 +576,7 @@ namespace TAoKR.Analytics
 		{
 			public override string GetValue (AnalyticsManager analyticsManager)
 			{
-				return "" + Player.instance.Money.value;
+				return "" + Player.instance.Money;
 			}
 		}
 

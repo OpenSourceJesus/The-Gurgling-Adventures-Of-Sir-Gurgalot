@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TAoKR
+namespace TGAOSG
 {
     public class ElectricMist : Hazard
     {

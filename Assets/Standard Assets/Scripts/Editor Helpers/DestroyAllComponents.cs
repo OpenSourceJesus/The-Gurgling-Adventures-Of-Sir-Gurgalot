@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteInEditMode]
 	public class DestroyAllComponents : MonoBehaviour

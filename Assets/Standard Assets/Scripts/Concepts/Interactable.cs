@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HotkeyState = TAoKR.AutoClickButton.HotkeyState;
+using HotkeyState = TGAOSG.AutoClickButton.HotkeyState;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Interactable : MonoBehaviour
 	{

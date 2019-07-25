@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class PlatformerController : Platformer
 	{

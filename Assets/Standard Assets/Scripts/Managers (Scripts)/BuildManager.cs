@@ -6,16 +6,16 @@ using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.Build.Reporting;
-using TAoKR.Story;
-using TAoKR.Dialog;
-using TAoKR.Analytics;
+using TGAOSG.Story;
+using TGAOSG.Dialog;
+using TGAOSG.Analytics;
 using System.IO;
 using UnityEngine.UI;
 using LanguageTranslation;
 using Extensions;
 #endif
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class BuildManager : SingletonMonoBehaviour<BuildManager>
@@ -29,7 +29,6 @@ namespace TAoKR
 		public BuildManager buildManagerPrefab;
 		public ConfigurationManager configurationManagerPrefab;
 		public AnalyticsManager analyticsManagerPrefab;
-		public SaveAndLoadManager saveAndLoadManagerPrefab;
 		public LanguageManager languageManagerPrefab;
 #endif
 		
@@ -92,12 +91,10 @@ namespace TAoKR
 			public virtual void Do ()
 			{
 				Directory.CreateDirectory(locationPath);
-				bool previousSaveAndLoadManagerDebugMode = GetInstance().saveAndLoadManagerPrefab.debugMode;
 				if (instance.versionNumberText != null)
 					instance.versionNumberText.text = instance.versionNumberPrefix + DateTime.Now.Date.ToString("MMdd");
 				instance.configurationManagerPrefab.canvas.gameObject.SetActive(false);
 				instance.languageManagerPrefab.canvas.gameObject.SetActive(false);
-				instance.saveAndLoadManagerPrefab.debugMode = false;
 				if (updateQuests)
 					QuestManager._UpdateQuests ();
 				if (updateDialog)
@@ -116,7 +113,6 @@ namespace TAoKR
 				BuildPipeline.BuildPlayer(buildOptions);
 				instance.configurationManagerPrefab.canvas.gameObject.SetActive(true);
 				instance.languageManagerPrefab.canvas.gameObject.SetActive(true);
-				instance.saveAndLoadManagerPrefab.debugMode = previousSaveAndLoadManagerDebugMode;
 				AssetDatabase.Refresh();
 				if (moveCrashHandler)
 				{

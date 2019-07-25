@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(BoxCollider2D))]
 	public class Slime : Enemy

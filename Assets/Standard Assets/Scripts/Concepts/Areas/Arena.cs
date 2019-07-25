@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class Arena : Area
@@ -95,7 +95,7 @@ namespace TAoKR
 				}
 				else
 				{
-					Player.instance.Hp = new _float(Player.instance.maxHp);
+					Player.instance.Hp = Player.instance.maxHp;
 					score = difficulty / difficultyIncrease;
 					scoreText.text = "Score: " + score;
 					if (score > Highscore)

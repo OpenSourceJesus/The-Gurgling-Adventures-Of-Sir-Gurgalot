@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 { 
 	public class Boss : Enemy
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Extensions;
-using TAoKR;
+using TGAOSG;
 
 public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 {

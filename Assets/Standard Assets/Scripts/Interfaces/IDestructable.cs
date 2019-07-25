@@ -2,8 +2,8 @@
 
 public interface IDestructable
 {
-	_uint MaxHp {get; set;}
-	_float Hp {get; set;}
+	uint MaxHp {get; set;}
+	float Hp {get; set;}
 	Collider2D BleedBounds {get;}
 	bool BleedBoundsIsCircle {get;}
 	

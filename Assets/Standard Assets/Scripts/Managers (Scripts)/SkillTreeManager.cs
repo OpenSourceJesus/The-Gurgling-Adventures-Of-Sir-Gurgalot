@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Fungus;
 
-namespace TAoKR.SkillTree
+namespace TGAOSG.SkillTree
 {
 	[ExecuteAlways]
 	public class SkillTreeManager : SingletonMonoBehaviour<SkillTreeManager>

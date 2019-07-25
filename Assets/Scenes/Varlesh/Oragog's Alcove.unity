@@ -1011,7 +1011,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436087}
-  targetComponentAssemblyName: TAoKR.SkillTree.AddToMagicAmuletRange, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicAmuletRange, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicAmuletRange
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436088}
-  targetComponentAssemblyName: TAoKR.SkillTree.ReduceMagicAmuletCooldown, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.ReduceMagicAmuletCooldown, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: ReduceMagicAmuletCooldown
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436089}
-  targetComponentAssemblyName: TAoKR.SkillTree.AddToMagicAmuletDamage, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicAmuletDamage, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicAmuletDamage
@@ -5134,7 +5134,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -5280,7 +5280,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436086}
-  targetComponentAssemblyName: TAoKR.SkillTree.MagicCapeCanGlide, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.MagicCapeCanGlide, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: MagicCapeCanGlide
@@ -5628,7 +5628,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -5824,7 +5824,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436085}
-  targetComponentAssemblyName: TAoKR.SkillTree.ReduceDashCooldown, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.ReduceDashCooldown, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: ReduceDashCooldown
@@ -5852,7 +5852,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 796436084}
-  targetComponentAssemblyName: TAoKR.SkillTree.BeInvulnerableWhileDashing, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TGAOSG.SkillTree.BeInvulnerableWhileDashing, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: BeInvulnerableWhileDashing
@@ -5880,7 +5880,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager

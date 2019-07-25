@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
 	public static T instance;
 	public MultipleInstancesHandlingType handleMultipleInstances;
+	public bool setInstance = true;
 	public bool persistant;
 	
 	public virtual void Start ()
@@ -27,7 +28,8 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 #if UNITY_EDITOR
 		}
 #endif
-		instance = this as T;
+		if (setInstance)
+			instance = this as T;
 #if UNITY_EDITOR
 		if (!Application.isPlaying)
 			return;

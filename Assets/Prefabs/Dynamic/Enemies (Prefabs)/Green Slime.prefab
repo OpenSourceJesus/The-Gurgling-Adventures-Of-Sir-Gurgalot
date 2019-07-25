@@ -696,7 +696,7 @@ Transform:
   m_GameObject: {fileID: 613024506347366419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.27, z: 1}
   m_Children: []
   m_Father: {fileID: 4527462886360578}
   m_RootOrder: 4
@@ -737,16 +737,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 798485719
   m_SortingLayer: 1
-  m_SortingOrder: 300
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 500
+  m_Sprite: {fileID: 21300000, guid: d560d428861020a51bf643714725d76c, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.75, y: 1.2}
+  m_Size: {x: 2.2, y: 2.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5548677851302950955
@@ -766,10 +766,9 @@ MonoBehaviour:
     previousKeys: 1a010000
     isPressingKeys: 00
   collider: {fileID: 61738911341703766}
-  texture: {fileID: 2800000, guid: 716eba0792b3bfaff9b59f2901517b82, type: 3}
   colliderChecks: {x: 200, y: 200}
   behaviour: 2
-  assetPath: Assets/Art/Textures/Other/Green Slime Hitbox.asset
+  assetPath: Assets/Art/Textures/Hitbox Visualizers/Green Slime Hitbox.asset
   checkDiagonals: 1
-  offsetColliderChecks: {x: 0, y: 0}
   outlineRadius: 5
+  textureBorder: 10

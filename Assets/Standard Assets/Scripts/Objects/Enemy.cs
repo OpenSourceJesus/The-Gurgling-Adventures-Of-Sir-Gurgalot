@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Enemy : Hazard, IDestructable, IMoveable
 	{
@@ -14,8 +14,8 @@ namespace TAoKR
 				return "Enemies";
 			}
 		}
-		public float moveSpeed;
 		[MakeConfigurable]
+		public float moveSpeed;
 		public float MoveSpeed
 		{
 			get
@@ -28,17 +28,17 @@ namespace TAoKR
 			}
 		}
 		float hp;
-		public _float Hp
+		public float Hp
 		{
 			get
 			{
-				return new _float(hp);
+				return hp;
 			}
 			set
 			{
 				if (maxHp == 0)
 					return;
-				hp = Mathf.Clamp(value.value, 0, maxHp);
+				hp = Mathf.Clamp(value, 0, maxHp);
 				if (healthbar != null)
 					healthbar.localScale = new Vector3(hp / maxHp, 1);
 				if (hp == 0)
@@ -47,15 +47,15 @@ namespace TAoKR
 		}
 		public uint maxHp;
 		[MakeConfigurable]
-		public _uint MaxHp
+		public uint MaxHp
 		{
 			get
 			{
-				return new _uint(maxHp);
+				return maxHp;
 			}
 			set
 			{
-				maxHp = value.value;
+				maxHp = value;
 			}
 		}
 		public Transform healthbar;
@@ -137,7 +137,7 @@ namespace TAoKR
 		{
 			if (Player.instance.Invulnerable)
 				return;
-			Hp = new _float(hp - amount);
+			Hp = hp - amount;
 		}
 		
 		public virtual void Bleed (Vector2 pos, Vector2 facing)

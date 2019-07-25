@@ -5,7 +5,7 @@ using Extensions;
 using System;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class MagicScepter : Item
 	{

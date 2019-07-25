@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Extensions;
-using TAoKR.SkillTree;
+using TGAOSG.SkillTree;
 using Fungus;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Player : PlatformerController, IDestructable, IMoneyCarrier, IConfigurable, ISavableAndLoadable
 	{
@@ -43,15 +43,15 @@ namespace TAoKR
 			}
 		}
 		public static float hp;
-		public _float Hp
+		public float Hp
 		{
 			get
 			{
-				return new _float(hp);
+				return hp;
 			}
 			set
 			{
-				hp = Mathf.Clamp(value.value, 0, maxHp);
+				hp = Mathf.Clamp(value, 0, maxHp);
 				for (int i = 0; i < hpImages.Length; i ++)
 					hpImages[i].color = hpImages[i].color.SetAlpha((hp > i).GetHashCode());
 				if (hp == 0)
@@ -60,29 +60,29 @@ namespace TAoKR
 		}
 		public uint maxHp;
 		[MakeConfigurable]
-		public _uint MaxHp
+		public uint MaxHp
 		{
 			get
 			{
-				return new _uint(maxHp);
+				return maxHp;
 			}
 			set
 			{
-				maxHp = value.value;
+				maxHp = value;
 			}
 		}
 		static ushort money;
 		[SaveAndLoadValue]
-		public _ushort Money
+		public ushort Money
 		{
 			get
 			{
-				return new _ushort(money);
+				return money;
 			}
 			set
 			{
-				money = value.value;
-				//GameManager.instance.moneyPanel.SetActive(value.value > 0);
+				money = value;
+				//GameManager.instance.moneyPanel.SetActive(value > 0);
 			}
 		}
 		public Transform healthbar;
@@ -116,13 +116,13 @@ namespace TAoKR
 		{
 			get
 			{
-				return Time.time - timeLastDamaged < invulnerableDuration || (MagicCape.isDashing && BeInvulnerableWhileDashing.instance.Learned.value);
+				return Time.time - timeLastDamaged < invulnerableDuration || (MagicCape.isDashing && BeInvulnerableWhileDashing.instance.learned);
 			}
 			set
 			{
 				if (value)
 				{
-					if (LongerInvulnerabilityAfterDamage.instance.Learned.value)
+					if (LongerInvulnerabilityAfterDamage.instance.learned)
 						GameManager.instance.screenEffectAnimator.SetFloat("speed", invulnerableDuration / (invulnerableDuration + LongerInvulnerabilityAfterDamage.instance.addSeconds));
 					else
 						GameManager.instance.screenEffectAnimator.SetFloat("speed", 1);
@@ -307,7 +307,7 @@ namespace TAoKR
 		
 		public bool SubtractMoney (ushort amount)
 		{
-			bool output = Money.value >= amount;
+			bool output = Money >= amount;
 			if (output)
 			{
 				money -= amount;
@@ -327,7 +327,7 @@ namespace TAoKR
 				return;
 			timeLastDamaged = Time.time;
 			Invulnerable = true;
-			Hp = new _float(hp - amount);
+			Hp = hp - amount;
 		}
 		
 		public static Player GetInstance ()

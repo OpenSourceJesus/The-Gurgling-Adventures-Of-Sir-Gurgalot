@@ -10,7 +10,7 @@ using System;
 using Extensions;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class ConfigurationManager : SingletonMonoBehaviour<ConfigurationManager>

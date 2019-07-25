@@ -1,14 +1,14 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 using UnityEngine.SceneManagement;
 using System.Reflection;
 using System;
-using SavedObjectEntry = TAoKR.SaveAndLoadManager.SavedObjectEntry;
+using SavedObjectEntry = TGAOSG.SaveAndLoadManager.SavedObjectEntry;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class SaveAndLoadObject : MonoBehaviour, IIdentifiable
@@ -36,33 +36,38 @@ namespace TAoKR
 				uniqueId = value;
 			}
 		}
-		public Transform[] saveableChildren;
-		public ISavableAndLoadable[] saveables;
+		public Transform[] saveableChildren = new Transform[0];
+		public ISavableAndLoadable[] saveables = new ISavableAndLoadable[0];
 		public string typeId;
-		public SavedObjectEntry[] saveEntries;
+		public SavedObjectEntry[] saveEntries = new SavedObjectEntry[0];
 		
 #if UNITY_EDITOR
 		public virtual void Start ()
 		{
 			if (Application.isPlaying)
 				return;
-			List<Transform> saveableChildrenList = new List<Transform>();
-			saveableChildrenList.AddRange(saveableChildren);
+			if (uniqueId == 0)
+				uniqueId = Random.Range(int.MinValue, int.MaxValue);
+			Transform[] _saveableChildren = new Transform[0];
+			_saveableChildren.AddRange_class(saveableChildren);
 			Transform trs = GetComponent<Transform>();
-			if (!saveableChildrenList.Contains(trs) && GetComponentsInChildren<ISavableAndLoadable>().Length > 0)
+			if (!_saveableChildren.Contains_class(trs) && GetComponentsInChildren<ISavableAndLoadable>().Length > 0)
 			{
-				saveableChildrenList.Add(trs);
-				saveableChildren = saveableChildrenList.ToArray();
+				_saveableChildren = _saveableChildren.Add_class(trs);
+				saveableChildren = _saveableChildren;
 			}
+		}
+
+		public virtual void Reset ()
+		{
+			Start ();
 		}
 #endif
 
 		public virtual void Init ()
 		{
-			List<ISavableAndLoadable> saveablesList = new List<ISavableAndLoadable>();
 			foreach (Transform saveableChild in saveableChildren)
-				saveablesList.AddRange(saveableChild.GetComponentsInChildren<ISavableAndLoadable>());
-			saveables = saveablesList.ToArray();
+				saveables = saveables.AddRange(saveableChild.GetComponentsInChildren<ISavableAndLoadable>());
 			SaveAndLoadObject sameTypeObj;
 			if (!SaveAndLoadManager.saveAndLoadObjectTypeDict.TryGetValue(typeId, out sameTypeObj))
 			{
@@ -72,34 +77,19 @@ namespace TAoKR
 					SavedObjectEntry saveEntry = new SavedObjectEntry();
 					saveEntry.saveAndLoadObject = this;
 					saveEntry.saveableAndLoadable = saveables[i];
-					List<PropertyInfo> saveProperties = new List<PropertyInfo>();
-					saveProperties.AddRange(saveEntry.saveableAndLoadable.GetType().GetProperties());
-					for (int i2 = 0; i2 < saveProperties.Count; i2 ++)
+					saveEntry.members = saveEntry.members.AddRange(saveEntry.saveableAndLoadable.GetType().GetMembers());
+					for (int i2 = 0; i2 < saveEntry.members.Length; i2 ++)
 					{
-						SaveAndLoadValue saveAndLoadValue = Attribute.GetCustomAttribute(saveProperties[i2], typeof(SaveAndLoadValue)) as SaveAndLoadValue;
+						SaveAndLoadValue saveAndLoadValue = Attribute.GetCustomAttribute(saveEntry.members[i2], typeof(SaveAndLoadValue)) as SaveAndLoadValue;
 						if (saveAndLoadValue == null)
 						{
-							saveProperties.RemoveAt(i2);
+							saveEntry.members = saveEntry.members.RemoveAt(i2);
 							i2 --;
 						}
 					}
-					saveEntry.properties = saveProperties.ToArray();
-					
-					List<FieldInfo> saveFields = new List<FieldInfo>();
-					saveFields.AddRange(saveEntry.GetType().GetFields());
-					for (int i2 = 0; i2 < saveFields.Count; i2 ++)
-					{
-						SaveAndLoadValue saveAndLoadValue = Attribute.GetCustomAttribute(saveFields[i2], typeof(SaveAndLoadValue)) as SaveAndLoadValue;
-						if (saveAndLoadValue == null)
-						{
-							saveFields.RemoveAt(i2);
-							i2 --;
-						}
-					}
-					saveEntry.fields = saveFields.ToArray();
 					saveEntries[i] = saveEntry;
 				}
-				SaveAndLoadManager.saveAndLoadObjectTypeDict.Add(typeId, this);
+				// SaveAndLoadManager.saveAndLoadObjectTypeDict.Add(typeId, this);
 			}
 			else
 			{
@@ -110,6 +100,7 @@ namespace TAoKR
 					saveEntry = saveEntries[i];
 					saveEntry.saveableAndLoadable = saveables[i];
 					saveEntry.saveAndLoadObject = this;
+					saveEntries[i] = saveEntry;
 				}
 			}
 		}
