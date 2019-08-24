@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using TGAOSG;
 using Rewired.Integration.UnityUI;
 
-namespace Fungus
+namespace Fungus2
 {
     /// <summary>
     /// Supported modes for clicking through a Say Dialog.

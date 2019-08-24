@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Extensions;
 
-namespace Fungus
+namespace Fungus2
 {
     /// <summary>
     /// Display story text in a visual novel style dialog box.

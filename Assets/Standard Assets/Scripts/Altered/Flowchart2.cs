@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 using Rewired;
 using TGAOSG;
 
-namespace Fungus
+namespace Fungus2
 {
     /// <summary>
     /// Visual scripting controller for the Flowchart programming language.

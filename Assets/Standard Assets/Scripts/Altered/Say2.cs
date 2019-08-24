@@ -4,7 +4,7 @@
 using UnityEngine;
 using TGAOSG.Dialog;
 
-namespace Fungus
+namespace Fungus2
 {
     /// <summary>
     /// Writes text in a dialog box.

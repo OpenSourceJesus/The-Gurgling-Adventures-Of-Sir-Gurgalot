@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 namespace UnityEditor
 {
 	[CustomGridBrush(true, false, false, "Line Brush")]
-	public class LineBrush : GridBrush {
+	public class LineBrush : GridBrushBase {
 		public bool lineStartActive = false;
 		public Vector3Int lineStart = Vector3Int.zero;
 		public override void Paint(GridLayout grid, GameObject brushTarget, Vector3Int position)
@@ -92,49 +92,49 @@ namespace UnityEditor
 		}
 	}
 	
-	[CustomEditor(typeof(LineBrush))]
-	public class LineBrushEditor : GridBrushEditor
-	{
-		private LineBrush lineBrush { get { return target as LineBrush; } }
-		public override void OnPaintSceneGUI(GridLayout grid, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
-		{
-			base.OnPaintSceneGUI(grid, brushTarget, position, tool, executing);
-			if (lineBrush.lineStartActive)
-			{
-				Tilemap tilemap = brushTarget.GetComponent<Tilemap>();
-				if (tilemap != null)
-					tilemap.ClearAllEditorPreviewTiles();
-                // Draw preview tiles for tilemap
-				Vector2Int startPos = new Vector2Int(lineBrush.lineStart.x, lineBrush.lineStart.y);
-				Vector2Int endPos = new Vector2Int(position.x, position.y);
-				if (startPos == endPos)
-					PaintPreview(grid, brushTarget, position.min);
-				else
-				{
-					foreach (var point in LineBrush.GetPointsOnLine(startPos, endPos))
-					{
-						Vector3Int paintPos = new Vector3Int(point.x, point.y, position.z);
-						PaintPreview(grid, brushTarget, paintPos);
-					}
-				}
-				if (Event.current.type == EventType.Repaint)
-				{
-					var min = lineBrush.lineStart;
-					var max = lineBrush.lineStart + position.size;
-                    // Draws a box on the picked starting position
-					GL.PushMatrix();
-					GL.MultMatrix(GUI.matrix);
-					GL.Begin(GL.LINES);
-					Handles.color = Color.blue;
-					Handles.DrawLine(new Vector3(min.x, min.y, min.z), new Vector3(max.x, min.y, min.z));
-					Handles.DrawLine(new Vector3(max.x, min.y, min.z), new Vector3(max.x, max.y, min.z));
-					Handles.DrawLine(new Vector3(max.x, max.y, min.z), new Vector3(min.x, max.y, min.z));
-					Handles.DrawLine(new Vector3(min.x, max.y, min.z), new Vector3(min.x, min.y, min.z));
-					GL.End();
-					GL.PopMatrix();
-				}
-			}
-		}
-	}
+	// [CustomEditor(typeof(LineBrush))]
+	// public class LineBrushEditor : GridBrushEditor
+	// {
+	// 	private LineBrush lineBrush { get { return target as LineBrush; } }
+	// 	public override void OnPaintSceneGUI(GridLayout grid, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
+	// 	{
+	// 		base.OnPaintSceneGUI(grid, brushTarget, position, tool, executing);
+	// 		if (lineBrush.lineStartActive)
+	// 		{
+	// 			Tilemap tilemap = brushTarget.GetComponent<Tilemap>();
+	// 			if (tilemap != null)
+	// 				tilemap.ClearAllEditorPreviewTiles();
+    //             // Draw preview tiles for tilemap
+	// 			Vector2Int startPos = new Vector2Int(lineBrush.lineStart.x, lineBrush.lineStart.y);
+	// 			Vector2Int endPos = new Vector2Int(position.x, position.y);
+	// 			if (startPos == endPos)
+	// 				PaintPreview(grid, brushTarget, position.min);
+	// 			else
+	// 			{
+	// 				foreach (var point in LineBrush.GetPointsOnLine(startPos, endPos))
+	// 				{
+	// 					Vector3Int paintPos = new Vector3Int(point.x, point.y, position.z);
+	// 					PaintPreview(grid, brushTarget, paintPos);
+	// 				}
+	// 			}
+	// 			if (Event.current.type == EventType.Repaint)
+	// 			{
+	// 				var min = lineBrush.lineStart;
+	// 				var max = lineBrush.lineStart + position.size;
+    //                 // Draws a box on the picked starting position
+	// 				GL.PushMatrix();
+	// 				GL.MultMatrix(GUI.matrix);
+	// 				GL.Begin(GL.LINES);
+	// 				Handles.color = Color.blue;
+	// 				Handles.DrawLine(new Vector3(min.x, min.y, min.z), new Vector3(max.x, min.y, min.z));
+	// 				Handles.DrawLine(new Vector3(max.x, min.y, min.z), new Vector3(max.x, max.y, min.z));
+	// 				Handles.DrawLine(new Vector3(max.x, max.y, min.z), new Vector3(min.x, max.y, min.z));
+	// 				Handles.DrawLine(new Vector3(min.x, max.y, min.z), new Vector3(min.x, min.y, min.z));
+	// 				GL.End();
+	// 				GL.PopMatrix();
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 #endif
