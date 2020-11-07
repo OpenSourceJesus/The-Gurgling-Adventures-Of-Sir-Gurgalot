@@ -13,8 +13,8 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
-using Fungus;
-using Menu = Fungus.Menu;
+using Fungus2;
+using Menu = Fungus2.Menu;
 #endif
 
 namespace LanguageTranslation
@@ -110,7 +110,7 @@ namespace LanguageTranslation
 			return null;
 		}
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		[MenuItem("Language/Serialize Translations")]
 		public static void _SerializeTranslations ()
 		{
@@ -214,7 +214,7 @@ namespace LanguageTranslation
 			foreach (StreamWriter _fileWriter in fileWriters)
 				fileWriter.Close();
 		}
-		#endif
+#endif
 		
 		[Serializable]
 		public class Language

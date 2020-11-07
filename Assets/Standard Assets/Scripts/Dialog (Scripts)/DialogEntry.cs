@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
+using Fungus2;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
-using Menu = Fungus.Menu;
+using Menu = Fungus2.Menu;
 
 namespace TGAOSG.Dialog
 {

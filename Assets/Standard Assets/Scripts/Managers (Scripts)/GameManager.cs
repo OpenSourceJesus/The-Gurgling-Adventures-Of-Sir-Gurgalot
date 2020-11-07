@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
+using Fungus2;
 using System;
 using UnityEngine.UI;
 using TGAOSG.SkillTree;
 using System.IO;
 using Extensions;
 using Random = UnityEngine.Random;
+using Fungus;
+using Flowchart = Fungus2.Flowchart;
 
 namespace TGAOSG
 {

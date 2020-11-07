@@ -66,7 +66,6 @@ public class ButtonMapper : MonoBehaviour
 			}
 			yield return new WaitForEndOfFrame();
 		}
-		yield break;
 	}
 
 	public virtual void OnPollInputSuccess (ControllerPollingInfo pollInfo)
