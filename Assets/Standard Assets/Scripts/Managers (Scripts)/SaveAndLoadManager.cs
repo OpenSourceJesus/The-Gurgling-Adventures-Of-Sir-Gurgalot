@@ -1,111 +1,118 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using System.Reflection;
 using UnityEngine.UI;
 using System.IO;
 using System;
-using UnityEngine.SceneManagement;
-using FullSerializer;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	public class SaveAndLoadManager : SingletonMonoBehaviour<SaveAndLoadManager>
 	{
-		public static fsSerializer serializer = new fsSerializer();
 		[HideInInspector]
-		public SaveAndLoadObject[] saveAndLoadObjects = new SaveAndLoadObject[0];
-		public static SavedObjectEntry[] savedObjectEntries = new SavedObjectEntry[0];
+		public SaveAndLoadObject[] saveAndLoadObjects;
+		public static SavedObjectEntry[] savedObjectEntries;
 		public static Dictionary<string, SaveAndLoadObject> saveAndLoadObjectTypeDict = new Dictionary<string, SaveAndLoadObject>();
 		public TemporaryDisplayObject displayOnSave;
 		public Text saveText;
-		public string saveFileFullPath;
-		public static Dictionary<string, string> data = new Dictionary<string, string>();
-		public const string saveFileName = "Saved Data.txt";
-		public const string DATA_SEPARATOR = "☒";
-		public const string KEY_NAME_AND_ACCOUNT_SEPARATOR = "⧫";
-		public const string VALUE_SEPARATOR = "⧫";
+		public bool debugMode;
+		public string debugFilePath;
+		public List<string> debugFileContents = new List<string>();
+		public const string KEY_NAME_AND_ACCOUNT_SEPEARATOR = "|";
+#if UNITY_EDITOR
+		public bool saveFromDebugFile;
+		
+		public virtual void OnEnable ()
+		{
+			saveAndLoadObjects = FindObjectsOfType<SaveAndLoadObject>();
+		}
+#endif
+
+		public virtual void Awake ()
+		{
+			if (debugMode)
+			{
+				if (!debugFilePath.Contains(Application.dataPath))
+					debugFilePath = Application.dataPath + debugFilePath;
+				if (MainMenu.GetInstance() != null)
+				{
+					for (int i = 1; i <= MainMenu.instance.accountCount; i ++)
+					{
+						if (!File.Exists(debugFilePath + i + ".txt"))
+							File.CreateText(debugFilePath + i + ".txt");
+					}
+				}
+			}
+		}
 		
 		public override void Start ()
 		{
-#if UNITY_EDITOR
-			if (!Application.isPlaying)
-			{
-				saveAndLoadObjects = FindObjectsOfType<SaveAndLoadObject>();
-				return;
-			}
-#endif
-			if (instance != null && instance != this)
-			{
-				Destroy(gameObject);
-				return;
-			}
 			base.Start ();
-			if (saveFileFullPath.IndexOf(Path.DirectorySeparatorChar) == 0)
-				saveFileFullPath = Application.persistentDataPath + Path.DirectorySeparatorChar + saveFileFullPath;
-			else
-				saveFileFullPath = Application.persistentDataPath + Path.DirectorySeparatorChar + saveFileFullPath;
-			Directory.CreateDirectory(saveFileFullPath);
-			if (saveFileFullPath.LastIndexOf(Path.DirectorySeparatorChar) == saveFileFullPath.Length - 1)
-				saveFileFullPath += saveFileName;
-			else
-				saveFileFullPath += Path.DirectorySeparatorChar + saveFileName;
-			if (!File.Exists(saveFileFullPath))
+			saveAndLoadObjectTypeDict.Clear();
+			SaveAndLoadObject saveAndLoadObject;
+			List<SavedObjectEntry> _savedObjectEntries = new List<SavedObjectEntry>();
+			for (int i = 0; i < saveAndLoadObjects.Length; i ++)
 			{
-				StreamWriter writer = File.CreateText(saveFileFullPath);
-				writer.Close();
-				writer.Dispose();
+				saveAndLoadObject = saveAndLoadObjects[i];
+				saveAndLoadObject.Init ();
+				_savedObjectEntries.AddRange(saveAndLoadObject.saveEntries);
+			}
+			savedObjectEntries = _savedObjectEntries.ToArray();
+			if (GameManager.GetInstance().gameObject.scene.buildIndex == PlayerPrefs.GetInt("Scene" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, 0))
+			{
+				if (debugMode)
+				{
+					debugFileContents.Clear();
+					debugFileContents.AddRange(File.ReadAllLines(debugFilePath + GameManager.accountNumber + ".txt"));
+				}
+				for (int i = 0; i < savedObjectEntries.Length; i ++)
+					savedObjectEntries[i].Load ();
+			}
+			GameManager.instance.SetGosActive ();
+		}
+
+#if UNITY_EDITOR
+		public virtual void Update ()
+		{
+			if (!saveFromDebugFile)
 				return;
+			saveFromDebugFile = false;
+			debugFileContents.Clear();
+			debugFileContents.AddRange(File.ReadAllLines(debugFilePath + GameManager.accountNumber + ".txt"));
+			SavedObjectEntry savedObjectEntry;
+			string jsonString;
+			string debugFileLine;
+			int indexOfJsonString;
+			for (int i = 0; i < savedObjectEntries.Length; i ++)
+			{
+				savedObjectEntry = savedObjectEntries[i];
+				debugFileContents.RemoveAt(0);
+				foreach (PropertyInfo property in savedObjectEntry.properties)
+				{
+					debugFileLine = debugFileContents[0];
+					indexOfJsonString = debugFileLine.IndexOf(": ");
+					if (indexOfJsonString != -1)
+					{
+						jsonString = debugFileLine.Substring(indexOfJsonString + 1);
+						PlayerPrefsExtensions.SetString(savedObjectEntry.PlayerPrefsExtensionsKeysPrefix + property.Name, jsonString);
+					}
+				}
+				foreach (FieldInfo field in savedObjectEntry.fields)
+				{
+					debugFileLine = debugFileContents[0];
+					indexOfJsonString = debugFileLine.IndexOf(": ");
+					if (indexOfJsonString != -1)
+					{
+						jsonString = debugFileLine.Substring(indexOfJsonString + 1);
+						PlayerPrefsExtensions.SetString(savedObjectEntry.PlayerPrefsExtensionsKeysPrefix + field.Name, jsonString);
+					}
+				}
 			}
 		}
-
-		public static string Serialize (object value, Type type)
-		{
-			fsData data;
-			serializer.TrySerialize(type, value, out data).AssertSuccessWithoutWarnings();
-			return fsJsonPrinter.CompressedJson(data);
-		}
-
-		public static object Deserialize (string serializedState, Type type)
-		{
-			fsData data = fsJsonParser.Parse(serializedState);
-			object deserialized = null;
-			serializer.TryDeserialize(data, type, ref deserialized).AssertSuccessWithoutWarnings();
-			return deserialized;
-		}
-
-		public virtual void _SetValue (string key, object value)
-		{
-			SetValue (key, value);
-		}
-
-		public static void SetValue (string key, object value)
-		{
-			if (data.ContainsKey(key))
-				data[key] = Serialize(value, value.GetType());
-			else
-				data.Add(key, Serialize(value, value.GetType()));
-		}
-
-		public static T GetValue<T> (string key, T defaultValue = default(T))
-		{
-			if (data.ContainsKey(key))
-				return (T) Deserialize(data[key], typeof(T));
-			else
-				return defaultValue;
-		}
-
-		public virtual void _RemoveData (string key)
-		{
-			RemoveData (key);
-		}
-
-		public static void RemoveData (string key)
-		{
-			data.Remove(key);
-		}
+#endif
 		
 		public virtual void Save ()
 		{
@@ -114,112 +121,186 @@ namespace TGAOSG
 				instance.Save ();
 				return;
 			}
+			debugFileContents.Clear();
 			for (int i = 0; i < savedObjectEntries.Length; i ++)
 				savedObjectEntries[i].Save ();
-			string saveFileText = "";
-			foreach (KeyValuePair<string, string> keyValuePair in data)
-				saveFileText += keyValuePair.Key + DATA_SEPARATOR + keyValuePair.Value + DATA_SEPARATOR;
-			File.WriteAllText(saveFileFullPath, saveFileText);
-			GameManager.instance.StartCoroutine(displayOnSave.DisplayRoutine ());
+			PlayerPrefsExtensions.SetInt("Scene" + KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, GameManager.instance.gameObject.scene.buildIndex);
+			StartCoroutine(displayOnSave.DisplayRoutine ());
+			if (debugMode)
+				File.WriteAllLines(debugFilePath + GameManager.accountNumber + ".txt", debugFileContents.ToArray());
 		}
 		
 		public virtual void Load ()
 		{
-			StartCoroutine(LoadRoutine ());
-		}
-
-		public virtual IEnumerator LoadRoutine ()
-		{
-			saveAndLoadObjectTypeDict.Clear();
-			SaveAndLoadObject saveAndLoadObject;
-			savedObjectEntries = new SavedObjectEntry[0];
-			for (int i = 0; i < saveAndLoadObjects.Length; i ++)
+			if (instance != this)
 			{
-				saveAndLoadObject = saveAndLoadObjects[i];
-				if (saveAndLoadObject.enabled)
-				{
-					saveAndLoadObject.Init ();
-					savedObjectEntries = savedObjectEntries.AddRange_class(saveAndLoadObject.saveEntries);
-				}
+				instance.Load ();
+				return;
 			}
-			data.Clear();
-			string saveFileText = File.ReadAllText(saveFileFullPath);
-			if (string.IsNullOrEmpty(saveFileText))
-				yield break;
-			string[] saveFileData = saveFileText.Split(new string[] { DATA_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
-			yield return new WaitForEndOfFrame();
-			for (int i = 1; i < saveFileData.Length; i ++)
-			{
-				if (i % 2 == 1)
-					data.Add(saveFileData[i - 1], saveFileData[i]);
-			}
-			for (int i = 0; i < savedObjectEntries.Length; i ++)
-				savedObjectEntries[i].Load ();
-			GameManager.instance.SetGosActive ();
+			GameManager.instance.LoadLevelImmediate (PlayerPrefs.GetInt("Scene" + KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, 0));
 		}
 		
 		public class SavedObjectEntry
 		{
 			public SaveAndLoadObject saveAndLoadObject;
 			public ISavableAndLoadable saveableAndLoadable;
-			public MemberInfo[] members = new MemberInfo[0];
-			public const string INFO_SEPARATOR = "↕";
-			public const string ACCOUNT_AND_ID_SEPERATOR = "↔";
+			public PropertyInfo[] properties;
+			public FieldInfo[] fields;
+			public const string VALUE_SEPERATOR = ", ";
+			public const string ACCOUNT_AND_ID_SEPERATOR = ": ";
+			public string PlayerPrefsExtensionsKeysPrefix
+			{
+				get
+				{
+					return GameManager.accountNumber + ACCOUNT_AND_ID_SEPERATOR + saveableAndLoadable.UniqueId + VALUE_SEPERATOR;
+				}
+			}
 			
 			public SavedObjectEntry ()
 			{
 			}
-
-			public virtual string GetKeyForMember (MemberInfo member)
-			{
-				return "" + saveableAndLoadable.UniqueId + INFO_SEPARATOR + member.Name;
-			}
 			
 			public virtual void Save ()
 			{
-				foreach (MemberInfo member in members)
+				if (SaveAndLoadManager.instance.debugMode)
+					SaveAndLoadManager.instance.debugFileContents.Add(saveableAndLoadable.Name);
+				string jsonString;
+				foreach (PropertyInfo property in properties)
 				{
-					PropertyInfo property = member as PropertyInfo;
-					if (property != null)
-						SetValue (GetKeyForMember(member), property.GetValue(saveableAndLoadable, null));
-					else
-					{
-						FieldInfo field = member as FieldInfo;
-						if (field != null)
-							SetValue (GetKeyForMember(member), field.GetValue(saveableAndLoadable));
-					}
+					jsonString = JsonUtility.ToJson(property.GetValue(saveableAndLoadable, null));
+					PlayerPrefsExtensions.SetString(PlayerPrefsExtensionsKeysPrefix + property.Name, jsonString);
+					if (SaveAndLoadManager.instance.debugMode)
+						SaveAndLoadManager.instance.debugFileContents.Add(property.Name + ACCOUNT_AND_ID_SEPERATOR + jsonString);
+				}
+				foreach (FieldInfo field in fields)
+				{
+					jsonString = JsonUtility.ToJson(field.GetValue(saveableAndLoadable));
+					PlayerPrefsExtensions.SetString(PlayerPrefsExtensionsKeysPrefix + field.Name, jsonString);
+					if (SaveAndLoadManager.instance.debugMode)
+						SaveAndLoadManager.instance.debugFileContents.Add(field.Name + ACCOUNT_AND_ID_SEPERATOR + jsonString);
 				}
 			}
 			
 			public virtual void Load ()
 			{
-				string valueString = "";
 				object value;
-				foreach (MemberInfo member in members)
+				if (!SaveAndLoadManager.instance.debugMode)
 				{
-					PropertyInfo property = member as PropertyInfo;
-					if (property != null)
+					foreach (PropertyInfo property in properties)
 					{
-						if (data.TryGetValue(GetKeyForMember(property), out valueString))
+						value = JsonUtility.FromJson(PlayerPrefs.GetString(PlayerPrefsExtensionsKeysPrefix + property.Name, JsonUtility.ToJson(property.GetValue(saveableAndLoadable, null))), property.PropertyType);
+						property.SetValue(saveableAndLoadable, value, null);
+					}
+					foreach (FieldInfo field in fields)
+					{
+						value = JsonUtility.FromJson(PlayerPrefs.GetString(PlayerPrefsExtensionsKeysPrefix + field.Name, JsonUtility.ToJson(field.GetValue(saveableAndLoadable))), field.FieldType);
+						field.SetValue(saveableAndLoadable, value);
+					}
+				}
+				else
+				{
+					SaveAndLoadManager.instance.debugFileContents.RemoveAt(0);
+					string debugFileLine;
+					int indexOfJsonString;
+					foreach (PropertyInfo property in properties)
+					{
+						debugFileLine = SaveAndLoadManager.instance.debugFileContents[0];
+						indexOfJsonString = debugFileLine.IndexOf(ACCOUNT_AND_ID_SEPERATOR);
+						if (indexOfJsonString != -1)
 						{
-							value = Deserialize(valueString, property.PropertyType);
+							value = JsonUtility.FromJson(debugFileLine.Substring(indexOfJsonString + 1), property.PropertyType);
 							property.SetValue(saveableAndLoadable, value, null);
+							SaveAndLoadManager.instance.debugFileContents.RemoveAt(0);
 						}
 					}
-					else
+					foreach (FieldInfo field in fields)
 					{
-						FieldInfo field = member as FieldInfo;
-						if (field != null)
+						debugFileLine = SaveAndLoadManager.instance.debugFileContents[0];
+						indexOfJsonString = debugFileLine.IndexOf(ACCOUNT_AND_ID_SEPERATOR);
+						if (indexOfJsonString != -1)
 						{
-							if (data.TryGetValue(GetKeyForMember(field), out valueString))
-							{
-								value = Deserialize(valueString, field.FieldType);
-								field.SetValue(saveableAndLoadable, value);
-							}
+							value = JsonUtility.FromJson(debugFileLine.Substring(indexOfJsonString + 1), field.FieldType);
+							field.SetValue(saveableAndLoadable, value);
+							SaveAndLoadManager.instance.debugFileContents.RemoveAt(0);
 						}
 					}
 				}
 			}
 		}
+	}
+}
+
+[Serializable]
+public class _ushort
+{
+	public ushort value;
+
+	public _ushort ()
+	{
+	}
+
+	public _ushort (ushort value)
+	{
+		this.value = value;
+	}
+}
+
+[Serializable]
+public class _string
+{
+	public string value = "";
+
+	public _string ()
+	{
+	}
+
+	public _string (string value)
+	{
+		this.value = value;
+	}
+}
+
+[Serializable]
+public class _bool
+{
+	public bool value;
+
+	public _bool ()
+	{
+	}
+
+	public _bool (bool value)
+	{
+		this.value = value;
+	}
+}
+
+[Serializable]
+public class _float
+{
+	public float value;
+
+	public _float ()
+	{
+	}
+
+	public _float (float value)
+	{
+		this.value = value;
+	}
+}
+
+[Serializable]
+public class _uint
+{
+	public uint value;
+
+	public _uint ()
+	{
+	}
+
+	public _uint (uint value)
+	{
+		this.value = value;
 	}
 }

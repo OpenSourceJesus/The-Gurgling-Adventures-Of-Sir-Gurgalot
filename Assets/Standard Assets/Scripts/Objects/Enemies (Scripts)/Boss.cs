@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Extensions;
+using ClassExtensions;
 
-namespace TGAOSG
+namespace TAoKR
 { 
 	public class Boss : Enemy
 	{

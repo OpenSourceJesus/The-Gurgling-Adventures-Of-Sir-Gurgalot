@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using UnityEngine.Tilemaps;
-using TGAOSG.Analytics;
+using TAoKR.Analytics;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class Hazard : MonoBehaviour, ICollisionHandler, IConfigurable
 	{
@@ -74,7 +74,7 @@ namespace TGAOSG
 					playerHurtEvent.eventName.value = "Player hurt";
 					playerHurtEvent.hurtBy.value = hazards[hazards.Length - 1].name;
 					AnalyticsManager.instance.LogEvent (playerHurtEvent);
-					if (destructable.Hp - damage <= 0)
+					if (destructable.Hp.value - damage <= 0)
 					{
 						AnalyticsManager.PlayerDiedEvent playerDiedEvent = new AnalyticsManager.PlayerDiedEvent();
 						playerDiedEvent.eventName.value = "Player died";

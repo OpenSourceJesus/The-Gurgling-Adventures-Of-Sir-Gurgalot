@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
-  setInstance: 1
   persistant: 0
   renderer: {fileID: 1490}
   cooldown: 1
@@ -497,7 +496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
-  setInstance: 1
   persistant: 0
   renderer: {fileID: 1489}
   cooldown: 2
@@ -814,7 +812,7 @@ MonoBehaviour:
   - {x: 3.4823014e+28, y: 5.62e-43}
   - {x: 0, y: 0}
   invulnerableDuration: 1
-  activateAllItems: 1
+  activateAllItems: 0
 --- !u!114 &2161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,8 +1009,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
 --- !u!1 &339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
-  setInstance: 1
   persistant: 0
   renderer: {fileID: 1493}
   cooldown: 6
@@ -2156,7 +2151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
-  setInstance: 1
   persistant: 0
   renderer: {fileID: 1491}
   cooldown: 3
@@ -2596,10 +2590,9 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -3165,10 +3158,9 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.019, g: 0.78431374, b: 0.988, a: 1}
   m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -3217,7 +3209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
-  setInstance: 1
   persistant: 0
   trs: {fileID: 866}
   camera: {fileID: 1223}
@@ -4356,7 +4347,6 @@ GameObject:
   m_Component:
   - component: {fileID: 902}
   - component: {fileID: 1502}
-  - component: {fileID: 5905001602627720257}
   m_Layer: 0
   m_Name: Hitbox Visualizer
   m_TagString: Untagged
@@ -4373,7 +4363,7 @@ Transform:
   m_GameObject: {fileID: 405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.375, y: 0.6, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 831}
   m_RootOrder: 6
@@ -4414,41 +4404,18 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 798485719
   m_SortingLayer: 1
-  m_SortingOrder: 500
-  m_Sprite: {fileID: 21300000, guid: 105da155b4f14b7ca9c5f74e9b073a74, type: 2}
+  m_SortingOrder: 300
+  m_Sprite: {fileID: 21300000, guid: 6f60ad122d3a9a24ab8db09232730205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.2, y: 2.2}
+  m_Size: {x: 0.75, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5905001602627720257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba4fab043045684ea91887d84b13c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateHotkey:
-    keys: 1a010000
-    previousKeys: 1a010000
-    isPressingKeys: 00
-  collider: {fileID: 1418}
-  colliderChecks: {x: 200, y: 200}
-  behaviour: 2
-  assetPath: Assets/Art/Textures/Hitbox Visualizers/Player Hitbox.asset
-  checkDiagonals: 1
-  outlineRadius: 5
-  textureBorder: 10
 --- !u!1 &406
 GameObject:
   m_ObjectHideFlags: 0

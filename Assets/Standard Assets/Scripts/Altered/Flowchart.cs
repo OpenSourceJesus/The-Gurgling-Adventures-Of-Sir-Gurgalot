@@ -10,11 +10,9 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Rewired;
-using TGAOSG;
-using Fungus;
-using EventHandler = Fungus.EventHandler;
+using TAoKR;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// Visual scripting controller for the Flowchart programming language.

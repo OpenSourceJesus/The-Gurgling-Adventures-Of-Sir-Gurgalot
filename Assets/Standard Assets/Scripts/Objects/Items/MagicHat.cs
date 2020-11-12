@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TGAOSG.SkillTree;
+using TAoKR.SkillTree;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[RequireComponent(typeof(Collider2D))]
 	[RequireComponent(typeof(Rigidbody2D))]
@@ -39,22 +39,22 @@ namespace TGAOSG
 		public SetZOrder[] zOrderers;
 		public LineRenderer aimHelper;
 		public int aimHelperPosCount;
-		public float Hp
+		public _float Hp
 		{
 			get
 			{
-				return 0;
+				return new _float();
 			}
 			set
 			{
 				TakeDamage (0);
 			}
 		}
-		public uint MaxHp
+		public _uint MaxHp
 		{
 			get
 			{
-				return 0;
+				return new _uint();
 			}
 			set
 			{

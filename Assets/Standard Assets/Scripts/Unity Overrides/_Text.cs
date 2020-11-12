@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using LanguageTranslation;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	[RequireComponent(typeof(Text))]

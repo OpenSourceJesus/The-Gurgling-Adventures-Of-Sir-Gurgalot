@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class AudioManager : SingletonMonoBehaviour<AudioManager>
 	{
@@ -11,24 +11,24 @@ namespace TGAOSG
 		{
 			get
 			{
-				return PlayerPrefs.GetFloat("Volume" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, 1);
+				return PlayerPrefs.GetFloat("Volume", 1);
 			}
 			set
 			{
 				AudioListener.volume = value;
-				PlayerPrefsExtensions.SetFloat("Volume" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
+				PlayerPrefsExtensions.SetFloat("Volume", value);
 			}
 		}
 		public bool Mute
 		{
 			get
 			{
-				return PlayerPrefsExtensions.GetBool("Mute" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, false);
+				return PlayerPrefsExtensions.GetBool("Mute", false);
 			}
 			set
 			{
 				AudioListener.pause = value;
-				PlayerPrefsExtensions.SetBool("Mute" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
+				PlayerPrefsExtensions.SetBool("Mute", value);
 			}
 		}
 		public SoundEffect soundEffectPrefab;

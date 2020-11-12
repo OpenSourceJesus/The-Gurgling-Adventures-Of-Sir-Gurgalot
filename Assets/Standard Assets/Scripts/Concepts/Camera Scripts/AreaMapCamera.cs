@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using UnityEngine.Tilemaps;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class AreaMapCamera : CameraScript
 	{

@@ -2,10 +2,9 @@
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
-using TGAOSG.Dialog;
-using Fungus;
+using TAoKR.Dialog;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// Writes text in a dialog box.

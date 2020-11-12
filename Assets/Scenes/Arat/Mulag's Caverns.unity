@@ -18843,7 +18843,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TAoKR.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
@@ -18944,7 +18944,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -19287,7 +19287,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664019}
-  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatThrowSpeed, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TAoKR.SkillTree.AddToMagicHatThrowSpeed, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicHatThrowSpeed
@@ -19315,7 +19315,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+  targetComponentAssemblyName: TAoKR.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
@@ -19529,7 +19529,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664021}
-  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatRange, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TAoKR.SkillTree.AddToMagicHatRange, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicHatRange
@@ -19557,7 +19557,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664020}
-  targetComponentAssemblyName: TGAOSG.SkillTree.MagicHatIsInvulnerable, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TAoKR.SkillTree.MagicHatIsInvulnerable, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: MagicHatIsInvulnerable
@@ -19585,7 +19585,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664022}
-  targetComponentAssemblyName: TGAOSG.SkillTree.ReduceMagicHatCooldown, Assembly-CSharp-firstpass,
+  targetComponentAssemblyName: TAoKR.SkillTree.ReduceMagicHatCooldown, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: ReduceMagicHatCooldown

@@ -1,4 +1,4 @@
 ﻿public interface IMoneyCarrier
 {
-	ushort Money {get; set;}
+	_ushort Money {get; set;}
 }

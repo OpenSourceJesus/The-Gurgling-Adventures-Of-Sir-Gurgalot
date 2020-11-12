@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	[ExecuteAlways]
 	public class MultiLevelSkill : Skill
 	{
-		[SaveAndLoadValue]
 		public ushort level;
+		[SaveAndLoadValue]
+		public _ushort Level
+		{
+			get
+			{
+				return new _ushort(level);
+			}
+			set
+			{
+				level = value.value;
+			}
+		}
 		public ushort maxLevel;
 		
 		public override void Learn ()

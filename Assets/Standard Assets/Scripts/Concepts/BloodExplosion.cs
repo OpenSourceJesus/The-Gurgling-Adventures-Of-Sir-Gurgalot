@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using System;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[Serializable]
 	public class BloodExplosion

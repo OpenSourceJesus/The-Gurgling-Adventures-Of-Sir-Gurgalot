@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Extensions;
+using ClassExtensions;
 using UnityEngine.UI;
 
 [ExecuteAlways]
@@ -24,7 +24,7 @@ public class BorderedSelectable : _Selectable
 
     public virtual void LateUpdate ()
     {
-        for (int i = 0; i < _graphics.Length; i ++)
+        for (int i = 0; i < _graphics.Length ; i ++)
             _graphics[i].colors = selectable.colors;
     }
 }

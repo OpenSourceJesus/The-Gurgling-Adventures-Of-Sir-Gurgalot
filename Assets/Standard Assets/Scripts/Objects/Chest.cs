@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
-using TGAOSG.Analytics;
+using ClassExtensions;
+using TAoKR.Analytics;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	public class Chest : MonoBehaviour, IConfigurable, IMoneyCarrier
@@ -53,15 +53,15 @@ namespace TGAOSG
 			}
 		}
 		public ushort goldReward;
-		public ushort Money
+		public _ushort Money
 		{
 			get
 			{
-				return goldReward;
+				return new _ushort(goldReward);
 			}
 			set
 			{
-				goldReward = value;
+				goldReward = value.value;
 			}
 		}
 		public int uniqueId;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Extensions
+namespace ClassExtensions
 {
 	public static class PlayerPrefsExtensions
 	{

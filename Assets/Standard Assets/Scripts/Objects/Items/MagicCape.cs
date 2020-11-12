@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
-using TGAOSG.SkillTree;
+using ClassExtensions;
+using TAoKR.SkillTree;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class MagicCape : Item
 	{

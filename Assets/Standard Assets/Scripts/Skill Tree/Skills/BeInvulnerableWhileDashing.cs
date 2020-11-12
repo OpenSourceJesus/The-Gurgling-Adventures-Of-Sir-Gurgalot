@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	public class BeInvulnerableWhileDashing : Skill
 	{

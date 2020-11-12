@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class AutoClickButton : MonoBehaviour
 	{

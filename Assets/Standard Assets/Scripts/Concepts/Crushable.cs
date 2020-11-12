@@ -19,7 +19,7 @@ public class Crushable : MonoBehaviour
 		{
 			if (contactNormals.Contains(-contact.normal))
 			{
-				destructable.Hp = 0;
+				destructable.Hp.value = 0;
 				destructable.Death ();
 			}
 			else

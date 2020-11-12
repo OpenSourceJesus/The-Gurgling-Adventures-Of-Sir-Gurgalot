@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	[ExecuteAlways]
 	public class LearnSkillButton : BorderedSelectable

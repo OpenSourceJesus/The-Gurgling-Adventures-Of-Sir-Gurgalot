@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus2;
+using Fungus;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
-using Menu = Fungus2.Menu;
+using Menu = Fungus.Menu;
 
-namespace TGAOSG.Dialog
+namespace TAoKR.Dialog
 {
 	public class DialogEntry : Graphs.Node
 	{

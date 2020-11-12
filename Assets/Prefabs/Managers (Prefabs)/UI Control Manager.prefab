@@ -59,7 +59,6 @@ MonoBehaviour:
     autoStopIfNotLooping: 1
   angleEffectiveness: 1
   distanceEffectiveness: 1
-  autoScrollAmount: 0.001
 --- !u!114 &7607833146739918813
 MonoBehaviour:
   m_ObjectHideFlags: 0

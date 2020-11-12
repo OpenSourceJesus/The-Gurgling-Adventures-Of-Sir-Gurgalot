@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	[RequireComponent(typeof(Button))]

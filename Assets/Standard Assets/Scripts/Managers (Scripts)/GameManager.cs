@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus2;
+using Fungus;
 using System;
 using UnityEngine.UI;
-using TGAOSG.SkillTree;
+using TAoKR.SkillTree;
 using System.IO;
-using Extensions;
+using ClassExtensions;
 using Random = UnityEngine.Random;
-using Fungus;
-using Flowchart = Fungus2.Flowchart;
 
-namespace TGAOSG
+namespace TAoKR
 {
     [ExecuteAlways]
 	public class GameManager : SingletonMonoBehaviour<GameManager>, ISavableAndLoadable
@@ -44,10 +42,36 @@ namespace TGAOSG
 		public Text moneyText;
 		public Animator screenEffectAnimator;
 		public List<GameObject> registeredGos = new List<GameObject>();
+		static _string enabledGosString;
 		[SaveAndLoadValue]
-		public static string enabledGosString;
+		public static _string EnabledGosString
+		{
+			get
+			{
+				if (enabledGosString == null)
+					enabledGosString = new _string();
+				return enabledGosString;
+			}
+			set
+			{
+				enabledGosString = value;
+			}
+		}
+		static _string disabledGosString;
 		[SaveAndLoadValue]
-		public static string disabledGosString;
+		public static _string DisabledGosString
+		{
+			get
+			{
+				if (disabledGosString == null)
+					disabledGosString = new _string();
+				return disabledGosString;
+			}
+			set
+			{
+				disabledGosString = value;
+			}
+		}
 		public static bool paused;
 		public const string STRING_SEPERATOR = "|";
 		public MenuDialog menuDialogPrefab;
@@ -103,8 +127,8 @@ namespace TGAOSG
 			#if UNITY_EDITOR
 			if (!Application.isPlaying)
 			{
-				enabledGosString = "";
-				disabledGosString = "";
+				EnabledGosString.value = "";
+				DisabledGosString.value = "";
 				return;
 			}
 			#endif
@@ -144,7 +168,7 @@ namespace TGAOSG
 				return;
 			}
 			string[] stringSeperators = { STRING_SEPERATOR };
-			string[] enabledGos = enabledGosString.Split(stringSeperators, StringSplitOptions.None);
+			string[] enabledGos = EnabledGosString.value.Split(stringSeperators, StringSplitOptions.None);
 			foreach (string goName in enabledGos)
 			{
 				for (int i = 0; i < registeredGos.Count; i ++)
@@ -156,7 +180,7 @@ namespace TGAOSG
 					}
 				}
 			}
-			string[] disabledGos = disabledGosString.Split(stringSeperators, StringSplitOptions.None);
+			string[] disabledGos = DisabledGosString.value.Split(stringSeperators, StringSplitOptions.None);
 			foreach (string goName in disabledGos)
 			{
 				GameObject go = GameObject.Find(goName);
@@ -179,16 +203,16 @@ namespace TGAOSG
 		
 		public virtual void ActivateGoForever (string goName)
 		{
-			disabledGosString = disabledGosString.Replace(STRING_SEPERATOR + goName, "");
-			if (!enabledGosString.Contains(goName))
-				enabledGosString += STRING_SEPERATOR + goName;
+			DisabledGosString.value = DisabledGosString.value.Replace(STRING_SEPERATOR + goName, "");
+			if (!EnabledGosString.value.Contains(goName))
+				EnabledGosString.value += STRING_SEPERATOR + goName;
 		}
 		
 		public virtual void DeactivateGoForever (string goName)
 		{
-			enabledGosString = enabledGosString.Replace(STRING_SEPERATOR + goName, "");
-			if (!disabledGosString.Contains(goName))
-				disabledGosString += STRING_SEPERATOR + goName;
+			EnabledGosString.value = EnabledGosString.value.Replace(STRING_SEPERATOR + goName, "");
+			if (!DisabledGosString.value.Contains(goName))
+				DisabledGosString.value += STRING_SEPERATOR + goName;
 		}
 		
 		public virtual void LoadLevel (string levelName)

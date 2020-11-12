@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	public class MagicCapeCanGlide : Skill
 	{

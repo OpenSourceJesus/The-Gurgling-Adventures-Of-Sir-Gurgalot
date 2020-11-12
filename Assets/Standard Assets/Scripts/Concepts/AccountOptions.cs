@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Extensions;
+using ClassExtensions;
 using System.IO;
 using System;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[DisallowMultipleComponent]
     public class AccountOptions : MonoBehaviour
@@ -65,7 +65,7 @@ namespace TGAOSG
 			for (int i = 0; i < registeredKeys.Length; i ++)
 			{
 				registeredKey = registeredKeys[i] + PlayerPrefsExtensions.REGISTRY_SEPERATOR;
-				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + accountNumber) || registeredKey.Contains(accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
+				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + accountNumber) || registeredKey.Contains(accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
 				{
 					hasStartedAccount = true;
 					break;
@@ -83,7 +83,7 @@ namespace TGAOSG
 
 		public virtual void Play ()
 		{
-			if (PlayerPrefs.GetInt("Scene" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, 0) > 0)
+			if (PlayerPrefs.GetInt("Scene" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, 0) > 0)
 				SaveAndLoadManager.instance.Load ();
 			else
 				GameManager.instance.LoadLevelImmediate ("Jorlinion's House");
@@ -123,7 +123,7 @@ namespace TGAOSG
 			for (int i = 0; i < registeredKeys.Length; i ++)
 			{
 				registeredKey = registeredKeys[i] + PlayerPrefsExtensions.REGISTRY_SEPERATOR;
-				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber) || registeredKey.Contains(GameManager.accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
+				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber) || registeredKey.Contains(GameManager.accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
 				{
 					if (registeredKey.Contains("Int" + PlayerPrefsExtensions.REGISTRY_SEPERATOR))
 					{
@@ -167,13 +167,18 @@ namespace TGAOSG
 
 		public virtual void EraseConfirm ()
 		{
-			GameManager.enabledGosString = "";
-			GameManager.disabledGosString = "";
-			foreach (string key in SaveAndLoadManager.data.Keys)
+			string[] registeredKeys = PlayerPrefs.GetString(PlayerPrefsExtensions.REGISTRY_KEY, "").Split(new string[] { PlayerPrefsExtensions.REGISTRY_SEPERATOR }, StringSplitOptions.RemoveEmptyEntries);
+			string registeredKey;
+			for (int i = 0; i < registeredKeys.Length; i ++)
 			{
-				if (key.IndexOf(accountNumber + SaveAndLoadManager.VALUE_SEPARATOR) == 0)
-					SaveAndLoadManager.data.Remove(key);
+				registeredKey = registeredKeys[i] + PlayerPrefsExtensions.REGISTRY_SEPERATOR;
+				if (registeredKey.Contains(SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + accountNumber) || registeredKey.Contains(accountNumber + SaveAndLoadManager.SavedObjectEntry.ACCOUNT_AND_ID_SEPERATOR))
+					PlayerPrefsExtensions.DeleteKey(registeredKey);
 			}
+			GameManager.EnabledGosString = new _string();
+			GameManager.DisabledGosString = new _string();
+			if (SaveAndLoadManager.instance.debugMode)
+				File.Delete(SaveAndLoadManager.instance.debugFilePath + accountNumber + ".txt");
 			playButtonObj.SetActive(false);
 			copyButtonObj.SetActive(false);
 			eraseButtonObj.SetActive(false);

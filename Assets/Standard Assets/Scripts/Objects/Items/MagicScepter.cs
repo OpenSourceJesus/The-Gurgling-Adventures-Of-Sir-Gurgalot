@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using System;
 using UnityEngine.UI;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class MagicScepter : Item
 	{

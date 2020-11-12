@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Extensions;
-using TGAOSG.SkillTree;
+using ClassExtensions;
+using TAoKR.SkillTree;
 using Fungus;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class Player : PlatformerController, IDestructable, IMoneyCarrier, IConfigurable, ISavableAndLoadable
 	{
@@ -43,15 +43,15 @@ namespace TGAOSG
 			}
 		}
 		public static float hp;
-		public float Hp
+		public _float Hp
 		{
 			get
 			{
-				return hp;
+				return new _float(hp);
 			}
 			set
 			{
-				hp = Mathf.Clamp(value, 0, maxHp);
+				hp = Mathf.Clamp(value.value, 0, maxHp);
 				for (int i = 0; i < hpImages.Length; i ++)
 					hpImages[i].color = hpImages[i].color.SetAlpha((hp > i).GetHashCode());
 				if (hp == 0)
@@ -60,29 +60,29 @@ namespace TGAOSG
 		}
 		public uint maxHp;
 		[MakeConfigurable]
-		public uint MaxHp
+		public _uint MaxHp
 		{
 			get
 			{
-				return maxHp;
+				return new _uint(maxHp);
 			}
 			set
 			{
-				maxHp = value;
+				maxHp = value.value;
 			}
 		}
 		static ushort money;
 		[SaveAndLoadValue]
-		public ushort Money
+		public _ushort Money
 		{
 			get
 			{
-				return money;
+				return new _ushort(money);
 			}
 			set
 			{
-				money = value;
-				//GameManager.instance.moneyPanel.SetActive(value > 0);
+				money = value.value;
+				//GameManager.instance.moneyPanel.SetActive(value.value > 0);
 			}
 		}
 		public Transform healthbar;
@@ -116,13 +116,13 @@ namespace TGAOSG
 		{
 			get
 			{
-				return Time.time - timeLastDamaged < invulnerableDuration || (MagicCape.isDashing && BeInvulnerableWhileDashing.instance.learned);
+				return Time.time - timeLastDamaged < invulnerableDuration || (MagicCape.isDashing && BeInvulnerableWhileDashing.instance.Learned.value);
 			}
 			set
 			{
 				if (value)
 				{
-					if (LongerInvulnerabilityAfterDamage.instance.learned)
+					if (LongerInvulnerabilityAfterDamage.instance.Learned.value)
 						GameManager.instance.screenEffectAnimator.SetFloat("speed", invulnerableDuration / (invulnerableDuration + LongerInvulnerabilityAfterDamage.instance.addSeconds));
 					else
 						GameManager.instance.screenEffectAnimator.SetFloat("speed", 1);
@@ -184,21 +184,21 @@ namespace TGAOSG
 				moveSpeed = value;
 			}
 		}
-// #if UNITY_EDITOR
+#if UNITY_EDITOR
 		public bool activateAllItems;
-// #endif
+#endif
 		
 		public virtual void Start ()
 		{
-// #if UNITY_EDITOR
-// 			if (activateAllItems)
+#if UNITY_EDITOR
+			if (activateAllItems)
 			{
 				itemsParent.Find("Magic Hat").gameObject.SetActive(true);
 				itemsParent.Find("Magic Cape").gameObject.SetActive(true);
 				itemsParent.Find("Magic Amulet").gameObject.SetActive(true);
 				// itemsParent.Find("Magic Scepter").gameObject.SetActive(true);
 			}
-// #endif
+#endif
 			addToVel.Clear();
 			instance = this;
 			timeLastDamaged = -Mathf.Infinity;
@@ -307,7 +307,7 @@ namespace TGAOSG
 		
 		public bool SubtractMoney (ushort amount)
 		{
-			bool output = Money >= amount;
+			bool output = Money.value >= amount;
 			if (output)
 			{
 				money -= amount;
@@ -327,7 +327,7 @@ namespace TGAOSG
 				return;
 			timeLastDamaged = Time.time;
 			Invulnerable = true;
-			Hp = hp - amount;
+			Hp = new _float(hp - amount);
 		}
 		
 		public static Player GetInstance ()

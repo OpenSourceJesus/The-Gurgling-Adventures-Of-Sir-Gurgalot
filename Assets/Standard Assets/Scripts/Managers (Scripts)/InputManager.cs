@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
-using Extensions;
+using ClassExtensions;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class InputManager : SingletonMonoBehaviour<InputManager>
 	{
 		public static Rewired.Player inputter;
 		public static bool usingJoystick;
+		public static int currentJoystickId;
 		public float defaultJoystickDeadzone;
 		public float JoystickDeadzone
 		{
 			get
 			{
-				return PlayerPrefs.GetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, defaultJoystickDeadzone);
+				return PlayerPrefs.GetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, defaultJoystickDeadzone);
 			}
 			set
 			{
-				PlayerPrefsExtensions.SetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
+				PlayerPrefsExtensions.SetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, value);
 			}
 		}
 		public float unhideCursorThreshold;
@@ -31,11 +32,11 @@ namespace TGAOSG
 			instance = this;
 			inputter = ReInput.players.GetPlayer("Player");
 			usingJoystick = ReInput.controllers.joystickCount > 0;
-			foreach (Joystick joystick in ReInput.controllers.Joysticks)
-				inputter.controllers.AddController(joystick, true);
+			if (usingJoystick)
+                currentJoystickId = ReInput.controllers.Joysticks[0].id;
 			ReInput.ControllerConnectedEvent += OnControllerConnected;
+			ReInput.ControllerDisconnectedEvent += OnControllerDisconnected;
 			ReInput.ControllerPreDisconnectEvent += OnControllerPreDisconnect;
-			ControlsMapper.Load ();
 		}
 
 		public override void Start ()
@@ -69,27 +70,29 @@ namespace TGAOSG
 		
 		public virtual void OnControllerConnected (ControllerStatusChangedEventArgs args)
 		{
-			// if (inputter.controllers.joystickCount > 0)
-			// 	return;
-			inputter.controllers.AddController(args.controller, true);
 			usingJoystick = true;
 			Cursor.visible = false;
+            currentJoystickId = args.controllerId;
 		}
+
+		public virtual void OnControllerDisconnected (ControllerStatusChangedEventArgs args)
+		{
+			usingJoystick = ReInput.controllers.joystickCount > 0;
+            if (usingJoystick)
+                currentJoystickId = ReInput.controllers.Joysticks[ReInput.controllers.joystickCount - 1].id;
+            Debug.Log(usingJoystick);
+			Cursor.visible = true;
+        }
 		
 		public virtual void OnControllerPreDisconnect (ControllerStatusChangedEventArgs args)
 		{
-			// if (inputter.controllers.joystickCount > 1)
-			// 	return;
-			inputter.controllers.RemoveController(args.controller);
-			Debug.Log(inputter.controllers.joystickCount);
-			if (inputter.controllers.joystickCount == 0)
-				usingJoystick = false;
-			Cursor.visible = true;
+			OnControllerDisconnected (args);
 		}
 		
 		public virtual void OnDestroy ()
 		{
 			ReInput.ControllerConnectedEvent -= OnControllerConnected;
+			ReInput.ControllerDisconnectedEvent -= OnControllerDisconnected;
 			ReInput.ControllerPreDisconnectEvent -= OnControllerPreDisconnect;
 			hideCursorTimer.onFinished -= HideCursor;
 		}

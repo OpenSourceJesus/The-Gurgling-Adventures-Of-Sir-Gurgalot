@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus2;
+using Fungus;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	[ExecuteAlways]
 	public class SkillTreeManager : SingletonMonoBehaviour<SkillTreeManager>

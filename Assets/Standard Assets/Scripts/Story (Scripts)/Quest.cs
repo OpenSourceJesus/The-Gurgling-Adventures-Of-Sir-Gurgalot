@@ -8,7 +8,7 @@ using System;
 using UnityEditor;
 #endif
 
-namespace TGAOSG.Story
+namespace TAoKR.Story
 {
 	public class Quest : UnlockableNode
 	{

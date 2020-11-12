@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TGAOSG;
+using TAoKR;
 
 [ExecuteAlways]
 [RequireComponent(typeof(Canvas))]

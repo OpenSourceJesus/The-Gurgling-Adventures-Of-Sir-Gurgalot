@@ -4,12 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Extensions;
+using ClassExtensions;
 
 namespace UnityEditor
 {
 	[CustomGridBrush(true, false, false, "Mirror Brush")]
-	public class MirrorBrush : GridBrushBase
+	public class MirrorBrush : UnityEditor.Tilemaps.GridBrush
 	{
 		public Vector3 origin;
 		public bool mirrorX;
@@ -48,15 +48,14 @@ namespace UnityEditor
 			AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<MirrorBrush>(), path);
 		}
 	}
-	
-	// [CustomEditor(typeof(MirrorBrush))]
-	// public class MirrorBrushEditor : GridBrushEditor
-	// {
-	// 	private MirrorBrush mirrorBrush { get { return target as MirrorBrush; } }
-	// 	public override void OnPaintSceneGUI (GridLayout grid, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
-	// 	{
-	// 		base.OnPaintSceneGUI(grid, brushTarget, position, tool, executing);
-	// 	}
-	// }
+	[CustomEditor(typeof(MirrorBrush))]
+	public class MirrorBrushEditor : UnityEditor.Tilemaps.GridBrushEditor
+	{
+		private MirrorBrush mirrorBrush { get { return target as MirrorBrush; } }
+		public override void OnPaintSceneGUI (GridLayout grid, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
+		{
+			base.OnPaintSceneGUI(grid, brushTarget, position, tool, executing);
+		}
+	}
 }
 #endif

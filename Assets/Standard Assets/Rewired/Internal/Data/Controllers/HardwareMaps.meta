@@ -1,22 +1,9 @@
 fileFormatVersion: 2
-guid: 8a059656eec88ad458f5ee68d1f179a5
-labels:
-- Input
-- Joysticks
-- Controllers
-- Rewired
-- Hotplugging
-- Keyboard
-- Mouse
-- Touch
-- InputManager
-- Control
-- Gamepad
-- Controller
-- Joystick
-- Xbox360
-- XInput
-- DirectInput
+guid: df6bec96b0e35b847a59835f613d5b80
 folderAsset: yes
+timeCreated: 1479920348
+licenseType: Free
 DefaultImporter:
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
-using TGAOSG.Analytics;
+using ClassExtensions;
+using TAoKR.Analytics;
 
-namespace TGAOSG.SkillTree
+namespace TAoKR.SkillTree
 {
 	[ExecuteAlways]
 	public class Skill : SingletonMonoBehaviour<Skill>, ISavableAndLoadable
@@ -35,10 +35,32 @@ namespace TGAOSG.SkillTree
 		public ushort cost;
 		public Transform trs;
 		public string skillName;
-		[SaveAndLoadValue]
 		public bool unlocked;
 		[SaveAndLoadValue]
+		public _bool Unlocked
+		{
+			get
+			{
+				return new _bool(unlocked);
+			}
+			set
+			{
+				unlocked = value.value;
+			}
+		}
 		public bool learned;
+		[SaveAndLoadValue]
+		public _bool Learned
+		{
+			get
+			{
+				return new _bool(learned);
+			}
+			set
+			{
+				learned = value.value;
+			}
+		}
 		
 		public virtual bool TryToLearn ()
 		{

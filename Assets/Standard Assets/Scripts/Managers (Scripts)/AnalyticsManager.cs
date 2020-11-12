@@ -5,10 +5,10 @@ using System;
 using UnityEngine.Networking;
 using System.Reflection;
 using UnityEngine.SceneManagement;
-using Extensions;
+using ClassExtensions;
 using System.IO;
 
-namespace TGAOSG.Analytics
+namespace TAoKR.Analytics
 {
 	public class AnalyticsManager : SingletonMonoBehaviour<AnalyticsManager>
 	{
@@ -31,11 +31,11 @@ namespace TGAOSG.Analytics
 		{
 			get
 			{
-				return PlayerPrefsExtensions.GetBool("Collect Analytics" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, collectAnalyticsDefault);
+				return PlayerPrefsExtensions.GetBool("Collect Analytics", collectAnalyticsDefault);
 			}
 			set
 			{
-				PlayerPrefsExtensions.SetBool("Collect Analytics" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPARATOR + GameManager.accountNumber, value);
+				PlayerPrefsExtensions.SetBool("Collect Analytics", value);
 			}
 		}
 		public bool LogAnalyticsLocally
@@ -576,7 +576,7 @@ namespace TGAOSG.Analytics
 		{
 			public override string GetValue (AnalyticsManager analyticsManager)
 			{
-				return "" + Player.instance.Money;
+				return "" + Player.instance.Money.value;
 			}
 		}
 

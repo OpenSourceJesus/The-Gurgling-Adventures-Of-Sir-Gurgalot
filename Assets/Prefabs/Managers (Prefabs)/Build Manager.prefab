@@ -45,107 +45,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handleMultipleInstances: 0
   persistant: 0
-  versionIndex: 0
-  versionNumberPrefix: 'Version number: '
   buildActions:
   - name: Windows x32
     enabled: 1
     target: 5
-    locationPath: /home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures Of Sir Gurgalot (Windows x32)
-    options: 00000800
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32)\The Adventures of Kilroy Rankins.exe
+    options: 08000000
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
-    moveCrashHandler: 1
+    moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: /home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/The
-      Gurgling Adventures Of Sir Gurgalot (Windows x32)
-    zipLocationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Windows x32).zip\x13\x13"
-    excludeScenes: 1
-    scenes:
-    - Assets/Scenes/Dialog.unity
-    - Assets/Scenes/Quests.unity
-    - Assets/Scenes/Test.unity
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x32).zip
   - name: Windows x64
     enabled: 1
     target: 19
-    locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Windows x64\x13)"
-    options: 00000800
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64)\The Adventures of Kilroy Rankins.exe
+    options: 08000000
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
-    moveCrashHandler: 1
+    moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: /home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Windows x64)
-    zipLocationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Windows x64\x13).zip"
-    excludeScenes: 1
-    scenes:
-    - Assets/Scenes/Dialog.unity
-    - Assets/Scenes/Quests.unity
-    - "Assets/Scenes/Test.unity\x13"
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Windows x64).zip
   - name: Mac
     enabled: 1
     target: 2
-    locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Mac\x13).app"
-    options: 00000800
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app
+    options: 08000000
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Mac\x13).app"
-    zipLocationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/The
-      Gurgling Adventures of Sir Gurgalot (Mac\x13).app.zip"
-    excludeScenes: 1
-    scenes:
-    - Assets/Scenes/Dialog.unity
-    - Assets/Scenes/Quests.unity
-    - Assets/Scenes/Test.unity
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins.app.zip
+  - name: Linux x32
+    enabled: 0
+    target: 17
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x32)\The Adventures of Kilroy Rankins.x86
+    options: 08000000
+    updateQuests: 0
+    updateDialog: 0
+    updateTranslations: 0
+    moveCrashHandler: 0
+    makeZip: 1
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x32)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x32).zip
   - name: Linux x64
     enabled: 1
     target: 24
-    locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64)"
-    options: 00000800
+    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)\The Adventures of Kilroy Rankins.x86_64
+    options: 08000000
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64)"
-    zipLocationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64).zip"
-    excludeScenes: 1
-    scenes:
-    - Assets/Scenes/Dialog.unity
-    - Assets/Scenes/Quests.unity
-    - Assets/Scenes/Test.unity
-  - name: Thurengard Arena Only (Linux x64)
-    enabled: 0
-    target: 24
-    locationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64)"
-    options: 04000000
-    updateQuests: 0
-    updateDialog: 0
-    updateTranslations: 0
-    moveCrashHandler: 0
-    makeZip: 0
-    directoryToZip: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64)"
-    zipLocationPath: "/home/gileadcosman/The Gurgling Adventures Of Sir Gurgalot/Builds/Dev/\x13The
-      Gurgling Adventures of Sir Gurgalot (Linux x64).zip"
-    excludeScenes: 0
-    scenes:
-    - Assets/Scenes/Nazur/Thurengard Arena.unity
+    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64)
+    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
+      Adventures of Kilroy Rankins (Linux x64).zip
+  versionIndex: 0
+  versionNumberPrefix: 'Version number: '
   versionNumberText: {fileID: 0}
   buildManagerPrefab: {fileID: 8631073831190617669}
   configurationManagerPrefab: {fileID: 1979, guid: 4e7670c5d61894a47b1c9615123bfb2c,

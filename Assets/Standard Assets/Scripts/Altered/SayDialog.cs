@@ -6,10 +6,9 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Extensions;
-using Fungus;
+using ClassExtensions;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// Display story text in a visual novel style dialog box.

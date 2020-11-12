@@ -6,31 +6,33 @@ using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.Build.Reporting;
-using TGAOSG.Story;
-using TGAOSG.Dialog;
-using TGAOSG.Analytics;
+using TAoKR.Story;
+using TAoKR.Dialog;
+using TAoKR.Analytics;
 using System.IO;
 using UnityEngine.UI;
 using LanguageTranslation;
-using Extensions;
 #endif
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	public class BuildManager : SingletonMonoBehaviour<BuildManager>
 	{
-		public int versionIndex;
-		public string versionNumberPrefix;
 #if UNITY_EDITOR
 		public BuildAction[] buildActions;
 		static BuildPlayerOptions buildOptions;
+		#endif
+		public int versionIndex;
+		public string versionNumberPrefix;
+#if UNITY_EDITOR
 		public Text versionNumberText;
 		public BuildManager buildManagerPrefab;
 		public ConfigurationManager configurationManagerPrefab;
 		public AnalyticsManager analyticsManagerPrefab;
+		public SaveAndLoadManager saveAndLoadManagerPrefab;
 		public LanguageManager languageManagerPrefab;
-#endif
+		#endif
 		
 #if UNITY_EDITOR
 		public static string[] GetScenePathsInBuild ()
@@ -85,16 +87,15 @@ namespace TGAOSG
 			public bool makeZip;
 			public string directoryToZip;
 			public string zipLocationPath;
-			public bool excludeScenes;
-			public string[] scenes;
 			
 			public virtual void Do ()
 			{
-				Directory.CreateDirectory(locationPath);
+				bool previousSaveAndLoadManagerDebugMode = GetInstance().saveAndLoadManagerPrefab.debugMode;
 				if (instance.versionNumberText != null)
 					instance.versionNumberText.text = instance.versionNumberPrefix + DateTime.Now.Date.ToString("MMdd");
 				instance.configurationManagerPrefab.canvas.gameObject.SetActive(false);
 				instance.languageManagerPrefab.canvas.gameObject.SetActive(false);
+				instance.saveAndLoadManagerPrefab.debugMode = false;
 				if (updateQuests)
 					QuestManager._UpdateQuests ();
 				if (updateDialog)
@@ -102,10 +103,7 @@ namespace TGAOSG
 				if (updateTranslations)
 					LanguageManager._SerializeTranslations ();
 				buildOptions = new BuildPlayerOptions();
-				if (excludeScenes)
-					buildOptions.scenes = GetScenePathsInBuild().RemoveEach(scenes);
-				else
-					buildOptions.scenes = scenes;
+				buildOptions.scenes = GetScenePathsInBuild();
 				buildOptions.target = target;
 				buildOptions.locationPathName = locationPath;
 				foreach (BuildOptions option in options)
@@ -113,13 +111,12 @@ namespace TGAOSG
 				BuildPipeline.BuildPlayer(buildOptions);
 				instance.configurationManagerPrefab.canvas.gameObject.SetActive(true);
 				instance.languageManagerPrefab.canvas.gameObject.SetActive(true);
+				instance.saveAndLoadManagerPrefab.debugMode = previousSaveAndLoadManagerDebugMode;
 				AssetDatabase.Refresh();
 				if (moveCrashHandler)
 				{
 					string extrasPath = locationPath + Path.DirectorySeparatorChar + "Extras";
-					string crashHandlerFileName = "UnityCrashHandler32.exe";
-					if (target == BuildTarget.StandaloneWindows64)
-						crashHandlerFileName = "UnityCrashHandler64.exe";
+					string crashHandlerFileName = "UnityCrashHandler64.exe";
 					if (!Directory.Exists(extrasPath))
 						Directory.CreateDirectory(extrasPath);
 					else if (File.Exists(extrasPath + Path.DirectorySeparatorChar + crashHandlerFileName))

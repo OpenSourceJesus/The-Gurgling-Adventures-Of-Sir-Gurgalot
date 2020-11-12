@@ -271,10 +271,10 @@ MonoBehaviour:
         sourceAxisRange: 1
         invert: 0
         axisDeadZone: .0500000007
-        calibrateAxis: 1
+        calibrateAxis: 0
         axisZero: 0
-        axisMin: 0
-        axisMax: .995999992
+        axisMin: -1
+        axisMax: 1
         axisInfo:
           _dataFormat: 0
           _excludeFromPolling: 0
@@ -291,9 +291,9 @@ MonoBehaviour:
         sourceAxisRange: 2
         invert: 1
         axisDeadZone: .0500000007
-        calibrateAxis: 1
+        calibrateAxis: 0
         axisZero: 0
-        axisMin: -.995999992
+        axisMin: 0
         axisMax: 0
         axisInfo:
           _dataFormat: 0

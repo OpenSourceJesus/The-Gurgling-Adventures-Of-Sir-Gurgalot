@@ -6,15 +6,15 @@ using IBM.Watson.DeveloperCloud.Logging;
 using IBM.Watson.DeveloperCloud.Utilities;
 using IBM.Watson.DeveloperCloud.Connection;
 using System;
-using TGAOSG;
-using Extensions;
+using TAoKR;
+using ClassExtensions;
 using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
-using Fungus2;
-using Menu = Fungus2.Menu;
+using Fungus;
+using Menu = Fungus.Menu;
 #endif
 
 namespace LanguageTranslation
@@ -110,7 +110,7 @@ namespace LanguageTranslation
 			return null;
 		}
 
-#if UNITY_EDITOR
+		#if UNITY_EDITOR
 		[MenuItem("Language/Serialize Translations")]
 		public static void _SerializeTranslations ()
 		{
@@ -214,7 +214,7 @@ namespace LanguageTranslation
 			foreach (StreamWriter _fileWriter in fileWriters)
 				fileWriter.Close();
 		}
-#endif
+		#endif
 		
 		[Serializable]
 		public class Language

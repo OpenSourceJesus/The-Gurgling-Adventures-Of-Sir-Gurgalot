@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Extensions;
-using TGAOSG;
+using ClassExtensions;
+using TAoKR;
 
 public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 {
@@ -13,13 +13,14 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 	Vector2 inputDirection;
 	Vector2 previousInputDirection;
 	public Timer repeatTimer;
+	[Range(0, 1)]
 	public float angleEffectiveness;
+	[Range(0, 1)]
 	public float distanceEffectiveness;
 	_Selectable selectable;
 	bool inControlMode;
 	bool controllingWithJoystick;
 	Vector2 previousMousePosition;
-	public float autoScrollAmount;
 
 	public override void Start ()
 	{
@@ -181,19 +182,6 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		currentSelected = selectable;
 		currentSelected.selectable.Select();
 		colorMultiplier.JumpToStart ();
-		if (currentSelected.scrollbarThatMovesMe != null)
-		{
-			if (!RectExtensions.IsEncapsulating(currentSelected.container.GetRectInWorld(), currentSelected.rectTrs.GetRectInWorld(), true))
-			{
-				currentSelected.scrollbarThatMovesMe.value = 0;
-				Canvas.ForceUpdateCanvases();
-				while (!RectExtensions.IsEncapsulating(currentSelected.container.GetRectInWorld(), currentSelected.rectTrs.GetRectInWorld(), true))
-				{
-					currentSelected.scrollbarThatMovesMe.value += autoScrollAmount;
-					Canvas.ForceUpdateCanvases();
-				}
-			}
-		}
 	}
 
 	public virtual void HandleSubmitSelected ()
@@ -239,7 +227,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		if (useInputDirection)
 		{
 			Vector2 directionToSelectable = GetDirectionToSelectable(selectable);
-			attractiveness += (Vector2.Dot(inputDirection.normalized, directionToSelectable.normalized) * angleEffectiveness) - (directionToSelectable.magnitude * distanceEffectiveness);
+			attractiveness = (Vector2.Dot(inputDirection.normalized, directionToSelectable.normalized) * angleEffectiveness) - (directionToSelectable.magnitude * distanceEffectiveness);
 		}
 		return attractiveness;
 	}

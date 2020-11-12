@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class DestructableOriolus : Oriolus, IDestructable
 	{
 		public Transform healthbar;
 		public uint maxHp;
-		public uint MaxHp
+		public _uint MaxHp
 		{
 			get
 			{
-				return maxHp;
+				return new _uint(maxHp);
 			}
 			set
 			{
-				maxHp = value;
+				maxHp = value.value;
 			}
 		}
 		float hp;
-		public float Hp
+		public _float Hp
 		{
 			get
 			{
-				return hp;
+				return new _float(hp);
 			}
 			set
 			{
-				hp = Mathf.Clamp(value, 0, maxHp);
+				hp = Mathf.Clamp(value.value, 0, maxHp);
 				if (healthbar != null)
 					healthbar.localScale = new Vector3(hp / maxHp, 1);
 				if (hp == 0)
@@ -52,7 +52,7 @@ namespace TGAOSG
 
 		public virtual void TakeDamage (float amount)
 		{
-			Hp = hp - amount;
+			Hp = new _float(hp - amount);
 		}
 
 		public virtual void Bleed (Vector2 pos, Vector2 facing)

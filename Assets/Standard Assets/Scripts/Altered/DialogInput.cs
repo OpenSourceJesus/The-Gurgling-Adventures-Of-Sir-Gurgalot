@@ -3,11 +3,10 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TGAOSG;
+using TAoKR;
 using Rewired.Integration.UnityUI;
-using Fungus;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// Supported modes for clicking through a Say Dialog.

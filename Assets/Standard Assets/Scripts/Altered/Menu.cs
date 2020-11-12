@@ -4,9 +4,8 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using System.Collections.Generic;
-using Fungus;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// Displays a button in a multiple choice menu.

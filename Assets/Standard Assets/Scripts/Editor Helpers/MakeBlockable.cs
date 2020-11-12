@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteInEditMode]
 	public class MakeBlockable : MonoBehaviour

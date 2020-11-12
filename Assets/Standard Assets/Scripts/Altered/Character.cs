@@ -5,9 +5,8 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System.Collections.Generic;
 using System;
-using Fungus;
 
-namespace Fungus2
+namespace Fungus
 {
     /// <summary>
     /// A Character that can be used in dialogue via the Say, Conversation and Portrait commands.

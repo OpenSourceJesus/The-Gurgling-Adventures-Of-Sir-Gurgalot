@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TGAOSG.Story
+namespace TAoKR.Story
 {
 	public class ObjectiveGuider : MonoBehaviour
 	{

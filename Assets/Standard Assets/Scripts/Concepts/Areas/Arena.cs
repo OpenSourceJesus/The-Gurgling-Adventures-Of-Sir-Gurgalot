@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions;
+using ClassExtensions;
 using UnityEngine.UI;
 using System;
 using Random = UnityEngine.Random;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	[ExecuteAlways]
 	public class Arena : Area
@@ -95,7 +95,7 @@ namespace TGAOSG
 				}
 				else
 				{
-					Player.instance.Hp = Player.instance.maxHp;
+					Player.instance.Hp = new _float(Player.instance.maxHp);
 					score = difficulty / difficultyIncrease;
 					scoreText.text = "Score: " + score;
 					if (score > Highscore)

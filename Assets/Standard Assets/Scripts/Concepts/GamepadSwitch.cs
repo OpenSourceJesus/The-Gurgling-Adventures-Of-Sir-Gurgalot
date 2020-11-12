@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-namespace TGAOSG
+namespace TAoKR
 {
 	public class GamepadSwitch : MonoBehaviour
 	{

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Extensions;
+using ClassExtensions;
 
 [ExecuteInEditMode]
 public class SnapPosition : MonoBehaviour

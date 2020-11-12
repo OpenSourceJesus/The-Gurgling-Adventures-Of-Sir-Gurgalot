@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee8b68702321f6045994e5650c212f37, type: 3}
+  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Acid Fog
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: f690b28147c0b724a8de9c159ae0bd50, type: 3}
@@ -31,7 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1386370740661508, guid: 5547296aa8ebe704e8b7d987f5d8a234,
-    type: 3}
-  m_Flags: 4
-  m_ColliderType: 0
+  m_InstancedGameObject: {fileID: 0}
+  m_Flags: 1
+  m_ColliderType: 1
