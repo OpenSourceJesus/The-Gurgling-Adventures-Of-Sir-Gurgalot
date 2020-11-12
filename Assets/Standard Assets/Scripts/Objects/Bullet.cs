@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(_Rigidbody2D))]
 	public class Bullet : Hazard, IMoveable, ISpawnable

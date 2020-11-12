@@ -2,7 +2,7 @@
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
-using TAoKR.Dialog;
+using TGAOSG.Dialog;
 
 namespace Fungus
 {

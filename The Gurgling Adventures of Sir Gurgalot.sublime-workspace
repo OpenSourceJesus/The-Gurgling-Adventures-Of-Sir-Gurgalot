@@ -169,7 +169,7 @@
 			],
 			[
 				"Remove",
-				"Remove_class(RectTransform element)\tRectTransform[]"
+				"Remove(RectTransform element)\tRectTransform[]"
 			],
 			[
 				"spent",

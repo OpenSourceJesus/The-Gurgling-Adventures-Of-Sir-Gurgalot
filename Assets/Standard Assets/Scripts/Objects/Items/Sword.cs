@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
-using TAoKR.Analytics;
-using TAoKR.SkillTree;
+using Extensions;
+using TGAOSG.Analytics;
+using TGAOSG.SkillTree;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Sword : Hazard
 	{

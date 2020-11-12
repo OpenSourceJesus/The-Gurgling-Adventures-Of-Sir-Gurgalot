@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Boss5 : Boss
 	{

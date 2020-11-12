@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class GameplayCamera : CameraScript
 	{
@@ -65,8 +65,8 @@ namespace TAoKR
 			{
 				minDiff = worldViewRect.min - rect.min;
 				maxDiff = rect.max - worldViewRect.max;
-				minDiff = minDiff.ClampVectorComponents(Vector2.zero, VectorExtensions.INFINITE);
-				maxDiff = maxDiff.ClampVectorComponents(Vector2.zero, VectorExtensions.INFINITE);
+				minDiff = minDiff.ClampComponents(Vector2.zero, VectorExtensions.INFINITE2);
+				maxDiff = maxDiff.ClampComponents(Vector2.zero, VectorExtensions.INFINITE2);
 				worldViewRect.center += maxDiff - minDiff;
 			}
 			return output;

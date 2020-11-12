@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.Tilemaps;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class GraphicsBlocker : MonoBehaviour, IBlockable, ICollisionHandler

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.UI;
 using System;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class Arena : Area

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class PlatformerController : Platformer
 	{

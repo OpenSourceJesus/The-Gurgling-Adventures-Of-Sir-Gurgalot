@@ -10,7 +10,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Rewired;
-using TAoKR;
+using TGAOSG;
 
 namespace Fungus
 {

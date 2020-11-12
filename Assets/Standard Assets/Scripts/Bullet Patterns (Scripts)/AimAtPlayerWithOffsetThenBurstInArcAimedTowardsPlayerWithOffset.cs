@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[CreateAssetMenu]
 	public class AimAtPlayerWithOffsetThenBurstInArcAimedTowardsPlayerWithOffset : AimAtPlayerWithOffset
@@ -33,7 +33,7 @@ namespace TAoKR
 				yield break;
 			float bulletDirection = (Player.instance.trs.position - bullet.trs.position).GetFacingAngle();
 			for (float splitAngle = bulletDirection - burstArc / 2 + burstOffset; splitAngle < bulletDirection + burstArc / 2 + burstOffset; splitAngle += burstArc / burstNumber)
-				Shoot (bullet.trs.position, VectorExtensions.GetVectorFromFacingAngle(splitAngle), splitBulletPrefab);
+				Shoot (bullet.trs.position, VectorExtensions.FromFacingAngle(splitAngle), splitBulletPrefab);
 			ObjectPool.instance.Despawn(bullet.PrefabIndex, bullet.gameObject, bullet.trs);
 		}
 	}

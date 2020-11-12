@@ -13,9 +13,9 @@ using UnityEngine.Serialization;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TAoKR;
-using ClassExtensions;
-using InputManager = TAoKR.InputManager;
+using TGAOSG;
+using Extensions;
+using InputManager = TGAOSG.InputManager;
 
 namespace Rewired.Integration.UnityUI {
 	
@@ -700,7 +700,7 @@ namespace Rewired.Integration.UnityUI {
 			if(!allow) return false; // movement not allowed, done
 			
             // Get the axis move event
-			AxisEventData axisEventData = GetAxisEventData(movement.x, movement.y, TAoKR.InputManager.instance.JoystickDeadzone);
+			AxisEventData axisEventData = GetAxisEventData(movement.x, movement.y, TGAOSG.InputManager.instance.JoystickDeadzone);
 			if(axisEventData.moveDir == MoveDirection.None) return false; // input vector was not enough to move this cycle, done
 			
             // Execute the move

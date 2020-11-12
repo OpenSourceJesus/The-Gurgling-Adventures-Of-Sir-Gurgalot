@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.Tilemaps;
-using TAoKR.Analytics;
+using TGAOSG.Analytics;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class AmuletLaser : Laser
 	{

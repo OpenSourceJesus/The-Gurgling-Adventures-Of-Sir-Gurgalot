@@ -6,15 +6,15 @@ using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.Build.Reporting;
-using TAoKR.Story;
-using TAoKR.Dialog;
-using TAoKR.Analytics;
+using TGAOSG.Story;
+using TGAOSG.Dialog;
+using TGAOSG.Analytics;
 using System.IO;
 using UnityEngine.UI;
 using LanguageTranslation;
 #endif
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class BuildManager : SingletonMonoBehaviour<BuildManager>

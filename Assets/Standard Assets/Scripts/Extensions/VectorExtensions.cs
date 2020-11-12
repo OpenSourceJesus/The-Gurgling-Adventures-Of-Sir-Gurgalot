@@ -1,17 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TGAOSG;
 
-namespace ClassExtensions
+namespace Extensions
 {
 	public static class VectorExtensions
 	{
-		public static Vector3 NULL = new Vector3(MathfExtensions.NULL_FLOAT, MathfExtensions.NULL_FLOAT, MathfExtensions.NULL_FLOAT);
-		public static Vector3 INFINITE = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
+		public static Vector3 NULL3 = new Vector3(MathfExtensions.NULL_FLOAT, MathfExtensions.NULL_FLOAT, MathfExtensions.NULL_FLOAT);
+		public static Vector2 NULL2 = new Vector2(MathfExtensions.NULL_FLOAT, MathfExtensions.NULL_FLOAT);
+		public static Vector2Int NULL2INT = new Vector2Int(MathfExtensions.NULL_INT, MathfExtensions.NULL_INT);
+		public static Vector3Int NULL3INT = new Vector3Int(MathfExtensions.NULL_INT, MathfExtensions.NULL_INT, MathfExtensions.NULL_INT);
+		public static Vector2 INFINITE2 = new Vector2(Mathf.Infinity, Mathf.Infinity);
+		public static Vector3 INFINITE3 = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
 		
 		public static Vector3 Snap (this Vector3 v, Vector3 snap)
 		{
 			return new Vector3(MathfExtensions.SnapToInterval(v.x, snap.x), MathfExtensions.SnapToInterval(v.y, snap.y), MathfExtensions.SnapToInterval(v.z, snap.z));
+		}
+
+		public static Vector2 Snap (this Vector2 v, Vector2 snap)
+		{
+			return new Vector2(MathfExtensions.SnapToInterval(v.x, snap.x), MathfExtensions.SnapToInterval(v.y, snap.y));
 		}
 		
 		public static Vector3 Multiply (this Vector3 v1, Vector3 v2)
@@ -22,6 +32,21 @@ namespace ClassExtensions
 		public static Vector2 Multiply (this Vector2 v1, Vector2 v2)
 		{
 			return new Vector2(v1.x * v2.x, v1.y * v2.y);
+		}
+
+		public static Vector2Int Multiply (this Vector2Int v1, Vector2 v2)
+		{
+			return v1.ToVec2().Multiply(v2).ToVec2Int();
+		}
+
+		public static float Cross (this Vector2 v1, Vector2 v2)
+		{
+			return v1.x * v2.y - v1.y * v2.x;
+		}
+
+		public static float Multiply_float (this Vector2 v1, Vector2 v2)
+		{
+			return v1.x * v2.x + v1.y * v2.y;
 		}
 		
 		public static Vector3 Divide (this Vector3 v1, Vector3 v2)
@@ -38,6 +63,7 @@ namespace ClassExtensions
 		{
 			float ang = GetFacingAngle(v) + degrees;
 			ang *= Mathf.Deg2Rad;
+			// ang = MathfExtensions.RegularizeAngle(ang);
 			return new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)).normalized * v.magnitude;
 		}
 		
@@ -50,18 +76,17 @@ namespace ClassExtensions
 		
 		public static Vector2 Rotate (this Vector3 v, float degrees)
 		{
-			Vector2 output = v;
-			output = output.Rotate(degrees);
-			return output;
+			float ang = GetFacingAngle(v) + degrees;
+			ang *= Mathf.Deg2Rad;
+			// ang = MathfExtensions.RegularizeAngle(ang);
+			return new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)).normalized * v.magnitude;
 		}
-		
-		public static float GetFacingAngleBetween (this Vector2 v1, Vector2 v2)
+
+		public static Vector2 Rotate (this Vector3 v, Vector3 pivotPoint, float degrees)
 		{
-			float output = Vector3.Angle(v1, v2);
-			Vector3 cross = Vector3.Cross(v1, v2);
-			if (cross.z < 0)
-				output = -output;
-			return output;
+			float ang = GetFacingAngle(v - pivotPoint) + degrees;
+			ang *= Mathf.Deg2Rad;
+			return (Vector2) pivotPoint + (new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)).normalized * Vector2.Distance(v, pivotPoint));
 		}
 		
 		public static float GetFacingAngle (this Vector2 v)
@@ -92,17 +117,12 @@ namespace ClassExtensions
 			return new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)).normalized * from.magnitude;
 		}
 		
-		public static float GetFacingAngleDifferenceFromVector (this Vector2 v1, Vector2 v2)
-		{
-			return Vector2.Angle(v1, v2);
-		}
-		
-		public static Vector3 ClampVectorComponents (this Vector3 v, Vector3 min, Vector3 max)
+		public static Vector3 ClampComponents (this Vector3 v, Vector3 min, Vector3 max)
 		{
 			return new Vector3(Mathf.Clamp(v.x, min.x, max.x), Mathf.Clamp(v.y, min.y, max.y), Mathf.Clamp(v.z, min.z, max.z));
 		}
 		
-		public static Vector2 ClampVectorComponents (this Vector2 v, Vector2 min, Vector2 max)
+		public static Vector2 ClampComponents (this Vector2 v, Vector2 min, Vector2 max)
 		{
 			return new Vector2(Mathf.Clamp(v.x, min.x, max.x), Mathf.Clamp(v.y, min.y, max.y));
 		}
@@ -113,6 +133,17 @@ namespace ClassExtensions
 			{
 				case MathfExtensions.RoundingMethod.HalfOrLessRoundsDown:
 					return new Vector3Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z));
+				default:
+					throw new UnityException("The logic for handling the " + roundMethod.ToString() + " round method has not yet been implemented.");
+			}
+		}
+		
+		public static Vector3Int ToVec3Int (this Vector2 v, MathfExtensions.RoundingMethod roundMethod = MathfExtensions.RoundingMethod.HalfOrLessRoundsDown)
+		{
+			switch (roundMethod)
+			{
+				case MathfExtensions.RoundingMethod.HalfOrLessRoundsDown:
+					return new Vector3Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), 0);
 				default:
 					throw new UnityException("The logic for handling the " + roundMethod.ToString() + " round method has not yet been implemented.");
 			}
@@ -129,9 +160,50 @@ namespace ClassExtensions
 			}
 		}
 
+		public static Vector2Int ToVec2Int (this Vector3 v, MathfExtensions.RoundingMethod roundMethod = MathfExtensions.RoundingMethod.HalfOrLessRoundsDown)
+		{
+			switch (roundMethod)
+			{
+				case MathfExtensions.RoundingMethod.HalfOrLessRoundsDown:
+					return new Vector2Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y));
+				default:
+					throw new UnityException("The logic for handling the " + roundMethod.ToString() + " round method has not yet been implemented.");
+			}
+		}
+
+		public static Vector3 ToVec3 (this Vector4 v)
+		{
+			return new Vector3(v.x, v.y, v.z);
+		}
+
+		public static Vector3Int ToVec3Int (this Vector4 v)
+		{
+			return new Vector3Int((int) v.x, (int) v.y, (int) v.z);
+		}
+
 		public static Vector2 ToVec2 (this Vector2Int v)
 		{
 			return new Vector2(v.x, v.y);
+		}
+
+		public static Vector2 ToVec2 (this Vector3Int v)
+		{
+			return new Vector2(v.x, v.y);
+		}
+
+		public static Vector3 ToVec3 (this Vector2Int v)
+		{
+			return new Vector3(v.x, v.y);
+		}
+
+		public static Vector2Int ToVec2Int (this Vector3Int v)
+		{
+			return new Vector2Int(v.x, v.y);
+		}
+
+		public static Vector3Int ToVec3Int (this Vector2Int v)
+		{
+			return new Vector3Int(v.x, v.y, 0);
 		}
 		
 		public static Vector3 SetX (this Vector3 v, float x)
@@ -163,41 +235,188 @@ namespace ClassExtensions
         {
             return new Vector3(v.x, v.y, z);
         }
+
+        public static Vector3Int SetZ (this Vector3Int v, int z)
+        {
+            return new Vector3Int(v.x, v.y, z);
+        }
+
+        public static Vector2 SetToMinComponents (this Vector2 v, Vector2 v2)
+        {
+	        return new Vector2(Mathf.Min(v.x, v2.x), Mathf.Min(v.y, v2.y));
+        }
+
+        public static Vector2 SetToMaxComponents (this Vector2 v, Vector2 v2)
+        {
+	        return new Vector2(Mathf.Max(v.x, v2.x), Mathf.Max(v.y, v2.y));
+        }
+
+        public static Vector2Int SetToMinComponents (this Vector2Int v, Vector2Int v2)
+        {
+	        return new Vector2Int(Mathf.Min(v.x, v2.x), Mathf.Min(v.y, v2.y));
+        }
+
+        public static Vector2Int SetToMaxComponents (this Vector2Int v, Vector2Int v2)
+        {
+	        return new Vector2Int(Mathf.Max(v.x, v2.x), Mathf.Max(v.y, v2.y));
+        }
 		
-		public static Vector2 GetVectorFromFacingAngle (float angle)
+		public static Vector2 FromFacingAngle (float angle)
 		{
 			angle *= Mathf.Deg2Rad;
 			return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
 		}
+		
+		public static Vector2Int FromFacingAngle (float angle, float maxLength)
+		{
+			angle *= Mathf.Deg2Rad;
+			Vector2 actualResult = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized * maxLength;
+			// TODO: Find what actualResult is closest to
+			return actualResult.ToVec2Int();
+		}
 
-		public static Vector3 GetClosestPoint (Vector3 v, params Vector3[] points)
+		public static float Sign (Vector2 p1, Vector2 p2, Vector2 p3)
+		{
+			return (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y);
+		}
+
+		public static bool IsInTriangle (Vector2 pt, Vector2 v1, Vector2 v2, Vector2 v3)
+		{
+			float d1, d2, d3;
+			bool has_neg, has_pos;
+			d1 = Sign(pt, v1, v2);
+			d2 = Sign(pt, v2, v3);
+			d3 = Sign(pt, v3, v1);
+			has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+			has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+			return !(has_neg && has_pos);
+		}
+		
+		public static float GetFacingAngleBetween (this Vector2 v1, Vector2 v2)
+		{
+			float output = Vector3.Angle(v1, v2);
+			Vector3 cross = Vector3.Cross(v1, v2);
+			if (cross.z < 0)
+				output = -output;
+			return output;
+		}
+
+		// public static bool IsFacingAngleWithinAngleRange (Vector2Int v, AngleRange angleRange, bool equalAnglesCountsAsIn = false)
+		// {
+		// 	return new Angle(v.ToVec2().GetFacingAngle()).IsWithinAngleRange(angleRange, equalAnglesCountsAsIn);
+		// }
+
+		// public static Vector2Int Snap (Vector2Int v, Angle snap, bool searchClockwise = false)
+		// {
+		// 	Vector2Int output = (Vector2.right * v.magnitude).ToVec2Int();
+		// 	float minDegreesBetween = Mathf.Infinity;
+		// 	float degreesBetween;
+		// 	Angle currentAngle = new Angle();
+		// 	do
+		// 	{
+		// 		degreesBetween = Mathf.Abs(currentAngle.degrees - snap.degrees);
+		// 		if (minDegreesBetween > degreesBetween)
+		// 		{
+		// 			minDegreesBetween = degreesBetween;
+		// 			output = VectorExtensions.FromFacingAngle(currentAngle.degrees, v.magnitude);
+		// 		}
+		// 		currentAngle.degrees += snap.degrees;
+		// 	} while (currentAngle.degrees < 360);
+		// 	return output;
+		// }
+
+		public static Vector3 GetClosestPoint (this Vector3 v, params Vector3[] points)
 		{
 			Vector3 closestPoint = points[0];
-			Vector3 point;
+			float distanceToClosestPointSqr = (v - closestPoint).sqrMagnitude;
 			for (int i = 1; i < points.Length; i ++)
 			{
-				point = points[i];
-				if (Vector3.Distance(v, point) < Vector3.Distance(v, closestPoint))
-					closestPoint = point;
+				Vector3 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
+				{
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+					closestPoint = currentPoint;
+				}
 			}
 			return closestPoint;
 		}
 
-		public static int GetIndexOfClosestPoint (Vector3 v, params Vector3[] points)
+		public static int GetIndexOfClosestPoint (this Vector3 v, params Vector3[] points)
 		{
-			int indexOfClosestPoint = 0;
-			Vector3 closestPoint = points[0];
-			Vector3 point;
+			int output = 0;
+			float distanceToClosestPointSqr = (v - points[0]).sqrMagnitude;
 			for (int i = 1; i < points.Length; i ++)
 			{
-				point = points[i];
-				if (Vector3.Distance(v,- point) < Vector3.Distance(v, closestPoint))
+				Vector3 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
 				{
-					closestPoint = point;
-					indexOfClosestPoint = i;
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+					output = i;
 				}
 			}
-			return indexOfClosestPoint;
+			return output;
+		}
+
+		public static float GetDistanceSqrToClosestPoint (this Vector3 v, params Vector3[] points)
+		{
+			float distanceToClosestPointSqr = (v - points[0]).sqrMagnitude;
+			for (int i = 1; i < points.Length; i ++)
+			{
+				Vector3 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+			}
+			return distanceToClosestPointSqr;
+		}
+
+		public static Vector2 GetClosestPoint (this Vector2 v, params Vector2[] points)
+		{
+			Vector2 closestPoint = points[0];
+			float distanceToClosestPointSqr = (v - closestPoint).sqrMagnitude;
+			for (int i = 1; i < points.Length; i ++)
+			{
+				Vector2 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
+				{
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+					closestPoint = currentPoint;
+				}
+			}
+			return closestPoint;
+		}
+
+		public static int GetIndexOfClosestPoint (this Vector2 v, params Vector2[] points)
+		{
+			int output = 0;
+			float distanceToClosestPointSqr = (v - points[0]).sqrMagnitude;
+			for (int i = 1; i < points.Length; i ++)
+			{
+				Vector2 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
+				{
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+					output = i;
+				}
+			}
+			return output;
+		}
+
+		public static float GetDistanceSqrToClosestPoint (this Vector2 v, params Vector2[] points)
+		{
+			float distanceToClosestPointSqr = (v - points[0]).sqrMagnitude;
+			for (int i = 1; i < points.Length; i ++)
+			{
+				Vector2 currentPoint = points[i];
+				float distanceToCurrentPointSqr = (v - currentPoint).sqrMagnitude;
+				if (distanceToCurrentPointSqr < distanceToClosestPointSqr)
+					distanceToClosestPointSqr = distanceToCurrentPointSqr;
+			}
+			return distanceToClosestPointSqr;
 		}
     }
 }

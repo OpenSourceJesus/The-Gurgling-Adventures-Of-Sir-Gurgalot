@@ -11,15 +11,15 @@ public class EditorScript : MonoBehaviour
 
 	public virtual void OnEnable ()
 	{
-		EditorApplication.update += Update;
+		EditorApplication.update += DoEditorUpdate;
 	}
 
 	public virtual void OnDisable ()
 	{
-		EditorApplication.update -= Update;
+		EditorApplication.update -= DoEditorUpdate;
 	}
 
-	public virtual void Update ()
+	public virtual void DoEditorUpdate ()
 	{
 	}
 

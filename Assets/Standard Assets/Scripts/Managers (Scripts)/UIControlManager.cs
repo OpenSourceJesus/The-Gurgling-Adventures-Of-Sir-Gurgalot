@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using ClassExtensions;
-using TAoKR;
+using Extensions;
+using TGAOSG;
 
 public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 {

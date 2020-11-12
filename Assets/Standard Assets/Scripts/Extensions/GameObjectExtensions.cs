@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace ClassExtensions
+namespace Extensions
 {
 	public static class GameObjectExtensions
 	{

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
-using TAoKR.Analytics;
+using Extensions;
+using TGAOSG.Analytics;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class Chest : MonoBehaviour, IConfigurable, IMoneyCarrier

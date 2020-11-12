@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TAoKR.SkillTree
+namespace TGAOSG.SkillTree
 {
 	[ExecuteAlways]
 	public class MultiLevelSkill : Skill

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[CreateAssetMenu]
 	public class AimAtAngleAndRotate : AimWhereFacing
@@ -17,7 +17,7 @@ namespace TAoKR
 		public override void Start ()
 		{
 			base.Start ();
-			currentDir = VectorExtensions.GetVectorFromFacingAngle(initAngle);
+			currentDir = VectorExtensions.FromFacingAngle(initAngle);
 		}
 		
 		public override Vector2 GetShootDirection (Transform spawner)

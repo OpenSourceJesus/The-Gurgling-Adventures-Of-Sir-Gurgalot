@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 
-namespace TAoKR.Story
+namespace TGAOSG.Story
 {
 	[ExecuteInEditMode]
 	public class QuestManager : SingletonMonoBehaviour<QuestManager>

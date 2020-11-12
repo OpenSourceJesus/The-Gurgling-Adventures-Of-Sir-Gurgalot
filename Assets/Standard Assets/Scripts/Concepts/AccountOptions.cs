@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using ClassExtensions;
+using Extensions;
 using System.IO;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[DisallowMultipleComponent]
     public class AccountOptions : MonoBehaviour

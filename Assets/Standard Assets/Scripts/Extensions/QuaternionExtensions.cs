@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ClassExtensions
+namespace Extensions
 {
 	public static class QuaternionExtensions
 	{

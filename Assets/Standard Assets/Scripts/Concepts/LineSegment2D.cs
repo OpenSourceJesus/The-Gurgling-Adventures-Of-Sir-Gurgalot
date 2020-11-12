@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using System;
 
 [Serializable]
@@ -42,14 +42,14 @@ public class LineSegment2D
 	
 	public Vector2 GetIntersection (LineSegment2D other)
 	{
-		Vector2 output = VectorExtensions.NULL;
+		Vector2 output = VectorExtensions.NULL2;
 		float delta = A * other.B - other.A * B;
 		if (delta != 0)
 		{
 			output.x = (other.B * C - B * other.C) / delta;
 			output.y = (A * other.C - other.A * C) / delta;
 			if (!ContainsPoint(output) || !other.ContainsPoint(output))
-				output = VectorExtensions.NULL;
+				output = VectorExtensions.NULL2;
 		}
 		return output;
 	}

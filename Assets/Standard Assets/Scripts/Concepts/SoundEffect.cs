@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class SoundEffect : MonoBehaviour
 	{
@@ -73,7 +73,7 @@ namespace TAoKR
 				}
 			}
 			public Transform speakerTrs;
-			Vector3 position = VectorExtensions.NULL;
+			Vector3 position = VectorExtensions.NULL3;
 			public Vector3 Position
 			{
 				get
@@ -82,7 +82,7 @@ namespace TAoKR
 						return speakerTrs.position;
 					else
 					{
-						if (position == VectorExtensions.NULL)
+						if (position == VectorExtensions.NULL3)
 							return AudioManager.instance.soundEffectPrefab.trs.position;
 						else
 							return position;

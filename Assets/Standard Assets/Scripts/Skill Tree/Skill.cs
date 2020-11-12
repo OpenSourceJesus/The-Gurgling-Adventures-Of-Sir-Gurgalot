@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
-using TAoKR.Analytics;
+using Extensions;
+using TGAOSG.Analytics;
 
-namespace TAoKR.SkillTree
+namespace TGAOSG.SkillTree
 {
 	[ExecuteAlways]
 	public class Skill : SingletonMonoBehaviour<Skill>, ISavableAndLoadable

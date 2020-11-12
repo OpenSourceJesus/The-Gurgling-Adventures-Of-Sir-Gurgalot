@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace TAoKR.Story
+namespace TGAOSG.Story
 {
 	[CreateAssetMenu]
 	public class StoryData : SingletonScriptableObject<StoryData>

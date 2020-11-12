@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using ClassExtensions;
+using Extensions;
 
 [ExecuteAlways]
 public class _Selectable : MonoBehaviour

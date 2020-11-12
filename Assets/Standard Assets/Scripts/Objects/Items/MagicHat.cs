@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TAoKR.SkillTree;
+using TGAOSG.SkillTree;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(Collider2D))]
 	[RequireComponent(typeof(Rigidbody2D))]

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired.Integration.UnityUI;
 using UnityEngine.EventSystems;
-using ClassExtensions;
+using Extensions;
 
 [RequireComponent(typeof(Slider))]
 public class _Slider : _Selectable

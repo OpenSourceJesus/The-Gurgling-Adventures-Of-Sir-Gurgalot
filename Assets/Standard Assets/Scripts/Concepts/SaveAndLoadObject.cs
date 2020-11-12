@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.SceneManagement;
 using System.Reflection;
 using System;
-using SavedObjectEntry = TAoKR.SaveAndLoadManager.SavedObjectEntry;
+using SavedObjectEntry = TGAOSG.SaveAndLoadManager.SavedObjectEntry;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class SaveAndLoadObject : MonoBehaviour, IIdentifiable

@@ -1,6 +1,6 @@
 // using UnityEngine;
 
-// namespace ClassExtensions
+// namespace Extensions
 // {
 //     public static class CurveExtensions
 //     {

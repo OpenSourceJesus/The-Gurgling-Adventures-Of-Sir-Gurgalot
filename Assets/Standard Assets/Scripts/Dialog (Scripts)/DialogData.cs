@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace TAoKR.Dialog
+namespace TGAOSG.Dialog
 {
 	[CreateAssetMenu]
 	public class DialogData : SingletonScriptableObject<DialogData>

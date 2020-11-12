@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(Toggle))]
 	public class PlayerPrefsToggle : _Selectable

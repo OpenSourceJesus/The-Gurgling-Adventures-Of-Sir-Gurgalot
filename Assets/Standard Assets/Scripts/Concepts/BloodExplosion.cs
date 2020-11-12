@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[Serializable]
 	public class BloodExplosion
@@ -15,7 +15,7 @@ namespace TAoKR
 		public virtual void Explode (IDestructable destructable)
 		{
 			for (int i = 0; i < bloodCount; i ++)
-				ObjectPool.instance.Spawn<Spawnable>(bloodPrefab, destructable.BleedBounds.bounds.center, Quaternion.LookRotation(Vector3.forward, VectorExtensions.GetVectorFromFacingAngle(360f / bloodCount * i)));
+				ObjectPool.instance.Spawn<Spawnable>(bloodPrefab, destructable.BleedBounds.bounds.center, Quaternion.LookRotation(Vector3.forward, VectorExtensions.FromFacingAngle(360f / bloodCount * i)));
 		}
 	}
 }

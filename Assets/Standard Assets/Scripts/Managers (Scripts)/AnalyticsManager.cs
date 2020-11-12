@@ -5,10 +5,10 @@ using System;
 using UnityEngine.Networking;
 using System.Reflection;
 using UnityEngine.SceneManagement;
-using ClassExtensions;
+using Extensions;
 using System.IO;
 
-namespace TAoKR.Analytics
+namespace TGAOSG.Analytics
 {
 	public class AnalyticsManager : SingletonMonoBehaviour<AnalyticsManager>
 	{
@@ -179,7 +179,7 @@ namespace TAoKR.Analytics
 						currentLogFileLine += FILLER_CHARACTER;
 					currentLogFileLine += VALUE_SEPERATOR;
 				}
-				currentLogFileLines = currentLogFileLines.Add_class(currentLogFileLine);
+				currentLogFileLines = currentLogFileLines.Add(currentLogFileLine);
 				foreach (string line in currentLogFileLines)
 					writer.Write("\n" + line);
 			}

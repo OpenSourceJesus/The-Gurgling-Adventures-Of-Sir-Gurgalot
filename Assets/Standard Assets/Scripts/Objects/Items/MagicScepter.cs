@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using System;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class MagicScepter : Item
 	{
@@ -32,8 +32,8 @@ namespace TAoKR
 		[HideInInspector]
 		public List<TimelinePoint> timelinePoints = new List<TimelinePoint>();
 		bool inRecordMode = true;
-		Vector2 previousPlayerVel = VectorExtensions.NULL;
-		Vector2 previousPlayerPos = VectorExtensions.NULL;
+		Vector2 previousPlayerVel = VectorExtensions.NULL2;
+		Vector2 previousPlayerPos = VectorExtensions.NULL2;
 		bool canUse = true;
 		public Transform futureShadowTrs;
 		public float futureShadowDurationDifference;

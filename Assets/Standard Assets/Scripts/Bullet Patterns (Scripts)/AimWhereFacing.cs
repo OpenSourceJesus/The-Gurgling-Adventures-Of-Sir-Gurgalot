@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[CreateAssetMenu]
 	public class AimWhereFacing : BulletPattern

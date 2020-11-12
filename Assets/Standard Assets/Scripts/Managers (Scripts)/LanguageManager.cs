@@ -6,8 +6,8 @@ using IBM.Watson.DeveloperCloud.Logging;
 using IBM.Watson.DeveloperCloud.Utilities;
 using IBM.Watson.DeveloperCloud.Connection;
 using System;
-using TAoKR;
-using ClassExtensions;
+using TGAOSG;
+using Extensions;
 using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;

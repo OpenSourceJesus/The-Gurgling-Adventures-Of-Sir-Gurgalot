@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 using Fungus;
 using System;
 using UnityEngine.UI;
-using TAoKR.SkillTree;
+using TGAOSG.SkillTree;
 using System.IO;
-using ClassExtensions;
+using Extensions;
 using Random = UnityEngine.Random;
 
-namespace TAoKR
+namespace TGAOSG
 {
     [ExecuteAlways]
 	public class GameManager : SingletonMonoBehaviour<GameManager>, ISavableAndLoadable

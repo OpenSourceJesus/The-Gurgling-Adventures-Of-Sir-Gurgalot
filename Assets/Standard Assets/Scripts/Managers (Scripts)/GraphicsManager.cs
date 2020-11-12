@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class GraphicsManager : SingletonMonoBehaviour<GraphicsManager>
 	{

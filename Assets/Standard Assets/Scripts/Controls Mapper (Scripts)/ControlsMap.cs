@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TAoKR;
+using TGAOSG;
 using Rewired;
 using UnityEngine.UI;
-using InputManager = TAoKR.InputManager;
+using InputManager = TGAOSG.InputManager;
 
 public class ControlsMap
 {

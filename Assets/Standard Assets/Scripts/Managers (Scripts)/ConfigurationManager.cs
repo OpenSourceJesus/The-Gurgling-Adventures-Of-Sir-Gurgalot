@@ -7,10 +7,10 @@ using UnityEditor;
 #endif
 using System.Reflection;
 using System;
-using ClassExtensions;
+using Extensions;
 using UnityEngine.UI;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class ConfigurationManager : SingletonMonoBehaviour<ConfigurationManager>

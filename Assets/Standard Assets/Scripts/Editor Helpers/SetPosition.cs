@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteInEditMode]
 	public class SetPosition : MonoBehaviour

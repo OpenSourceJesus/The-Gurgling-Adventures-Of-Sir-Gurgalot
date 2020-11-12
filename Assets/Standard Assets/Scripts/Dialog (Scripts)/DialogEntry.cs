@@ -9,7 +9,7 @@ using UnityEditor.SceneManagement;
 #endif
 using Menu = Fungus.Menu;
 
-namespace TAoKR.Dialog
+namespace TGAOSG.Dialog
 {
 	public class DialogEntry : Graphs.Node
 	{

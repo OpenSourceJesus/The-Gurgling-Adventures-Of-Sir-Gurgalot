@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using ClassExtensions;
+using Extensions;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[RequireComponent(typeof(_Rigidbody2D))]
 	[RequireComponent(typeof(Animator))]

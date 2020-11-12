@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 
 [RequireComponent(typeof(EdgeCollider2D))]
 [ExecuteInEditMode]

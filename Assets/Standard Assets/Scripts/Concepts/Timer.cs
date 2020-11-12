@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using TAoKR;
+using TGAOSG;
 
 [Serializable]
 public class Timer

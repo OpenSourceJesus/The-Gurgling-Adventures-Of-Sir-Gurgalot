@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ClassExtensions;
+using Extensions;
 
 namespace Fungus
 {

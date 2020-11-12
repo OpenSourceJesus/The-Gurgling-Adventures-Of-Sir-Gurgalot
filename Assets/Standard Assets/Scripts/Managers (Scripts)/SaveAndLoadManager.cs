@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ClassExtensions;
+using Extensions;
 using System.Reflection;
 using UnityEngine.UI;
 using System.IO;
 using System;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	[ExecuteAlways]
 	public class SaveAndLoadManager : SingletonMonoBehaviour<SaveAndLoadManager>

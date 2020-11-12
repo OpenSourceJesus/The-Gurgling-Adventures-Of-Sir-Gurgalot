@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using ClassExtensions;
-using TAoKR.SkillTree;
+using Extensions;
+using TGAOSG.SkillTree;
 using Fungus;
 
-namespace TAoKR
+namespace TGAOSG
 {
 	public class Player : PlatformerController, IDestructable, IMoneyCarrier, IConfigurable, ISavableAndLoadable
 	{
