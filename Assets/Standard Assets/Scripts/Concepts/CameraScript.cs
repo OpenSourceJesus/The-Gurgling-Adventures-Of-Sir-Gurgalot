@@ -19,7 +19,7 @@ namespace TGAOSG
 		public override void Start ()
 		{
 			base.Start ();
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			if (!Application.isPlaying)
 			{
 				if (trs == null)
@@ -28,7 +28,7 @@ namespace TGAOSG
 					camera = GetComponent<Camera>();
 				return;
 			}
-			#endif
+#endif
 			Player.GetInstance();
 			HandlePosition ();
 			HandleViewSize ();
@@ -36,10 +36,10 @@ namespace TGAOSG
 		
 		public virtual void LateUpdate ()
 		{
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			if (!Application.isPlaying)
 				return;
-			#endif
+#endif
 			HandlePosition ();
 		}
 		

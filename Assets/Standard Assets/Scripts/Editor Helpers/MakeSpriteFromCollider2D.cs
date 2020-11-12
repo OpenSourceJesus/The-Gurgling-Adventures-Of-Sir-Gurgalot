@@ -170,8 +170,7 @@ public class MakeSpriteFromCollider2D : EditorScript
 public class MakeSpriteFromCollider2DEditor : EditorScriptEditor
 {
 }
-#endif
-#if !UNITY_EDITOR
+#else
 public class MakeSpriteFromCollider2D : EditorScript
 {
 }

@@ -27,4 +27,10 @@ public class EditorScript : MonoBehaviour
 	{
 	}
 }
+#else
+using UnityEngine;
+
+public class EditorScript : MonoBehaviour
+{
+}
 #endif

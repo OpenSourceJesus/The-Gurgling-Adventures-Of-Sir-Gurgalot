@@ -93,7 +93,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 0
+  fullscreenMode: 1
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -170,7 +170,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Dawnbreaker_Games.The_Adventures_of_Kilroy_Rankins
+    Standalone: com.DawnbreakerGames.TheGurglingAdventuresOfSirGurgalot
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
@@ -273,7 +273,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f3a23750dfaa0f0488cc2e997240dd28, type: 3}
+      m_Icon: {fileID: 2800000, guid: 6ac080e1c13940a40997307496be1037, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -576,7 +576,7 @@ PlayerSettings:
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
-    Standalone: 3
+    Standalone: 0
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
