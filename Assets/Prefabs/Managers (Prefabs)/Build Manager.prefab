@@ -49,78 +49,66 @@ MonoBehaviour:
   - name: Windows x32
     enabled: 1
     target: 5
-    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x32)\The Adventures of Kilroy Rankins.exe
-    options: 08000000
+    locationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x32)\The Gurgling Adventures Of
+      Sir Gurgalot.exe
+    options: 00000800
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x32)
-    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x32).zip
+    directoryToZip: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x32)
+    zipLocationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x32).zip
   - name: Windows x64
     enabled: 1
     target: 19
-    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x64)\The Adventures of Kilroy Rankins.exe
-    options: 08000000
+    locationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x64)\The Gurgling Adventures Of
+      Sir Gurgalot.exe
+    options: 00000800
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x64)
-    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Windows x64).zip
+    directoryToZip: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x64)
+    zipLocationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Windows x64).zip
   - name: Mac
     enabled: 1
     target: 2
-    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins.app
-    options: 08000000
+    locationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Mac)\The Gurgling Adventures Of Sir Gurgalot.app
+    options: 00000800
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins.app
-    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins.app.zip
-  - name: Linux x32
-    enabled: 0
-    target: 17
-    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x32)\The Adventures of Kilroy Rankins.x86
-    options: 08000000
-    updateQuests: 0
-    updateDialog: 0
-    updateTranslations: 0
-    moveCrashHandler: 0
-    makeZip: 1
-    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x32)
-    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x32).zip
-  - name: Linux x64
+    directoryToZip: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Mac)\The Gurgling Adventures Of Sir Gurgalot.app
+    zipLocationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Mac).zip
+  - name: Linux
     enabled: 1
     target: 24
-    locationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x64)\The Adventures of Kilroy Rankins.x86_64
-    options: 08000000
+    locationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Linux)\The Gurgling Adventures Of Sir
+      Gurgalot.x86_64
+    options: 0000080008000000
     updateQuests: 0
     updateDialog: 0
     updateTranslations: 0
     moveCrashHandler: 0
     makeZip: 1
-    directoryToZip: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x64)
-    zipLocationPath: C:\Users\cosma\Desktop\The Gurgling Adventures of Sir Gurgalot\Builds\The
-      Adventures of Kilroy Rankins (Linux x64).zip
+    directoryToZip: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Linux)
+    zipLocationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
+      Gurgling Adventures Of Sir Gurgalot (Linux).zip
   versionIndex: 0
   versionNumberPrefix: 'Version number: '
   versionNumberText: {fileID: 0}
