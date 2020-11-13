@@ -62,7 +62,7 @@ namespace TGAOSG
 			}
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			//base.Update ();
 			if (partIndex == 1)

@@ -8,8 +8,15 @@ namespace TGAOSG
 	[ExecuteAlways]
 	[RequireComponent(typeof(Camera))]
 	[DisallowMultipleComponent]
-	public class CameraScript : SingletonMonoBehaviour<CameraScript>
+	public class CameraScript : SingletonMonoBehaviour<CameraScript>, IUpdatable
 	{
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		public Transform trs;
 		public new Camera camera;
 		public Vector2 viewSize;
@@ -34,7 +41,7 @@ namespace TGAOSG
 			HandleViewSize ();
 		}
 		
-		public virtual void LateUpdate ()
+		public virtual void DoUpdate ()
 		{
 #if UNITY_EDITOR
 			if (!Application.isPlaying)

@@ -45,17 +45,16 @@ public class _Slider : _Selectable
 		base.OnEnable ();
 	}
 	
-	#if UNITY_EDITOR
-	public override void Update ()
+#if UNITY_EDITOR
+	public override void DoUpdate ()
 	{
-		base.Update ();
+		base.DoUpdate ();
 		if (!Application.isPlaying)
 			return;
-	#endif
-	#if !UNITY_EDITOR
-	public virtual void Update ()
+#else
+	public virtual void DoUpdate ()
 	{
-	#endif
+#endif
 		if (snapValues.Length > 0)
 			slider.value = MathfExtensions.GetClosestNumber(slider.value, snapValues);
 	}

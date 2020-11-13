@@ -81,7 +81,7 @@ namespace Fungus
                 componentType = ReflectionHelper.GetType(targetComponentAssemblyName);
             }
 
-            if (objComponent == null)
+            if (objComponent == null && targetObject != null && componentType != null)
             {
                 objComponent = targetObject.GetComponent(componentType);
             }

@@ -25,9 +25,9 @@ namespace TGAOSG
 			healthbar.parent.SetParent(null);
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened)
 			{
 				trs.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);

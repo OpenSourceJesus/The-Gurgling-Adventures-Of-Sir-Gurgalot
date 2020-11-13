@@ -19,9 +19,9 @@ namespace TGAOSG
 		bool isPlayingAnim;
 		bool wasPlayingAnimLastFrame;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened)
 				return;
 			trs.localScale = new Vector3(-Mathf.Sign(Player.instance.trs.position.x - trs.position.x), 1);

@@ -40,7 +40,6 @@ public class Timer
 	public bool realtime;
 	public bool pauseWhileNotFocused = true;
 	public bool autoStopIfNotLooping = true;
-	bool isFocused = true;
 
 	public virtual void Start ()
 	{
@@ -65,7 +64,7 @@ public class Timer
 		while (true)
 		{
 			justEnded = false;
-			if (!pauseWhileNotFocused || isFocused)
+			if (!pauseWhileNotFocused || GameManager.isFocused)
 			{
 				if (realtime)
 				{
@@ -92,11 +91,6 @@ public class Timer
 			if (!justEnded)
 				yield return new WaitForEndOfFrame();
 		}
-	}
-
-	public virtual void OnApplicationFocus (bool focused)
-	{
-		isFocused = focused;
 	}
 
 	public virtual void Reset ()

@@ -11,9 +11,9 @@ namespace TGAOSG
 		public int range;
 		float toPlayerX;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened)
 				return;
 			toPlayerX = Player.instance.trs.position.x - trs.position.x;

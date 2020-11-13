@@ -27,7 +27,7 @@ namespace TGAOSG
 			}
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 		}
 		

@@ -18,9 +18,9 @@ namespace TGAOSG
 		public Platformer platformer;
 		public float yDiffToPlayerTillJump;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened || Time.timeScale == 0)
 				return;
 			toPlayer = Player.instance.trs.position - trs.position;

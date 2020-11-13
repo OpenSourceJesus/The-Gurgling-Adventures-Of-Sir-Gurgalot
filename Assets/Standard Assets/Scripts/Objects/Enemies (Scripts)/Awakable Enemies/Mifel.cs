@@ -16,9 +16,9 @@ namespace TGAOSG
 		float turnAmount;
 		float idealTurnAmount;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened)
 				return;
 			fireTimer -= Time.deltaTime;

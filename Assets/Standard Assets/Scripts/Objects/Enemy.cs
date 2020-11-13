@@ -5,7 +5,7 @@ using Extensions;
 
 namespace TGAOSG
 {
-	public class Enemy : Hazard, IDestructable, IMoveable
+	public class Enemy : Hazard, IDestructable, IMoveable, IUpdatable
 	{
 		public override string Category
 		{
@@ -106,6 +106,13 @@ namespace TGAOSG
 		}
 		[HideInInspector]
 		public Vector2 healthbarCanvasOffset;
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		// public static List<Enemy> deadEnemies = new List<Enemy>();
 
 		public virtual void OnEnable ()
@@ -113,11 +120,17 @@ namespace TGAOSG
 			hp = maxHp;
 			if (healthbar != null)
 				healthbarCanvasOffset = healthbar.parent.position - trs.position;
+			GameManager.updatables = GameManager.updatables.Add(this);
 		}
 		
-		public virtual void Update ()
+		public virtual void DoUpdate ()
 		{
 			healthbar.parent.localScale = new Vector3(Mathf.Sign(trs.localScale.x), 1);
+		}
+
+		void OnDisable ()
+		{
+			GameManager.updatables = GameManager.updatables.Remove(this);
 		}
 		
 		public virtual void Death ()

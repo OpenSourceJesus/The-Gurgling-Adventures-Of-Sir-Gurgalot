@@ -24,15 +24,14 @@ namespace TGAOSG
 			toggle.isOn = PlayerPrefsExtensions.GetBool(PlayerPrefsKey, toggle.isOn);
 		}
 		
-		#if UNITY_EDITOR
-		public override void Update ()
+#if UNITY_EDITOR
+		public override void DoUpdate ()
 		{
-			base.Update ();
-		#endif
-		#if !UNITY_EDITOR
+			base.DoUpdate ();
+#else
 		public virtual void Update ()
 		{
-		#endif
+#endif
 			PlayerPrefsExtensions.SetBool(PlayerPrefsKey, toggle.isOn);
 		}
 	}

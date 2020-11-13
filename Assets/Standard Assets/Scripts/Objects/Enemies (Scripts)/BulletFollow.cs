@@ -36,9 +36,9 @@ namespace TGAOSG
 			prevDistTillDest = -Mathf.Infinity;
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			distTillDest = Vector2.Distance(trs.position, destination);
 			if (distTillDest > prevDistTillDest)
 			{

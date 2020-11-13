@@ -36,12 +36,12 @@ public class ObjectPool : SingletonMonoBehaviour<ObjectPool>
 		}
 	}
 	
-	public virtual void Update ()
+	public virtual void DoUpdate ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (!Application.isPlaying)
 			return;
-		#endif
+#endif
 		for (int i = 0; i < delayedDespawns.Count; i ++)
 		{
 			DelayedDespawn delayedDespawn = delayedDespawns[i];

@@ -50,10 +50,10 @@ namespace TGAOSG
 		{
 			base.Start ();
 			instance = this;
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			if (!Application.isPlaying)
 				return;
-			#endif
+#endif
 			boxCollider.size = worldViewRect.size;
 			trs.SetParent(null);
 		}

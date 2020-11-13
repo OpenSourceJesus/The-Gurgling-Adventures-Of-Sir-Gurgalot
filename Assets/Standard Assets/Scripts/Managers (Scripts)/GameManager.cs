@@ -80,11 +80,14 @@ namespace TGAOSG
 		[SerializeField]
 		public static List<int> identifiableIds = new List<int>();
 		public static ushort accountNumber;
+		public static IUpdatable[] updatables = new IUpdatable[0];
+		public static IUpdatable[] pausedUpdatables = new IUpdatable[0];
+		public static bool isFocused = true;
 
 		public override void Start ()
 		{
 			base.Start ();
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			// PlayerPrefs.DeleteAll();
 			if (!Application.isPlaying)
 			{
@@ -97,7 +100,7 @@ namespace TGAOSG
 				}
 				return;
 			}
-			#endif
+#endif
 			Screen.fullScreen = true;
 			DestroyAllSpawnedObjects ();
 			screenEffectAnimator.SetFloat("speed", 1);
@@ -124,14 +127,24 @@ namespace TGAOSG
 		
 		public virtual void Update ()
 		{
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			if (!Application.isPlaying)
 			{
 				EnabledGosString.value = "";
 				DisabledGosString.value = "";
 				return;
 			}
-			#endif
+#endif
+			foreach (IUpdatable updatable in updatables)
+				updatable.DoUpdate ();
+			Physics2D.Simulate(Time.deltaTime);
+			ObjectPool.instance.DoUpdate ();
+			GameplayCamera.instance.DoUpdate ();
+			HandlePausing ();
+		}
+
+		void HandlePausing ()
+		{
 			if (InputManager.inputter.GetButtonDown("Menu") && (Flowchart.instance == null || !Flowchart.instance.gameObject.activeInHierarchy) && (Obelisk.instance == null || !Obelisk.instance.canvasObj.activeInHierarchy) && !SceneManager.GetSceneByName("Skill Tree").isLoaded && !SceneManager.GetSceneByName("Main Menu").isLoaded)
 			{
 				if (!paused)
@@ -144,6 +157,39 @@ namespace TGAOSG
 					Unpause ();
 					UnloadLevel ("Pause Menu");
 				}
+			}
+		}
+
+		public virtual void OnApplicationFocus (bool isFocused)
+		{
+			GameManager.isFocused = isFocused;
+			if (isFocused)
+			{
+				foreach (IUpdatable pausedUpdatable in pausedUpdatables)
+					updatables = updatables.Add(pausedUpdatable);
+				pausedUpdatables = new IUpdatable[0];
+				// foreach (Timer runningTimer in Timer.runningInstances)
+				// 	runningTimer.pauseIfCan = false;
+				// foreach (TemporaryActiveGameObject tempActiveGo in TemporaryActiveGameObject.activeInstances)
+				// 	tempActiveGo.Do ();
+			}
+			else
+			{
+				IUpdatable updatable;
+				for (int i = 0; i < updatables.Length; i ++)
+				{
+					updatable = updatables[i];
+					if (updatable.PauseWhileUnfocused)
+					{
+						pausedUpdatables = pausedUpdatables.Add(updatable);
+						updatables = updatables.RemoveAt(i);
+						i --;
+					}
+				}
+				// foreach (Timer runningTimer in Timer.runningInstances)
+				// 	runningTimer.pauseIfCan = true;
+				// foreach (TemporaryActiveGameObject tempActiveGo in TemporaryActiveGameObject.activeInstances)
+				// 	tempActiveGo.Do ();
 			}
 		}
 		

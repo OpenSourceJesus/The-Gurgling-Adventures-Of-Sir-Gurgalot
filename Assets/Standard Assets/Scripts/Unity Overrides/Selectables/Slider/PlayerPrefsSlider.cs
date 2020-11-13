@@ -22,9 +22,9 @@ namespace TGAOSG
 			base.Awake ();
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			PlayerPrefsExtensions.SetFloat(PlayerPrefsKey, slider.value);
 		}
 	}

@@ -39,9 +39,9 @@ namespace TGAOSG
 			Destroy(gameObject, duration);
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			line.startColor = line.startColor.AddAlpha(-1f / duration * Time.deltaTime);
 			line.endColor = line.startColor.AddAlpha(-1f / duration * Time.deltaTime);
 		}

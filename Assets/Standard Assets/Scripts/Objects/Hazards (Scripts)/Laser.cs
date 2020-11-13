@@ -7,8 +7,15 @@ using UnityEngine.Tilemaps;
 namespace TGAOSG
 {
 	[RequireComponent(typeof(LineRenderer))]
-	public class Laser : Hazard, ISpawnable
+	public class Laser : Hazard, ISpawnable, IUpdatable
 	{
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		public int prefabIndex;
 		public int PrefabIndex
 		{
@@ -53,7 +60,7 @@ namespace TGAOSG
 			edgeCollider.enabled = true;
 		}
 		
-		public virtual void Update ()
+		public virtual void DoUpdate ()
 		{
 			hit = Physics2D.Raycast(trs.position, trs.up, maxLength, whatBlocksMe);
 			if (hit.collider != null)

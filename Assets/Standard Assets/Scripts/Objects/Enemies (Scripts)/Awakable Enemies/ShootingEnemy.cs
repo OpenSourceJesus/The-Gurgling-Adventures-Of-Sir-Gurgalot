@@ -12,7 +12,7 @@ namespace TGAOSG
 		{
 			get
 			{
-				return GameplayCamera.instance.worldViewRect.Expand(Vector2.one * GameplayCamera.instance.lookRange);
+				return GameplayCamera.instance.worldViewRect.Expand(Vector2.one * GameplayCamera.instance.lookRange * 2);
 			}
 		}
 		
@@ -22,11 +22,11 @@ namespace TGAOSG
 				shootEntry.bulletPattern.Start ();
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			if (!awakened || !collider.bounds.ToRect().Overlaps(RectICanShootWithin))
 				return;
-			base.Update ();
+			base.DoUpdate ();
 			foreach (ShootEntry shootEntry in shootEntries)
 				HandleShooting (shootEntry);
 		}

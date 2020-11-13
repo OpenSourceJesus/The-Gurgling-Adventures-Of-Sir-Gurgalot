@@ -19,7 +19,7 @@ namespace TGAOSG
 		float jumpCooldownTimer;
 		float toPlayerX;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			if (!awakened)
 				return;

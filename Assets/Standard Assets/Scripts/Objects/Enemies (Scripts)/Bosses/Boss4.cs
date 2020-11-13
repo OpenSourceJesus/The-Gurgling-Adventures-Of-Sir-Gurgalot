@@ -18,7 +18,7 @@ namespace TGAOSG
 		public float chargeRate;
 		float chargeTimer;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			//base.Update ();
 			if (Time.timeScale == 0)

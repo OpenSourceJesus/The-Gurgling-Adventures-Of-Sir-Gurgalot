@@ -27,9 +27,9 @@ namespace TGAOSG
 		bool shooting;
 		bool walking;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened)
 				return;
 			toPlayer = Player.instance.trs.position - trs.position;

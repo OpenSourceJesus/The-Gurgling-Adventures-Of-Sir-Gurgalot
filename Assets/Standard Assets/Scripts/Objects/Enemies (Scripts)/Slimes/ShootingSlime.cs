@@ -21,9 +21,9 @@ namespace TGAOSG
 			}
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			shootTimer -= Time.deltaTime;
 			if (!collider.bounds.ToRect().Overlaps(RectICanShootWithin))
 				return;

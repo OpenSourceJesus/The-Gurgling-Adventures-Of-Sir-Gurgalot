@@ -75,13 +75,13 @@ namespace TGAOSG
 			Destroy(portal);
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
-			#if UNITY_EDITOR
+			base.DoUpdate ();
+#if UNITY_EDITOR
 			if (Input.GetKeyDown(KeyCode.N))
 				Death();
-			#endif
+#endif
 			toPlayer = Player.instance.trs.position - trs.position;
 			HandleMovement ();
 		}

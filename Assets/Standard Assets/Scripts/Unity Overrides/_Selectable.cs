@@ -2,10 +2,18 @@
 using System.Collections;
 using UnityEngine.UI;
 using Extensions;
+using TGAOSG;
 
 [ExecuteAlways]
-public class _Selectable : MonoBehaviour
+public class _Selectable : MonoBehaviour, IUpdatable
 {
+	public bool PauseWhileUnfocused
+	{
+		get
+		{
+			return true;
+		}
+	}
 	public Canvas canvas;
 	public RectTransform canvasRectTrs;
 	#if UNITY_EDITOR
@@ -46,7 +54,7 @@ public class _Selectable : MonoBehaviour
 	
 	public virtual void OnEnable ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (!Application.isPlaying)
 		{
 			if (rectTrs == null)
@@ -55,9 +63,10 @@ public class _Selectable : MonoBehaviour
 				selectable = GetComponent<Selectable>();
 			return;
 		}
-		#endif
+#endif
 		UIControlManager.GetInstance().AddSelectable (this);
 		UpdateCanvas ();
+		GameManager.updatables = GameManager.updatables.Add(this);
 	}
 	
 	public virtual void OnDisable ()
@@ -66,10 +75,11 @@ public class _Selectable : MonoBehaviour
 		if (Application.isPlaying)
 		#endif
 		UIControlManager.instance.RemoveSelectable (this);
+		GameManager.updatables = GameManager.updatables.Remove(this);
 	}
 	
-	#if UNITY_EDITOR
-	public virtual void Update ()
+#if UNITY_EDITOR
+	public virtual void DoUpdate ()
 	{
 		if (updateCanvas)
 		{
@@ -77,5 +87,5 @@ public class _Selectable : MonoBehaviour
 			UpdateCanvas ();
 		}
 	}
-	#endif
+#endif
 }

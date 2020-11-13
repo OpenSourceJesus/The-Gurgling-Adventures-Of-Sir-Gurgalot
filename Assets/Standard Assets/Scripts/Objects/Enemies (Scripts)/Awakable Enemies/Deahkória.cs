@@ -14,9 +14,9 @@ namespace TGAOSG
 		[MakeConfigurable]
 		public float[] maxShootDestinationOffsets;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened || Time.timeScale == 0)
 				return;
 			spriteRenderer.flipX = Player.instance.trs.position.x > trs.position.x;

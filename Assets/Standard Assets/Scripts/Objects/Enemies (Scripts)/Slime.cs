@@ -64,7 +64,7 @@ namespace TGAOSG
 			//}
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			healthbar.parent.eulerAngles = Vector3.zero;
 			healthbar.parent.position = trs.position + (Vector3) healthbarCanvasOffset;

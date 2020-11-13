@@ -14,9 +14,9 @@ namespace TGAOSG
 		[MakeConfigurable]
 		public float slowDownDist;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
-			base.Update ();
+			base.DoUpdate ();
 			if (!awakened || Time.timeScale == 0)
 				return;
 			HandleMovement ();

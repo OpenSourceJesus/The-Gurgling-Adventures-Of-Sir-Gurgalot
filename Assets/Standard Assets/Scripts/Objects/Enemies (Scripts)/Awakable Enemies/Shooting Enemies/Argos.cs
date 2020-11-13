@@ -21,11 +21,11 @@ namespace TGAOSG
 		[MakeConfigurable]
 		public float facingPlayerAngleThreshold;
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			if (!awakened)
 				return;
-			base.Update ();
+			base.DoUpdate ();
 			HandleMovement ();
 			healthbar.parent.eulerAngles = Vector3.zero;
 			foreach (ShootEntry shootEntry in shootEntries)

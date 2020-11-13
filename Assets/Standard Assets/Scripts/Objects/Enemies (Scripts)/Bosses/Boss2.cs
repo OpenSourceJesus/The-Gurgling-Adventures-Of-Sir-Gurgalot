@@ -24,7 +24,7 @@ namespace TGAOSG
 			}
 		}
 		
-		public override void Update ()
+		public override void DoUpdate ()
 		{
 			//base.Update ();
 			for (int i = 0; i < laserParents.Length; i ++)
