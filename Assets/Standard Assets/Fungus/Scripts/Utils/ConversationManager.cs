@@ -1,4 +1,4 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+﻿// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using System.Collections;
@@ -14,6 +14,14 @@ namespace Fungus
     /// </summary>
     public class ConversationManager
     {
+        const string ConversationTextBodyRegex = @"((?<sayParams>[\w ""><.'-_]*?):)?(?<text>.*)\r*(\n|$)";
+
+        public struct RawConversationItem
+        {
+            public string[] sayParams;
+            public string text;
+        }
+
         protected struct ConversationItem
         {
             public string Text { get; set; }
@@ -112,16 +120,13 @@ namespace Fungus
             return sayDialog;
         }
 
-        protected virtual List<ConversationItem> Parse(string conv)
+        public static void PreParse(string conv, System.Action<RawConversationItem> itemAction)
         {
             //find SimpleScript say strings with portrait options
             //You can test regex matches here: http://regexstorm.net/tester
-            var sayRegex = new Regex(@"((?<sayParams>[\w ""><.'-_]*):)?(?<text>.*)\r*(\n|$)");
+            var sayRegex = new Regex(ConversationTextBodyRegex);
             MatchCollection sayMatches = sayRegex.Matches(conv);
 
-            var items = new List<ConversationItem>(sayMatches.Count);
-
-            Character currentCharacter = null;
             for (int i = 0; i < sayMatches.Count; i++)
             {
                 string text = sayMatches[i].Groups["text"].Value.Trim();
@@ -141,14 +146,39 @@ namespace Fungus
                 {
                     separateParams = Split(sayParams);
                 }
+                else
+                {
+                    separateParams = new string[0];
+                }
 
-                var item = CreateConversationItem(separateParams, text, currentCharacter);
+                var item = new RawConversationItem() { sayParams = separateParams, text = text };
+
+                itemAction(item);
+            }
+        }
+
+        public static List<RawConversationItem> PreParse(string conv)
+        {
+            List<RawConversationItem> retval = new List<RawConversationItem>();
+
+            PreParse(conv, (ia) => { retval.Add(ia); });
+
+            return retval;
+        }
+
+        protected virtual List<ConversationItem> Parse(string conv)
+        {
+            var items = new List<ConversationItem>();
+
+            Character currentCharacter = null;
+            PreParse(conv, (ia) =>
+            {
+                var item = CreateConversationItem(ia.sayParams, ia.text, currentCharacter);
 
                 // Previous speaking character is the default for next conversation item
                 currentCharacter = item.Character;
-
                 items.Add(item);
-            }
+            });
 
             return items;
         }
@@ -213,6 +243,8 @@ namespace Fungus
 
             // try to find the character param first, since we need to get its portrait
             int characterIndex = -1;
+            int characterParamIndexPartial = characterIndex;
+            Character partialCharacter = null;
             if (characters == null)
             {
                 PopulateCharacterCache();
@@ -222,13 +254,28 @@ namespace Fungus
             {
                 for (int j = 0; j < characters.Length; j++)
                 {
-                    if (characters[j].NameStartsWith(sayParams[i]))
+                    if (characters[j].NameMatch(sayParams[i]))
                     {
                         characterIndex = i;
                         item.Character = characters[j];
                         break;
                     }
+                    else if (characters[j].NameStartsWith(sayParams[i]))
+                    {
+                        characterParamIndexPartial = i;
+                        partialCharacter = characters[j];
+                    }
                 }
+            }
+
+            //if still no charcter was found but we found a partial we use it for backcompat but warn user
+            if(item.Character == null && partialCharacter != null)
+            {
+                Debug.LogWarning("Conversation Manager Character Partial Match; found '" + sayParams[characterParamIndexPartial] + 
+                    "' and will use " + partialCharacter.NameText + "\n Recommend modifying conversation and characters so they match exactly.");
+
+                characterIndex = characterParamIndexPartial;
+                item.Character = partialCharacter;
             }
 
             // Assume last used character if none is specified now
@@ -392,8 +439,9 @@ namespace Fungus
                 }
 
                 if (stage != null && currentCharacter != null &&
-                    (currentPortrait != currentCharacter.State.portrait || 
-                        currentPosition != currentCharacter.State.position))
+                    (currentPortrait != currentCharacter.State.portrait ||
+                        currentPosition != currentCharacter.State.position ||
+                        (currentCharacter.State.display == DisplayType.Hide && !item.Hide)))
                 {
                     var portraitOptions = new PortraitOptions(true);
                     portraitOptions.display = item.Hide ? DisplayType.Hide : DisplayType.Show;

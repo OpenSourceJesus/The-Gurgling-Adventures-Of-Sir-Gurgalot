@@ -1,4 +1,4 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEditor;
@@ -17,10 +17,9 @@ namespace Fungus.EditorUtils
         protected SerializedProperty setMenuDialogProp;
         protected SerializedProperty hideThisOptionProp;
 
-        protected virtual void OnEnable()
+        public override void OnEnable()
         {
-            if (NullTargetCheck()) // Check for an orphaned editor instance
-                return;
+            base.OnEnable();
 
             textProp = serializedObject.FindProperty("text");
             descriptionProp = serializedObject.FindProperty("description");
@@ -44,12 +43,26 @@ namespace Fungus.EditorUtils
             EditorGUILayout.PropertyField(textProp);
 
             EditorGUILayout.PropertyField(descriptionProp);
-            
+
+            EditorGUILayout.BeginHorizontal();
             BlockEditor.BlockField(targetBlockProp,
                                    new GUIContent("Target Block", "Block to call when option is selected"), 
                                    new GUIContent("<None>"), 
                                    flowchart);
-            
+            const int popupWidth = 17;
+            if(targetBlockProp.objectReferenceValue == null && GUILayout.Button("+",GUILayout.MaxWidth(popupWidth)))
+            {
+                var fw = EditorWindow.GetWindow<FlowchartWindow>();
+                var t = (Menu)target;
+                var activeFlowchart = t.GetFlowchart();
+                var newBlock = fw.CreateBlockSuppressSelect(activeFlowchart, t.ParentBlock._NodeRect.position - Vector2.down * 60);
+                targetBlockProp.objectReferenceValue = newBlock;
+                activeFlowchart.SelectedBlock = t.ParentBlock;
+            }
+            EditorGUILayout.EndHorizontal();
+
+
+
             EditorGUILayout.PropertyField(hideIfVisitedProp);
             EditorGUILayout.PropertyField(interactableProp);
             EditorGUILayout.PropertyField(setMenuDialogProp);

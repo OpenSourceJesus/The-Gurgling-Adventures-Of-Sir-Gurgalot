@@ -1,10 +1,8 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using TGAOSG;
-using Rewired.Integration.UnityUI;
 
 namespace Fungus
 {
@@ -46,7 +44,7 @@ namespace Fungus
 
         protected float ignoreClickTimer;
 
-	    protected RewiredStandaloneInputModule currentStandaloneInputModule;
+        protected StandaloneInputModule currentStandaloneInputModule;
 
         protected Writer writer;
 
@@ -83,13 +81,13 @@ namespace Fungus
 
             if (currentStandaloneInputModule == null)
             {
-	            currentStandaloneInputModule = EventSystem.current.GetComponent<RewiredStandaloneInputModule>();
+                currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
             }
 
             if (writer != null && writer.IsWriting)
             {
-	            if (InputManager.inputter.GetButtonDown("UI Submit") ||
-                    (cancelEnabled && InputManager.inputter.GetButton("UI Cancel")))
+                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
                 {
                     SetNextLineFlag();
                 }

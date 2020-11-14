@@ -1,18 +1,14 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEditor;
 using UnityEngine;
-using Rotorz.ReorderableList;
 
 namespace Fungus.EditorUtils
 {
     [CustomEditor (typeof(Character))]
     public class CharacterEditor : Editor
     {
-        protected SerializedProperty trsProp;
-        protected SerializedProperty spriteRendererProp;
-        protected SerializedProperty defaultSpriteFacingProp;
         protected SerializedProperty nameTextProp;
         protected SerializedProperty nameColorProp;
         protected SerializedProperty soundEffectProp;
@@ -23,9 +19,6 @@ namespace Fungus.EditorUtils
 
         protected virtual void OnEnable()
         {
-            trsProp = serializedObject.FindProperty ("trs");
-            spriteRendererProp = serializedObject.FindProperty ("spriteRenderer");
-            defaultSpriteFacingProp = serializedObject.FindProperty ("defaultSpriteFacing");
             nameTextProp = serializedObject.FindProperty ("nameText");
             nameColorProp = serializedObject.FindProperty ("nameColor");
             soundEffectProp = serializedObject.FindProperty ("soundEffect");
@@ -40,10 +33,8 @@ namespace Fungus.EditorUtils
             serializedObject.Update();
 
             Character t = target as Character;
+            EditorGUI.BeginChangeCheck();
 
-            EditorGUILayout.PropertyField(trsProp, new GUIContent("Transform", ""));
-            EditorGUILayout.PropertyField(spriteRendererProp, new GUIContent("Sprite Renderer", ""));
-            EditorGUILayout.PropertyField(defaultSpriteFacingProp, new GUIContent("Default Sprite Facing", ""));
             EditorGUILayout.PropertyField(nameTextProp, new GUIContent("Name Text", "Name of the character display in the dialog"));
             EditorGUILayout.PropertyField(nameColorProp, new GUIContent("Name Color", "Color of name text display in the dialog"));
             EditorGUILayout.PropertyField(soundEffectProp, new GUIContent("Sound Effect", "Sound to play when the character is talking. Overrides the setting in the Dialog."));
@@ -69,8 +60,7 @@ namespace Fungus.EditorUtils
                     GUI.DrawTexture(previewRect,characterTexture,ScaleMode.ScaleToFit,true,aspect);
             }
 
-            ReorderableListGUI.Title(new GUIContent("Portraits", "Character image sprites to display in the dialog"));
-            ReorderableListGUI.ListField(portraitsProp);
+            EditorGUILayout.PropertyField(portraitsProp, new GUIContent("Portraits", "Character image sprites to display in the dialog"), true);
 
             EditorGUILayout.HelpBox("All portrait images should use the exact same resolution to avoid positioning and tiling issues.", MessageType.Info);
 
@@ -86,7 +76,8 @@ namespace Fungus.EditorUtils
 
             EditorGUILayout.Separator();
 
-            EditorUtility.SetDirty(t);
+            if(EditorGUI.EndChangeCheck())
+                EditorUtility.SetDirty(t);
 
             serializedObject.ApplyModifiedProperties();
         }

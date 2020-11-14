@@ -1,4 +1,4 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+﻿// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 #if UNITY_5_3_OR_NEWER
@@ -14,6 +14,9 @@ namespace Fungus
     /// </summary>
     public class NarrativeLogMenu : MonoBehaviour 
     {
+        [Tooltip("Contains the overall aesthetic of each entry.")]
+        [SerializeField] protected NarrativeLogEntryDisplay entryDisplayPrefab;
+
         [Tooltip("Show the Narrative Log Menu")]
         [SerializeField] protected bool showLog = true;
 
@@ -22,6 +25,8 @@ namespace Fungus
 
         [Tooltip("A scrollable text field used for displaying conversation history.")]
         [SerializeField] protected ScrollRect narrativeLogView;
+
+        protected TextAdapter narLogViewtextAdapter = new TextAdapter();
         
         [Tooltip("The CanvasGroup containing the save menu buttons")]
         [SerializeField] protected CanvasGroup narrativeLogMenuGroup;
@@ -57,6 +62,8 @@ namespace Fungus
                 logView.SetActive(false);
                 this.enabled = false;
             }
+
+            narLogViewtextAdapter.InitFromGameObject(narrativeLogView.gameObject, true);
         }
 
         protected virtual void Start()
@@ -68,7 +75,6 @@ namespace Fungus
 
             //Clear up the lorem ipsum
             UpdateNarrativeLogText();
-
         }
 
         protected virtual void OnEnable()
@@ -89,7 +95,7 @@ namespace Fungus
             NarrativeLog.OnNarrativeAdded -= OnNarrativeAdded;
         }
 
-        protected virtual void OnNarrativeAdded()
+        protected virtual void OnNarrativeAdded(NarrativeLogEntry data)
         {
             UpdateNarrativeLogText();
         }
@@ -126,11 +132,8 @@ namespace Fungus
         {
             if (narrativeLogView.enabled)
             {
-                var historyText = narrativeLogView.GetComponentInChildren<Text>();
-                if (historyText != null)
-                {
-                    historyText.text = FungusManager.Instance.NarrativeLog.GetPrettyHistory();
-                }
+                narLogViewtextAdapter.Text = FungusManager.Instance.NarrativeLog.GetPrettyHistory();
+                
                 Canvas.ForceUpdateCanvases();
                 narrativeLogView.verticalNormalizedPosition = 0f;
                 Canvas.ForceUpdateCanvases();

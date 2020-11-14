@@ -1,4 +1,4 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
@@ -14,31 +14,8 @@ namespace Fungus
                  "Menu", 
                  "Displays a button in a multiple choice menu")]
     [AddComponentMenu("")]
-    public class Menu : Command, ILocalizable, IIdentifiable
+    public class Menu : Command, ILocalizable, IBlockCaller
     {
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-        public int uniqueId;
-        public int UniqueId
-        {
-            get
-            {
-                return uniqueId;
-            }
-            set
-            {
-                uniqueId = value;
-            }
-        }
         [Tooltip("Text to display on the menu button")]
         [TextArea()]
         [SerializeField] protected string text = "Option Text";
@@ -58,7 +35,6 @@ namespace Fungus
 
         [Tooltip("A custom Menu Dialog to use to display this menu. All subsequent Menu commands will use this dialog.")]
         [SerializeField] protected MenuDialog setMenuDialog;
-	    [SerializeField] public string entryName;
 
         [Tooltip("If true, this option will be passed to the Menu Dialogue but marked as hidden, this can be used to hide options while maintaining a Menu Shuffle.")]
         [SerializeField] protected BooleanData hideThisOption = new BooleanData(false);
@@ -119,6 +95,17 @@ namespace Fungus
             return new Color32(184, 210, 235, 255);
         }
 
+        public override bool HasReference(Variable variable)
+        {
+            return interactable.booleanRef == variable || hideThisOption.booleanRef == variable ||
+                base.HasReference(variable);
+        }
+
+        public bool MayCallBlock(Block block)
+        {
+            return block == targetBlock;
+        }
+
         #endregion
 
         #region ILocalizable implementation
@@ -145,5 +132,18 @@ namespace Fungus
         }
 
         #endregion
+
+        #region Editor caches
+#if UNITY_EDITOR
+        protected override void RefreshVariableCache()
+        {
+            base.RefreshVariableCache();
+
+            var f = GetFlowchart();
+
+            f.DetermineSubstituteVariables(text, referencedVariables);
+        }
+#endif
+        #endregion Editor caches
     }
 }

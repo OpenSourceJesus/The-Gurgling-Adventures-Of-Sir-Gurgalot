@@ -1,4 +1,4 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+﻿// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 #if UNITY_5_3_OR_NEWER
@@ -11,7 +11,7 @@ namespace Fungus
     /// <summary>
     /// Manages the Save History (a list of Save Points) and provides a set of operations for saving and loading games.
     /// 
-    /// Note WebGL and Webplayer (deprecated) save using PlayerPrefs instead of using a json file in persistent storage
+    /// Note WebGL and Webplayer (deprecated) save using playerprefs instead of using a json file in persistent storage
     /// -webgl would require additional js to force a sync of FS.syncfs
     /// -webplayer does not implement system io
     /// </summary>
@@ -235,7 +235,7 @@ namespace Fungus
         /// <summary>
         /// Deletes a previously stored Save History from persistent storage.
         /// </summary>
-        public void Delete(string saveDataKey)
+        public static void Delete(string saveDataKey)
         {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
             PlayerPrefs.DeleteKey(saveDataKey);

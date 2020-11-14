@@ -1,4 +1,4 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEditor;
@@ -15,11 +15,10 @@ namespace Fungus.EditorUtils
         protected SerializedProperty useDefaultSettingsProp;
         protected SerializedProperty fadeDurationProp;
         protected SerializedProperty waitUntilFinishedProp;
-        
-        protected virtual void OnEnable()
+
+        public override void OnEnable()
         {
-            if (NullTargetCheck()) // Check for an orphaned editor instance
-                return;
+            base.OnEnable();
 
             displayProp = serializedObject.FindProperty("display");
             stageProp = serializedObject.FindProperty("stage");

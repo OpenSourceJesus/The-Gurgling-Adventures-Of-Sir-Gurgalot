@@ -1,4 +1,4 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
@@ -18,7 +18,9 @@ namespace Fungus
         /// <summary> Continue executing the current block after calling  </summary>
         Continue,
         /// <summary> Wait until the called block finishes executing, then continue executing current block. </summary>
-        WaitUntilFinished
+        WaitUntilFinished,
+        /// <summary> Stop executing the current block before attempting to call. This allows for circular calls within the same frame </summary>
+        StopThenCall
     }
 
     /// <summary>
@@ -28,7 +30,7 @@ namespace Fungus
                  "Call", 
                  "Execute another block in the same Flowchart as the command, or in a different Flowchart.")]
     [AddComponentMenu("")]
-    public class Call : Command
+    public class Call : Command, IBlockCaller
     {
         [Tooltip("Flowchart which contains the block to execute. If none is specified then the current Flowchart is used.")]
         [SerializeField] protected Flowchart targetFlowchart;
@@ -51,8 +53,6 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            var flowchart = GetFlowchart();
-
             if (targetBlock != null)
             {
                 // Check if calling your own parent block
@@ -63,12 +63,18 @@ namespace Fungus
                     return;
                 }
 
+                if(targetBlock.IsExecuting())
+                {
+                    Debug.LogWarning(targetBlock.BlockName + " cannot be called/executed, it is already running.");
+                    Continue();
+                    return;
+                }
+
                 // Callback action for Wait Until Finished mode
                 Action onComplete = null;
                 if (callMode == CallMode.WaitUntilFinished)
                 {
                     onComplete = delegate {
-                        flowchart.SelectedBlock = ParentBlock;
                         Continue();
                     };
                 }
@@ -87,17 +93,18 @@ namespace Fungus
                 if (targetFlowchart == null ||
                     targetFlowchart.Equals(GetFlowchart()))
                 {
-                    // If the executing block is currently selected then follow the execution 
-                    // onto the next block in the inspector.
-                    if (flowchart.SelectedBlock == ParentBlock)
+                    if (callMode == CallMode.StopThenCall)
                     {
-                        flowchart.SelectedBlock = targetBlock;
+                        StopParentBlock();
                     }
-
                     StartCoroutine(targetBlock.Execute(index, onComplete));
                 }
                 else
                 {
+                    if (callMode == CallMode.StopThenCall)
+                    {
+                        StopParentBlock();
+                    }
                     // Execute block in another Flowchart
                     targetFlowchart.ExecuteBlock(targetBlock, index, onComplete);
                 }
@@ -134,18 +141,7 @@ namespace Fungus
                 summary = targetBlock.BlockName;
             }
 
-            switch (callMode)
-            {
-            case CallMode.Stop:
-                summary += " : Stop";
-                break;
-            case CallMode.Continue:
-                summary += " : Continue";
-                break;
-            case CallMode.WaitUntilFinished:
-                summary += " : Wait";
-                break;
-            }
+            summary += " : " + callMode.ToString();
 
             return summary;
         }
@@ -153,6 +149,16 @@ namespace Fungus
         public override Color GetButtonColor()
         {
             return new Color32(235, 191, 217, 255);
+        }
+
+        public override bool HasReference(Variable variable)
+        {
+            return startLabel.stringRef == variable || base.HasReference(variable);
+        }
+
+        public bool MayCallBlock(Block block)
+        {
+            return block == targetBlock;
         }
 
         #endregion

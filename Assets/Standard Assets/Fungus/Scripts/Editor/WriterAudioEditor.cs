@@ -1,9 +1,8 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEditor;
 using UnityEngine;
-using Rotorz.ReorderableList;
 
 namespace Fungus.EditorUtils
 {
@@ -41,8 +40,7 @@ namespace Fungus.EditorUtils
             EditorGUILayout.PropertyField(audioModeProp);
             if ((AudioMode)audioModeProp.enumValueIndex == AudioMode.Beeps)
             {
-                ReorderableListGUI.Title(new GUIContent("Beep Sounds", "A list of beep sounds to play at random"));
-                ReorderableListGUI.ListField(beepSoundsProp);
+                EditorGUILayout.PropertyField(beepSoundsProp, new GUIContent("Beep Sounds", "A list of beep sounds to play at random"),true);
             }
             else
             {

@@ -80,7 +80,6 @@ namespace TGAOSG
 			usingJoystick = ReInput.controllers.joystickCount > 0;
             if (usingJoystick)
                 currentJoystickId = ReInput.controllers.Joysticks[ReInput.controllers.joystickCount - 1].id;
-            Debug.Log(usingJoystick);
 			Cursor.visible = true;
         }
 		

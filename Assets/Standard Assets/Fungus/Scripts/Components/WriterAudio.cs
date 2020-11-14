@@ -1,4 +1,4 @@
-// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 ﻿using UnityEngine;
@@ -228,7 +228,7 @@ namespace Fungus
                 {
                     if (nextBeepTime < Time.realtimeSinceStartup)
                     {
-                        targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count - 1)];
+                        targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count)];
 
                         if (targetAudioSource.clip != null)
                         {
@@ -259,7 +259,11 @@ namespace Fungus
             targetAudioSource.clip = voiceOverClip;
             targetAudioSource.Play();
         }
-            
+
+        public void OnAllWordsWritten()
+        {
+        }
+
         #endregion
     }
 }

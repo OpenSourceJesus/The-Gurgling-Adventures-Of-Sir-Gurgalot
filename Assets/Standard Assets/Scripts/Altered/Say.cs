@@ -1,8 +1,7 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
-using TGAOSG.Dialog;
 
 namespace Fungus
 {
@@ -13,31 +12,8 @@ namespace Fungus
                  "Say", 
                  "Writes text in a dialog box.")]
     [AddComponentMenu("")]
-    public class Say : Command, ILocalizable, IIdentifiable
+    public class Say : Command, ILocalizable
     {
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-        public int uniqueId;
-        public int UniqueId
-        {
-            get
-            {
-                return uniqueId;
-            }
-            set
-            {
-                uniqueId = value;
-            }
-        }
         // Removed this tooltip as users's reported it obscures the text box
         [TextArea(5,10)]
         [SerializeField] public string storyText = "";
@@ -76,9 +52,7 @@ namespace Fungus
         [SerializeField] protected bool waitForVO = false;
 
         //add wait for vo that overrides stopvo
-	    
-	    [SerializeField] public string entryName;
-	    
+
         [Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
         [SerializeField] protected SayDialog setSayDialog;
 

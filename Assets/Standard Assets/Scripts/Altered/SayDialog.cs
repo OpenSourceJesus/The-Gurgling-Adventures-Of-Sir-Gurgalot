@@ -1,4 +1,4 @@
-﻿// This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+// This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using UnityEngine;
@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Extensions;
 
 namespace Fungus
 {
@@ -26,11 +25,44 @@ namespace Fungus
 
         [Tooltip("The name text UI object")]
         [SerializeField] protected Text nameText;
-        public virtual Text NameText { get { return nameText; } }
+        [Tooltip("TextAdapter will search for appropriate output on this GameObject if nameText is null")]
+        [SerializeField] protected GameObject nameTextGO;
+        protected TextAdapter nameTextAdapter = new TextAdapter();
+        public virtual string NameText
+        {
+            get
+            {
+                return nameTextAdapter.Text;
+            }
+            set
+            {
+                nameTextAdapter.Text = value;
+            }
+        }
 
         [Tooltip("The story text UI object")]
         [SerializeField] protected Text storyText;
-        public virtual Text StoryText { get { return storyText; } }
+        [Tooltip("TextAdapter will search for appropriate output on this GameObject if storyText is null")]
+        [SerializeField] protected GameObject storyTextGO;
+        protected TextAdapter storyTextAdapter = new TextAdapter();
+        public virtual string StoryText
+        {
+            get
+            {
+                return storyTextAdapter.Text;
+            }
+            set
+            {
+                storyTextAdapter.Text = value;
+            }
+        }
+        public virtual RectTransform StoryTextRectTrans
+        {
+            get
+            {
+                return storyText != null ? storyText.rectTransform : storyTextGO.GetComponent<RectTransform>();
+            }
+        }
 
         [Tooltip("The character UI object")]
         [SerializeField] protected Image characterImage;
@@ -61,12 +93,7 @@ namespace Fungus
         protected StringSubstituter stringSubstituter = new StringSubstituter();
 
 		// Cache active Say Dialogs to avoid expensive scene search
-	    protected static List<SayDialog> activeSayDialogs = new List<SayDialog>();
-	    
-	    public Transform speakingCharacterPortraitTrs;
-	    Vector2 currentSpeakerFacing;
-        float characterPortraitAspectRatio;
-        Vector2 portraitScaleAmount;
+		protected static List<SayDialog> activeSayDialogs = new List<SayDialog>();
 
 		protected virtual void Awake()
 		{
@@ -74,7 +101,10 @@ namespace Fungus
 			{
 				activeSayDialogs.Add(this);
 			}
-		}
+
+            nameTextAdapter.InitFromGameObject(nameText != null ? nameText.gameObject : nameTextGO);
+            storyTextAdapter.InitFromGameObject(storyText != null ? storyText.gameObject : storyTextGO);
+        }
 
 		protected virtual void OnDestroy()
 		{
@@ -145,7 +175,7 @@ namespace Fungus
             // Start method of another component, so check that no image has been set yet.
             // Same for nameText.
 
-            if (nameText != null && nameText.text == "")
+            if (NameText == "")
             {
                 SetCharacterName("", Color.white);
             }
@@ -161,20 +191,9 @@ namespace Fungus
             UpdateAlpha();
 
             if (continueButton != null)
+            {
                 continueButton.gameObject.SetActive( GetWriter().IsWaitingForInput );
-	        
-	        if (speakingCharacter != null && speakingCharacter.trs != null && speakingCharacter.defaultSpriteFacing != Vector2.zero)
-	        {
-		        currentSpeakerFacing.x = Mathf.Sign((1f - speakingCharacter.spriteRenderer.flipX.GetHashCode() - .5f) * speakingCharacter.trs.localScale.x * speakingCharacter.defaultSpriteFacing.x);
-		        currentSpeakerFacing.y = Mathf.Sign((1f - speakingCharacter.spriteRenderer.flipY.GetHashCode() - .5f) * speakingCharacter.trs.localScale.y * speakingCharacter.defaultSpriteFacing.y);
-                portraitScaleAmount = Vector2.one;
-                if (speakingCharacter.portraitNeedsScaling)
-                {
-                    characterPortraitAspectRatio = (float) currentCharacterImage.texture.width / currentCharacterImage.texture.height;
-                    portraitScaleAmount = new Vector2(characterPortraitAspectRatio, 1f / characterPortraitAspectRatio);
-                }
-		        speakingCharacterPortraitTrs.localScale = (Vector3) currentSpeakerFacing.Multiply(portraitScaleAmount);
-	        }
+            }
         }
 
         protected virtual void UpdateAlpha()
@@ -216,10 +235,7 @@ namespace Fungus
 
         protected virtual void ClearStoryText()
         {
-            if (storyText != null)
-            {
-                storyText.text = "";
-            }
+            StoryText = "";
         }
 
         #region Public members
@@ -317,9 +333,9 @@ namespace Fungus
                 {
                     characterImage.gameObject.SetActive(false);
                 }
-                if (nameText != null)
+                if (NameText != null)
                 {
-                    nameText.text = "";
+                    NameText = "";
                 }
                 speakingCharacter = null;
             }
@@ -371,14 +387,54 @@ namespace Fungus
         /// </summary>
         public virtual void SetCharacterImage(Sprite image)
         {
+            if (characterImage == null)
+            {
+                return;
+            }
+
             if (image != null)
             {
-                characterImage.sprite = image;
+                characterImage.overrideSprite = image;
                 characterImage.gameObject.SetActive(true);
                 currentCharacterImage = image;
             }
             else
+            {
                 characterImage.gameObject.SetActive(false);
+
+                if (startStoryTextWidth != 0)
+                {
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
+                        startStoryTextInset, 
+                        startStoryTextWidth);
+                }
+            }
+
+            // Adjust story text box to not overlap image rect
+            if (fitTextWithImage && 
+                StoryText != null &&
+                characterImage.gameObject.activeSelf)
+            {
+                if (Mathf.Approximately(startStoryTextWidth, 0f))
+                {
+                    startStoryTextWidth = StoryTextRectTrans.rect.width;
+                    startStoryTextInset = StoryTextRectTrans.offsetMin.x; 
+                }
+
+                // Clamp story text to left or right depending on relative position of the character image
+                if (StoryTextRectTrans.position.x < characterImage.rectTransform.position.x)
+                {
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
+                        startStoryTextInset, 
+                        startStoryTextWidth - characterImage.rectTransform.rect.width);
+                }
+                else
+                {
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 
+                        startStoryTextInset, 
+                        startStoryTextWidth - characterImage.rectTransform.rect.width);
+                }
+            }
         }
 
         /// <summary>
@@ -387,11 +443,11 @@ namespace Fungus
         /// </summary>
         public virtual void SetCharacterName(string name, Color color)
         {
-            if (nameText != null)
+            if (NameText != null)
             {
                 var subbedName = stringSubstituter.SubstituteStrings(name);
-                nameText.text = subbedName;
-                nameText.color = color;
+                NameText = subbedName;
+                nameTextAdapter.SetTextColor(color);
             }
         }
 
