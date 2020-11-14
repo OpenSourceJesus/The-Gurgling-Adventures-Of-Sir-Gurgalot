@@ -88,8 +88,9 @@ namespace TGAOSG
 				base.TakeDamage (amount);
 		}
 		
-		public virtual void OnDisable ()
+		public override void OnDisable ()
 		{
+			base.OnDisable ();
 			if (nextPart != null)
 			{
 				nextPart.gameObject.SetActive(true);

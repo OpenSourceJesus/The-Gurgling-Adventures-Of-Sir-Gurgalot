@@ -135,12 +135,19 @@ namespace TGAOSG
 				return;
 			}
 #endif
-			foreach (IUpdatable updatable in updatables)
-				updatable.DoUpdate ();
-			Physics2D.Simulate(Time.deltaTime);
-			ObjectPool.instance.DoUpdate ();
-			GameplayCamera.instance.DoUpdate ();
-			HandlePausing ();
+			try
+			{
+				foreach (IUpdatable updatable in updatables)
+					updatable.DoUpdate ();
+				Physics2D.Simulate(Time.deltaTime);
+				ObjectPool.instance.DoUpdate ();
+				GameplayCamera.instance.DoUpdate ();
+				HandlePausing ();
+			}
+			catch (Exception e)
+			{
+				print(e.Message + "\n" + e.StackTrace);
+			}
 		}
 
 		void HandlePausing ()

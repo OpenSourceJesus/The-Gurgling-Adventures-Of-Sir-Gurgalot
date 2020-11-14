@@ -128,7 +128,7 @@ namespace TGAOSG
 			healthbar.parent.localScale = new Vector3(Mathf.Sign(trs.localScale.x), 1);
 		}
 
-		void OnDisable ()
+		public virtual void OnDisable ()
 		{
 			GameManager.updatables = GameManager.updatables.Remove(this);
 		}
