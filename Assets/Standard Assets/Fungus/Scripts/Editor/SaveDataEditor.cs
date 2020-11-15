@@ -5,7 +5,7 @@
 
 using UnityEngine;
 using UnityEditor;
-using Rotorz.ReorderableList;
+// using Rotorz.ReorderableList;
 
 namespace Fungus.EditorUtils
 {
@@ -23,8 +23,8 @@ namespace Fungus.EditorUtils
         {
             serializedObject.Update();
 
-            ReorderableListGUI.Title("Flowcharts");
-            ReorderableListGUI.ListField(flowchartsProp);
+            // ReorderableListGUI.Title("Flowcharts");
+            // ReorderableListGUI.ListField(flowchartsProp);
 
             serializedObject.ApplyModifiedProperties();
         }

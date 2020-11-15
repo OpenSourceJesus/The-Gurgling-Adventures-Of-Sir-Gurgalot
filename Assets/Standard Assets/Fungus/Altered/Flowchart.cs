@@ -8,7 +8,6 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using TGAOSG;
 
 namespace Fungus
 {
@@ -17,8 +16,10 @@ namespace Fungus
     /// Flowchart objects may be edited visually using the Flowchart editor window.
     /// </summary>
     [ExecuteInEditMode]
-    public class Flowchart : SingletonMonoBehaviour<Flowchart>, ISubstitutionHandler
+    public class Flowchart : MonoBehaviour, ISubstitutionHandler
     {
+        public static Flowchart instance;
+        public static List<Flowchart> instances = new List<Flowchart>();
         public const string SubstituteVariableRegexString = "{\\$.*?}";
 
         [HideInInspector]
@@ -143,8 +144,9 @@ namespace Fungus
 
         protected virtual void OnEnable()
         {
-            if (HasVariable("hasGamepad"))
-                SetBooleanVariable("hasGamepad", InputManager.usingJoystick);
+            instance = this;
+            if (!instances.Contains(this))
+                instances.Add(this);
             if (!cachedFlowcharts.Contains(this))
             {
                 cachedFlowcharts.Add(this);
@@ -161,8 +163,14 @@ namespace Fungus
             StringSubstituter.RegisterHandler(this);   
         }
 
+        void OnDestroy ()
+        {
+            instances.Remove(this);
+        }
+
         protected virtual void OnDisable()
         {
+            instance = null;
             cachedFlowcharts.Remove(this);
 
             #if UNITY_5_4_OR_NEWER

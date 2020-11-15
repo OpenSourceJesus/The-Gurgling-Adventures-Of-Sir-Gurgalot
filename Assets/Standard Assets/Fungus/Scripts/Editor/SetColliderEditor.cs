@@ -3,7 +3,7 @@
 
 using UnityEditor;
 using UnityEngine;
-using Rotorz.ReorderableList;
+// using Rotorz.ReorderableList;
 
 namespace Fungus.EditorUtils
 {
@@ -28,8 +28,8 @@ namespace Fungus.EditorUtils
         {
             serializedObject.Update();
 
-            ReorderableListGUI.Title(new GUIContent("Target Objects", "Objects containing collider components (2D or 3D)"));
-            ReorderableListGUI.ListField(targetObjectsProp);
+            // ReorderableListGUI.Title(new GUIContent("Target Objects", "Objects containing collider components (2D or 3D)"));
+            // ReorderableListGUI.ListField(targetObjectsProp);
 
             EditorGUILayout.PropertyField(targetTagProp);
             EditorGUILayout.PropertyField(activeStateProp);

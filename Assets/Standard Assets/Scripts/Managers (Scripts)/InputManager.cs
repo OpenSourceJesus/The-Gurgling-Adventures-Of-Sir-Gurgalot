@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using Extensions;
+using Fungus;
 
 namespace TGAOSG
 {
-	public class InputManager : SingletonMonoBehaviour<InputManager>
+	public class InputManager : SingletonMonoBehaviour<InputManager>, IUpdatable
 	{
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		public static Rewired.Player inputter;
 		public static bool usingJoystick;
 		public static int currentJoystickId;
@@ -33,7 +41,7 @@ namespace TGAOSG
 			inputter = ReInput.players.GetPlayer("Player");
 			usingJoystick = ReInput.controllers.joystickCount > 0;
 			if (usingJoystick)
-                currentJoystickId = ReInput.controllers.Joysticks[0].id;
+				currentJoystickId = ReInput.controllers.Joysticks[0].id;
 			ReInput.ControllerConnectedEvent += OnControllerConnected;
 			ReInput.ControllerDisconnectedEvent += OnControllerDisconnected;
 			ReInput.ControllerPreDisconnectEvent += OnControllerPreDisconnect;
@@ -43,9 +51,16 @@ namespace TGAOSG
 		{
 			base.Start ();
 			hideCursorTimer.onFinished += HideCursor;
+			GameManager.updatables = GameManager.updatables.Add(this);
+			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			{
+				Flowchart flowchart = Flowchart.instances[i];
+				if (flowchart.HasVariable("hasGamepad"))
+					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
+			}
 		}
 		
-		public virtual void Update ()
+		public virtual void DoUpdate ()
 		{
 			if (GetAxis2D("Mouse Horizontal", "Mouse Vertical").magnitude > unhideCursorThreshold)
 			{
@@ -72,16 +87,28 @@ namespace TGAOSG
 		{
 			usingJoystick = true;
 			Cursor.visible = false;
-            currentJoystickId = args.controllerId;
+			currentJoystickId = args.controllerId;
+			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			{
+				Flowchart flowchart = Flowchart.instances[i];
+				if (flowchart.HasVariable("hasGamepad"))
+					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
+			}
 		}
 
 		public virtual void OnControllerDisconnected (ControllerStatusChangedEventArgs args)
 		{
 			usingJoystick = ReInput.controllers.joystickCount > 0;
-            if (usingJoystick)
-                currentJoystickId = ReInput.controllers.Joysticks[ReInput.controllers.joystickCount - 1].id;
+			if (usingJoystick)
+				currentJoystickId = ReInput.controllers.Joysticks[ReInput.controllers.joystickCount - 1].id;
 			Cursor.visible = true;
-        }
+			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			{
+				Flowchart flowchart = Flowchart.instances[i];
+				if (flowchart.HasVariable("hasGamepad"))
+					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
+			}
+		}
 		
 		public virtual void OnControllerPreDisconnect (ControllerStatusChangedEventArgs args)
 		{
@@ -94,6 +121,7 @@ namespace TGAOSG
 			ReInput.ControllerDisconnectedEvent -= OnControllerDisconnected;
 			ReInput.ControllerPreDisconnectEvent -= OnControllerPreDisconnect;
 			hideCursorTimer.onFinished -= HideCursor;
+			GameManager.updatables = GameManager.updatables.Remove(this);
 		}
 	}
 }

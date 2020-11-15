@@ -5,8 +5,13 @@ using Extensions;
 using TGAOSG;
 
 [ExecuteAlways]
+#if UNITY_EDITOR
 public class _Selectable : MonoBehaviour, IUpdatable
+#else
+public class _Selectable : MonoBehaviour
+#endif
 {
+#if UNITY_EDITOR
 	public bool PauseWhileUnfocused
 	{
 		get
@@ -14,11 +19,12 @@ public class _Selectable : MonoBehaviour, IUpdatable
 			return true;
 		}
 	}
+#endif
 	public Canvas canvas;
 	public RectTransform canvasRectTrs;
-	#if UNITY_EDITOR
+#if UNITY_EDITOR
 	public bool updateCanvas = true;
-	#endif
+#endif
 	public RectTransform rectTrs;
 	public Selectable selectable;
 	public float priority;
@@ -66,16 +72,20 @@ public class _Selectable : MonoBehaviour, IUpdatable
 #endif
 		UIControlManager.GetInstance().AddSelectable (this);
 		UpdateCanvas ();
+#if UNITY_EDITOR
 		GameManager.updatables = GameManager.updatables.Add(this);
+#endif
 	}
 	
 	public virtual void OnDisable ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (Application.isPlaying)
-		#endif
-		UIControlManager.instance.RemoveSelectable (this);
+#endif
+			UIControlManager.instance.RemoveSelectable (this);
+#if UNITY_EDITOR
 		GameManager.updatables = GameManager.updatables.Remove(this);
+#endif
 	}
 	
 #if UNITY_EDITOR
