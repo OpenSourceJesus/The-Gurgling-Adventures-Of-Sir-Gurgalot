@@ -823,22 +823,22 @@ PrefabInstance:
     - target: {fileID: 671453549433330571, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 671453549433330571, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.36031
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 1289576526958817808, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 1289576526958817808, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.360092
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 2696191473314334501, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
@@ -903,12 +903,12 @@ PrefabInstance:
     - target: {fileID: 5088055539305927962, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 5088055539305927962, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.36031
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 5426535608432943496, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
@@ -973,12 +973,12 @@ PrefabInstance:
     - target: {fileID: 9205737770616493245, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 9205737770616493245, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.360092
+      value: 55.360012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae, type: 3}
@@ -1311,12 +1311,12 @@ PrefabInstance:
     - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.99995
+      value: 88.000046
       objectReference: {fileID: 0}
     - target: {fileID: 1890336250173004567, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -1971,12 +1971,12 @@ PrefabInstance:
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999792856486995938, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -2386,12 +2386,12 @@ PrefabInstance:
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00007
+      value: 47.717842
       objectReference: {fileID: 0}
     - target: {fileID: 7295917425007621928, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -2451,12 +2451,12 @@ PrefabInstance:
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 18.576822
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7497801970572663457, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -2541,12 +2541,22 @@ PrefabInstance:
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00002
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 192.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.000046
       objectReference: {fileID: 0}
     - target: {fileID: 8153978045020295271, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -4119,8 +4129,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: LoadLevel
@@ -4265,8 +4275,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -4327,8 +4337,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -4420,8 +4430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 87.119995, y: 39.94008}
   variablesScrollPos: {x: 0, y: 0}
@@ -4436,7 +4444,8 @@ MonoBehaviour:
     height: 1146
   selectedBlocks:
   - {fileID: 1187758568}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1187758556}
   variables: []
   description: 
   stepPause: 0
@@ -4493,8 +4502,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -4673,8 +4682,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -4703,8 +4712,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -4791,8 +4800,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -5000,8 +5009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 215.11987, y: 75.42218}
   variablesScrollPos: {x: 0, y: 0}
@@ -5015,9 +5022,9 @@ MonoBehaviour:
     width: 2046.12
     height: 1289.0599
   selectedBlocks:
-  - {fileID: 1266652737}
+  - {fileID: 1266652729}
   selectedCommands:
-  - {fileID: 1266652749}
+  - {fileID: 1266652727}
   variables: []
   description: 
   stepPause: 0
@@ -5309,8 +5316,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 1164452556}
-  targetComponentAssemblyName: TGAOSG._SpriteRenderer, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG._SpriteRenderer, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: _SpriteRenderer
   targetMethod: FlipTowards
@@ -5756,8 +5763,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 1164452556}
-  targetComponentAssemblyName: TGAOSG._SpriteRenderer, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG._SpriteRenderer, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: _SpriteRenderer
   targetMethod: FlipTowards
@@ -5815,8 +5822,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -5845,8 +5852,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -6097,8 +6104,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -6140,8 +6147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 152.95761
-    y: 67.09575
+    x: 178.95761
+    y: 65.09575
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6176,8 +6183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 99.119995, y: 62.94008}
   variablesScrollPos: {x: 0, y: 0}
@@ -6193,7 +6198,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1484760219}
   selectedCommands:
-  - {fileID: 1484760217}
+  - {fileID: 1484760207}
   variables: []
   description: 
   stepPause: 0

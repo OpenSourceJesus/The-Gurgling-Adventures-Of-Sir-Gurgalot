@@ -7263,8 +7263,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 103.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.99996
+      value: 88.000046
       objectReference: {fileID: 0}
     - target: {fileID: 1890336250173004567, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -7929,12 +7934,12 @@ PrefabInstance:
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 103.000046
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999792856486995938, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -8344,12 +8349,12 @@ PrefabInstance:
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 103.000046
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00007
+      value: 47.717842
       objectReference: {fileID: 0}
     - target: {fileID: 7295917425007621928, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -8419,12 +8424,12 @@ PrefabInstance:
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 103.000046
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 18.576822
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7497801970572663457, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -8509,12 +8514,22 @@ PrefabInstance:
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 103.000046
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00002
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 192.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.000046
       objectReference: {fileID: 0}
     - target: {fileID: 8153978045020295271, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -19116,8 +19131,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -19221,8 +19236,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -19309,8 +19324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 77.95761
-    y: 103.09575
+    x: 449.9576
+    y: 198.09575
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -19355,8 +19370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 83.2334, y: 36.311222}
   variablesScrollPos: {x: 0, y: 0}
@@ -19372,7 +19385,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1796190364}
   selectedCommands:
-  - {fileID: 1796190374}
+  - {fileID: 1796190356}
   variables:
   - {fileID: 1796190363}
   description: 
@@ -19772,7 +19785,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664019}
-  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatThrowSpeed, Fungus,
+  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatThrowSpeed, Assembly-CSharp-firstpass,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicHatThrowSpeed
@@ -19802,8 +19815,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -20199,8 +20212,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664021}
-  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatRange, Fungus, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.SkillTree.AddToMagicHatRange, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: AddToMagicHatRange
   targetMethod: Unlock
@@ -20229,8 +20242,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664020}
-  targetComponentAssemblyName: TGAOSG.SkillTree.MagicHatIsInvulnerable, Fungus, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.SkillTree.MagicHatIsInvulnerable, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: MagicHatIsInvulnerable
   targetMethod: Unlock
@@ -20259,8 +20272,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 260664022}
-  targetComponentAssemblyName: TGAOSG.SkillTree.ReduceMagicHatCooldown, Fungus, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.SkillTree.ReduceMagicHatCooldown, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: ReduceMagicHatCooldown
   targetMethod: Unlock

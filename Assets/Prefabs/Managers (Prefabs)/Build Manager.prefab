@@ -79,7 +79,7 @@ MonoBehaviour:
     zipLocationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
       Gurgling Adventures Of Sir Gurgalot (Windows x64).zip
   - name: Mac
-    enabled: 1
+    enabled: 0
     target: 2
     locationPath: D:\Projects\The Gurgling Adventures Of Sir Gurgalot\Builds\The
       Gurgling Adventures Of Sir Gurgalot (Mac)\The Gurgling Adventures Of Sir Gurgalot.app

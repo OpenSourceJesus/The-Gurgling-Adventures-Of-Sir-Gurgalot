@@ -1636,8 +1636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 82.76703, y: 17.234203}
   variablesScrollPos: {x: 0, y: 0}
@@ -1712,8 +1710,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -1794,8 +1792,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -5524,8 +5522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 65.78116
-    y: 92.09575
+    x: 319.78116
+    y: 201.09575
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -5558,8 +5556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 67.76703, y: 51.234207}
   variablesScrollPos: {x: 0, y: 0}
@@ -5575,7 +5571,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1012927105}
   selectedCommands:
-  - {fileID: 1012927102}
+  - {fileID: 1012927108}
   variables:
   - {fileID: 1012927113}
   description: 
@@ -5674,8 +5670,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -5716,8 +5712,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -7903,8 +7899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 555.7811
-    y: 951.09576
+    x: 557.7811
+    y: 940.09576
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -7921,8 +7917,8 @@ MonoBehaviour:
   - {fileID: 1966557802}
   - {fileID: 1966557795}
   - {fileID: 1966557805}
-  - {fileID: 1966557803}
   - {fileID: 1966557807}
+  - {fileID: 1966557803}
   suppressAllAutoSelections: 0
 --- !u!114 &1966557799
 MonoBehaviour:
@@ -7937,8 +7933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: -278.3875, y: -562.938}
   variablesScrollPos: {x: 0, y: 0}
@@ -7954,7 +7948,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1966557798}
   selectedCommands:
-  - {fileID: 1966557807}
+  - {fileID: 1966557803}
   variables:
   - {fileID: 1966557804}
   description: 
@@ -8046,8 +8040,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -8138,8 +8132,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -8168,8 +8162,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable

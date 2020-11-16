@@ -6,11 +6,23 @@ using Extensions;
 
 namespace TGAOSG
 {
-	public class PlatformerController : Platformer
+	public class PlatformerController : Platformer, IUpdatable
 	{
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		public float addToMoveAxis;
+
+		public virtual void OnEnable ()
+		{
+			GameManager.updatables = GameManager.updatables.Add(this);
+		}
 		
-		public virtual void FixedUpdate ()
+		public virtual void DoUpdate ()
 		{
 			if (GameManager.paused)
 				return;
@@ -24,6 +36,11 @@ namespace TGAOSG
 			HandleFacing ();
 			HandleIdle ();
 			HandleJumping ();
+		}
+
+		public virtual void OnDisable ()
+		{
+			GameManager.updatables = GameManager.updatables.Remove(this);
 		}
 		
 		public virtual void HandleMoving ()

@@ -71,7 +71,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   _userData:
     configVars:
-      updateLoop: 3
+      updateLoop: 1
       alwaysUseUnityInput: 0
       windowsStandalonePrimaryInputSource: 0
       osx_primaryInputSource: 0

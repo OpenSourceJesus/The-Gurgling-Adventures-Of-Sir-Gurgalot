@@ -4303,8 +4303,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 6, guid: cada0cd5b07df5c43abaff2b794dc0d9, type: 3}
-  targetComponentAssemblyName: TGAOSG.SaveAndLoadManager, Fungus, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.SaveAndLoadManager, Assembly-CSharp-firstpass,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: SaveAndLoadManager
   targetMethod: Save
@@ -4375,8 +4375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 174.09398
-    y: 76.95938
+    x: 179.09398
+    y: 81.95938
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4411,8 +4411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 118.38147, y: 120.64719}
   variablesScrollPos: {x: 0, y: 0}
@@ -4491,8 +4489,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -4521,8 +4519,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 398, guid: d6f8ff3636cdaac4f83d8ec330db4000, type: 3}
-  targetComponentAssemblyName: TGAOSG.GameManager, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.GameManager, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: GameManager
   targetMethod: DeactivateGoForever
@@ -4568,8 +4566,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -5990,12 +5988,12 @@ PrefabInstance:
     - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1725476454007293365, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.99995
+      value: 88.000046
       objectReference: {fileID: 0}
     - target: {fileID: 1890336250173004567, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -6660,12 +6658,12 @@ PrefabInstance:
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 5811466909643810052, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999792856486995938, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -7075,12 +7073,12 @@ PrefabInstance:
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7257435068386917807, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00007
+      value: 47.717842
       objectReference: {fileID: 0}
     - target: {fileID: 7295917425007621928, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -7150,12 +7148,12 @@ PrefabInstance:
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7479422386451518167, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 18.576822
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7497801970572663457, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
@@ -7240,12 +7238,22 @@ PrefabInstance:
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 102.999985
+      value: 103.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7688256741494824023, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 88.00002
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 192.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895292519176998344, guid: f9135862e71710641b336bfef494e7b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.000046
       objectReference: {fileID: 0}
     - target: {fileID: 8153978045020295271, guid: f9135862e71710641b336bfef494e7b7,
         type: 3}

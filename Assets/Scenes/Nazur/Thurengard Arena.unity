@@ -729,22 +729,22 @@ PrefabInstance:
     - target: {fileID: 671453549433330571, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 671453549433330571, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.36031
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 1289576526958817808, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 1289576526958817808, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.36031
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 2696191473314334501, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
@@ -809,12 +809,12 @@ PrefabInstance:
     - target: {fileID: 5088055539305927962, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 5088055539305927962, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.360092
+      value: 55.360012
       objectReference: {fileID: 0}
     - target: {fileID: 5426535608432943496, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
@@ -879,12 +879,12 @@ PrefabInstance:
     - target: {fileID: 9205737770616493245, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 440.0001
+      value: 440.00018
       objectReference: {fileID: 0}
     - target: {fileID: 9205737770616493245, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55.36031
+      value: 55.360012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7ff6bd5d1bb8a40a88f0c8e5e4a2ae, type: 3}
@@ -41996,7 +41996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cd775b4bd26c948bf0dae7ea7cc96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: -2102124215
+  uniqueId: 2029400361
   useSeperateTextForGamepad: 1
   gamepadText: Press left joystick to talk
   text: {fileID: 1198543814}
@@ -43152,8 +43152,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -43182,8 +43182,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -43431,8 +43431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
   scrollPos: {x: 184.98006, y: 39.413963}
   variablesScrollPos: {x: 0, y: 0}
@@ -43446,9 +43444,8 @@ MonoBehaviour:
     width: 2089.3152
     height: 1181.2322
   selectedBlocks:
-  - {fileID: 1257760475}
-  selectedCommands:
-  - {fileID: 1257760487}
+  - {fileID: 1257760476}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -48510,8 +48507,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Enable
@@ -48540,8 +48537,8 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 330, guid: 78ccbb72b6d5cf743810f7c4d61a28f6, type: 3}
-  targetComponentAssemblyName: TGAOSG.Player, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: TGAOSG.Player, Assembly-CSharp-firstpass, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Player
   targetMethod: Disable
@@ -48613,10 +48610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleMultipleInstances: 0
-  persistant: 0
   version: 1
-  scrollPos: {x: 198.81512, y: 356.26788}
+  scrollPos: {x: 206.81512, y: 336.26788}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 331
@@ -48628,8 +48623,9 @@ MonoBehaviour:
     width: 2089.3152
     height: 1181.2322
   selectedBlocks:
-  - {fileID: 1455760662}
-  selectedCommands: []
+  - {fileID: 1455760671}
+  selectedCommands:
+  - {fileID: 1455760667}
   variables: []
   description: 
   stepPause: 0
@@ -54960,7 +54956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cd775b4bd26c948bf0dae7ea7cc96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: -1241700561
+  uniqueId: -408903032
   useSeperateTextForGamepad: 1
   gamepadText: Press left joystick to talk
   text: {fileID: 1770931552}

@@ -226,11 +226,11 @@ namespace TGAOSG
 				skill.ApplyKnowledgeIfShould ();
 		}
 		
-		public override void FixedUpdate ()
+		public override void DoUpdate ()
 		{
 			//if (GameManager.paused)
 			//	return;
-			base.FixedUpdate ();
+			base.DoUpdate ();
 			if (!colliderRect.Overlaps(Area.instance.safeRect))
 				Death ();
 			healthbar.parent.localScale = trs.localScale;
