@@ -319,7 +319,7 @@ namespace TGAOSG
 			if (UsingGamepad)
 			{
 				Gamepad gamepad = GetGamepad(playerIndex);
-				return gamepad.startButton.isPressed || gamepad.selectButton.isPressed;
+				return gamepad.startButton.isPressed;
 			}
 			else
 				return GetKeyboard(playerIndex).escapeKey.isPressed;
@@ -330,10 +330,10 @@ namespace TGAOSG
 			if (UsingGamepad)
 			{
 				Gamepad gamepad = GetGamepad(playerIndex);
-				return gamepad.startButton.isPressed || gamepad.selectButton.isPressed;
+				return gamepad.selectButton.isPressed;
 			}
 			else
-				return GetKeyboard(playerIndex).escapeKey.isPressed;
+				return Input.GetKey(KeyCode.BackQuote);
 		}
 
 		public static bool GetLeftClickInput (int playerIndex)
