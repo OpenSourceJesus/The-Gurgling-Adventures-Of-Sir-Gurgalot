@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Rewired.Integration.UnityUI;
 using UnityEngine.EventSystems;
 using Extensions;
 
@@ -19,10 +18,10 @@ public class _Slider : _Selectable
 	
 	public virtual void Awake ()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		if (!Application.isPlaying)
 			return;
-		#endif
+#endif
 		if (displayValue != null)
 			initDisplayValue = displayValue.text;
 		SetDisplayValue ();

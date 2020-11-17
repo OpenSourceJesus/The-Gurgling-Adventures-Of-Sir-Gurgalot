@@ -144,7 +144,8 @@ namespace TGAOSG
 					updatable.DoUpdate ();
 				Physics2D.Simulate(Time.deltaTime);
 				ObjectPool.instance.DoUpdate ();
-				GameplayCamera.instance.DoUpdate ();
+				if (GameplayCamera.instance != null)
+					GameplayCamera.instance.DoUpdate ();
 				HandlePausing ();
 				previousMenuInput = menuInput;
 			// }

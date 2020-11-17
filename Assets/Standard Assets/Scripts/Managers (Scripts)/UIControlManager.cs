@@ -5,8 +5,15 @@ using UnityEngine.UI;
 using Extensions;
 using TGAOSG;
 
-public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
+public class UIControlManager : SingletonMonoBehaviour<UIControlManager>, IUpdatable
 {
+	public bool PauseWhileUnfocused
+	{
+		get
+		{
+			return true;
+		}
+	}
 	public _Selectable currentSelected;
 	public ComplexTimer colorMultiplier;
 	public static List<_Selectable> selectables = new List<_Selectable>();
@@ -20,21 +27,28 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 	_Selectable selectable;
 	bool inControlMode;
 	bool controllingWithJoystick;
+	Vector2 mousePosition;
 	Vector2 previousMousePosition;
+	bool leftClickInput;
+	bool previousLeftClickInput;
 
 	public override void Start ()
 	{
 		base.Start ();
 		repeatTimer.onFinished += delegate { _HandleChangeSelected (); ControlSelected (); };
+		GameManager.updatables = GameManager.updatables.Add(this);
 	}
 
-	public virtual void OnDestroy ()
+	void OnDestroy ()
 	{
 		repeatTimer.onFinished -= delegate { _HandleChangeSelected (); ControlSelected (); };
+		GameManager.updatables = GameManager.updatables.Remove(this);
 	}
 
-	public virtual void Update ()
+	public void DoUpdate ()
 	{
+		mousePosition = InputManager.Instance.MousePosition;
+		leftClickInput = InputManager.Instance.LeftClickInput;
 		if (currentSelected != null)
 		{
 			if (!selectables.Contains(currentSelected) || !currentSelected.selectable.IsInteractable())
@@ -49,39 +63,41 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		}
 		else
 			HandleChangeSelected (false);
+		previousMousePosition = mousePosition;
+		previousLeftClickInput = leftClickInput;
 	}
 
-	public virtual void AddSelectable (_Selectable selectable)
+	public void AddSelectable (_Selectable selectable)
 	{
 		selectables.Add(selectable);
 	}
 
-	public virtual void RemoveSelectable (_Selectable selectable)
+	public void RemoveSelectable (_Selectable selectable)
 	{
 		selectables.Remove(selectable);
 	}
 
-	public virtual bool IsMousedOverSelectable (_Selectable selectable)
+	public bool IsMousedOverSelectable (_Selectable selectable)
 	{
 		return IsMousedOverRectTransform(selectable.rectTrs, selectable.canvas, selectable.canvasRectTrs);
 	}
 
-	public virtual bool IsMousedOverRectTransform (RectTransform rectTrs, Canvas canvas, RectTransform canvasRectTrs)
+	public bool IsMousedOverRectTransform (RectTransform rectTrs, Canvas canvas, RectTransform canvasRectTrs)
 	{
 		if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
-			return rectTrs.GetRectInCanvasNormalized(canvasRectTrs).Contains(canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Input.mousePosition));
+			return rectTrs.GetRectInCanvasNormalized(canvasRectTrs).Contains(canvasRectTrs.GetRectInWorld().ToNormalizedPosition(mousePosition));
 		else
-			return rectTrs.GetRectInCanvasNormalized(canvasRectTrs).Contains(canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+			return rectTrs.GetRectInCanvasNormalized(canvasRectTrs).Contains(canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Camera.main.ScreenToWorldPoint(mousePosition)));
 	}
 
-	public virtual void HandleMouseInput ()
+	public void HandleMouseInput ()
 	{
 		bool justCanceledControlMode = false;
-		if ((Input.GetMouseButtonDown(0) || (Vector2) Input.mousePosition != previousMousePosition) && controllingWithJoystick)
+		if (((leftClickInput && !previousLeftClickInput) || mousePosition != previousMousePosition) && controllingWithJoystick)
 		{
 			controllingWithJoystick = false;
 		}
-		if (Input.GetMouseButtonUp(0) && !controllingWithJoystick)
+		if (!leftClickInput && previousLeftClickInput && !controllingWithJoystick)
 		{
 			inControlMode = false;
 			justCanceledControlMode = true;
@@ -100,7 +116,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 				}
 			}
 		}
-		if (Input.GetMouseButton(0))
+		if (leftClickInput)
 		{
 			_Slider slider = currentSelected.GetComponent<_Slider>();
 			if (slider != null)
@@ -109,12 +125,12 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 				if (currentSelected.canvas.renderMode == RenderMode.ScreenSpaceOverlay)
 				{
 					if (selectable != null)
-						closestPointToMouseCanvasNormalized = slider.slidingArea.GetRectInCanvasNormalized(selectable.canvasRectTrs).ClosestPoint(slider.canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Input.mousePosition));
+						closestPointToMouseCanvasNormalized = slider.slidingArea.GetRectInCanvasNormalized(selectable.canvasRectTrs).ClosestPoint(slider.canvasRectTrs.GetRectInWorld().ToNormalizedPosition(mousePosition));
 				}
 				else
 				{
 					if (selectable != null)
-						closestPointToMouseCanvasNormalized = slider.slidingArea.GetRectInCanvasNormalized(selectable.canvasRectTrs).ClosestPoint(slider.canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+						closestPointToMouseCanvasNormalized = slider.slidingArea.GetRectInCanvasNormalized(selectable.canvasRectTrs).ClosestPoint(slider.canvasRectTrs.GetRectInWorld().ToNormalizedPosition(Camera.main.ScreenToWorldPoint(mousePosition)));
 				}
 				float normalizedValue = slider.slidingArea.GetRectInCanvasNormalized(slider.canvasRectTrs).ToNormalizedPosition(closestPointToMouseCanvasNormalized).x;
 				slider.slider.value = Mathf.Lerp(slider.slider.minValue, slider.slider.maxValue, normalizedValue);
@@ -122,12 +138,11 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 					slider.slider.value = MathfExtensions.GetClosestNumber(slider.slider.value, slider.snapValues);
 			}
 		}
-		previousMousePosition = Input.mousePosition;
 	}
 
-	public virtual void HandleMovementInput ()
+	public void HandleMovementInput ()
 	{
-		inputDirection = InputManager.GetUIMovementInput(MathfExtensions.NULL_INT);
+		inputDirection = InputManager.Instance.UIMovementInput;
 		if (inputDirection.magnitude > InputManager.Settings.defaultDeadzoneMin)
 		{
 			controllingWithJoystick = true;
@@ -144,12 +159,12 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		previousInputDirection = inputDirection;
 	}
 
-	public virtual void _HandleChangeSelected ()
+	public void _HandleChangeSelected ()
 	{
 		HandleChangeSelected (true);
 	}
 
-	public virtual void HandleChangeSelected (bool useInputDirection = true)
+	public void HandleChangeSelected (bool useInputDirection = true)
 	{
 		if (selectables.Count == 0 || inControlMode)
 			return;
@@ -173,7 +188,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		ChangeSelected (nextSelected);
 	}
 
-	public virtual void ChangeSelected (_Selectable selectable)
+	public void ChangeSelected (_Selectable selectable)
 	{
 		if (inControlMode)
 			return;
@@ -184,12 +199,12 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		colorMultiplier.JumpToStart ();
 	}
 
-	public virtual void HandleSubmitSelected ()
+	public void HandleSubmitSelected ()
 	{
 		bool submitButtonPressed = InputManager.Instance.SubmitInput;
 		if (submitButtonPressed)
 			controllingWithJoystick = true;
-		if (submitButtonPressed || (IsMousedOverSelectable(currentSelected) && Input.GetMouseButtonDown(0)))
+		if (submitButtonPressed || (IsMousedOverSelectable(currentSelected) && leftClickInput && !previousLeftClickInput))
 		{
 			Button button = currentSelected.GetComponent<Button>();
 			if (button != null)
@@ -209,7 +224,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		}
 	}
 
-	public virtual void ControlSelected ()
+	public void ControlSelected ()
 	{
 		if (!inControlMode)
 			return;
@@ -221,7 +236,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		}
 	}
 
-	public virtual float GetAttractivenessOfSelectable (_Selectable selectable, bool useInputDirection = true)
+	public float GetAttractivenessOfSelectable (_Selectable selectable, bool useInputDirection = true)
 	{
 		float attractiveness = selectable.priority;
 		if (useInputDirection)
@@ -232,12 +247,12 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 		return attractiveness;
 	}
 
-	public virtual Vector2 GetDirectionToSelectable (_Selectable selectable)
+	public Vector2 GetDirectionToSelectable (_Selectable selectable)
 	{
 		return selectable.rectTrs.GetCenterInCanvasNormalized(selectable.canvasRectTrs) - currentSelected.rectTrs.GetCenterInCanvasNormalized(currentSelected.canvasRectTrs);
 	}
 
-	public virtual void ColorSelected (_Selectable selectable, float colorMultiplier)
+	public void ColorSelected (_Selectable selectable, float colorMultiplier)
 	{
 		ColorBlock colors = selectable.selectable.colors;
 		colors.colorMultiplier = colorMultiplier;

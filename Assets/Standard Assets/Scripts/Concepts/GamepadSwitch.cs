@@ -1,44 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 namespace TGAOSG
 {
 	public class GamepadSwitch : MonoBehaviour
 	{
-		public GameObject[] toggleGos;
+		public static List<GamepadSwitch> instances = new List<GamepadSwitch>();
+		public GameObject[] toggleGos = new GameObject[0];
 		
-		public virtual void Awake ()
+		void Awake ()
 		{
-			ReInput.ControllerConnectedEvent += OnControllerConnected;
-			ReInput.ControllerDisconnectedEvent += OnControllerDisconnected;
-			if (ReInput.controllers.joystickCount > 0)
+			if (InputManager.UsingGamepad)
 				ToggleGos ();
+			instances.Add(this);
 		}
 		
-		public virtual void OnControllerConnected (ControllerStatusChangedEventArgs args)
+		public void ToggleGos ()
 		{
-			if (ReInput.controllers.joystickCount > 0)
-				ToggleGos ();
-		}
-		
-		public virtual void OnControllerDisconnected (ControllerStatusChangedEventArgs args)
-		{
-			if (ReInput.controllers.joystickCount == 0)
-				ToggleGos ();
-		}
-		
-		public virtual void ToggleGos ()
-		{
-			foreach (GameObject go in toggleGos)
+			for (int i = 0; i < toggleGos.Length; i ++)
+			{
+				GameObject go = toggleGos[i];
 				go.SetActive(!go.activeSelf);
+			}
 		}
-		
-		public virtual void OnDestroy ()
+
+		void OnDestroy ()
 		{
-			ReInput.ControllerConnectedEvent -= OnControllerConnected;
-			ReInput.ControllerDisconnectedEvent -= OnControllerDisconnected;
+			instances.Remove(this);
 		}
 	}
 }

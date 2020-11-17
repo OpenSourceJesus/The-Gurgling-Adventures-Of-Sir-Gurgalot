@@ -44,13 +44,6 @@ namespace TGAOSG
 				return GetMoveInput(MathfExtensions.NULL_INT);
 			}
 		}
-		public Vector2 SwimInput
-		{
-			get
-			{
-				return GetSwimInput(MathfExtensions.NULL_INT);
-			}
-		}
 		public bool JumpInput
 		{
 			get
@@ -65,25 +58,11 @@ namespace TGAOSG
 				return GetInteractInput(MathfExtensions.NULL_INT);
 			}
 		}
-		public float ZoomInput
-		{
-			get
-			{
-				return GetZoomInput(MathfExtensions.NULL_INT);
-			}
-		}
 		public bool SubmitInput
 		{
 			get
 			{
 				return GetSubmitInput(MathfExtensions.NULL_INT);
-			}
-		}
-		public int SwitchArrowInput
-		{
-			get
-			{
-				return GetSwitchArrowInput(MathfExtensions.NULL_INT);
 			}
 		}
 		public bool SwordInput
@@ -128,13 +107,6 @@ namespace TGAOSG
 				return GetCancelMagicScepterInput(MathfExtensions.NULL_INT);
 			}
 		}
-		// public int SwitchMenuSectionInput
-		// {
-		// 	get
-		// 	{
-		// 		return GetSwitchMenuSectionInput(MathfExtensions.NULL_INT);
-		// 	}
-		// }
 		public Vector2 AimInput
 		{
 			get
@@ -170,37 +142,60 @@ namespace TGAOSG
 				return GetMousePosition(MathfExtensions.NULL_INT);
 			}
 		}
+		public bool LeftClickInput
+		{
+			get
+			{
+				return GetLeftClickInput(MathfExtensions.NULL_INT);
+			}
+		}
 		
-		// public virtual void Start ()
-		// {
-		// 	InputSystem.onDeviceChange += OnDeviceChanged;
-		// }
+		public virtual void Start ()
+		{
+			InputSystem.onDeviceChange += OnDeviceChanged;
+		}
 		
-		// public virtual void OnDeviceChanged (InputDevice device, InputDeviceChange change)
-		// {
-		// 	if (device is Gamepad)
-		// 	{
-		// 		if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
-		// 		{
-		// 			GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(false);
-		// 			if (VirtualKeyboard.Instance != null)
-		// 				VirtualKeyboard.instance.outputToInputField.readOnly = true;
-		// 		}
-		// 		else if (change == InputDeviceChange.Removed || change == InputDeviceChange.Disconnected)
-		// 		{
-		// 			GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(true);
-		// 			if (VirtualKeyboard.Instance != null)
-		// 				VirtualKeyboard.instance.outputToInputField.readOnly = false;
-		// 		}
-		// 		foreach (_Text text in _Text.instances)
-		// 			text.UpdateText ();
-		// 	}
-		// }
+		public virtual void OnDeviceChanged (InputDevice device, InputDeviceChange change)
+		{
+			if (device is Gamepad)
+			{
+				if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
+				{
+					// GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(false);
+					// if (VirtualKeyboard.Instance != null)
+					// 	VirtualKeyboard.instance.outputToInputField.readOnly = true;
+					if (Gamepad.all.Count == 1)
+					{
+						for (int i = 0; i < GamepadSwitch.instances.Count; i ++)
+						{
+							GamepadSwitch gamepadSwitch = GamepadSwitch.instances[i];
+							gamepadSwitch.ToggleGos ();
+						}
+					}
+				}
+				else if (change == InputDeviceChange.Removed || change == InputDeviceChange.Disconnected)
+				{
+					// GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(true);
+					// if (VirtualKeyboard.Instance != null)
+					// 	VirtualKeyboard.instance.outputToInputField.readOnly = false;
+					if (Gamepad.all.Count == 0)
+					{
+						for (int i = 0; i < GamepadSwitch.instances.Count; i ++)
+						{
+							GamepadSwitch gamepadSwitch = GamepadSwitch.instances[i];
+							gamepadSwitch.ToggleGos ();
+						}
+					}
+				}
+				// foreach (_Text text in _Text.instances)
+				// 	text.UpdateText ();
+			}
+		}
 		
-		// public virtual void OnDestroy ()
-		// {
-		// 	InputSystem.onDeviceChange -= OnDeviceChanged;
-		// }
+		public virtual void OnDestroy ()
+		{
+			InputSystem.onDeviceChange -= OnDeviceChanged;
+		}
 
 		public static float GetMoveInput (int playerIndex)
 		{
@@ -218,26 +213,10 @@ namespace TGAOSG
 			}
 		}
 
-		public static Vector2 GetSwimInput (int playerIndex)
-		{
-			if (UsingGamepad)
-				return Vector2.ClampMagnitude(GetGamepad(playerIndex).leftStick.ReadValue(), 1);
-			else
-			{
-				int y = 0;
-				Keyboard keyboard = GetKeyboard(playerIndex);
-				if (keyboard.wKey.isPressed)
-					y ++;
-				if (keyboard.sKey.isPressed)
-					y --;
-				return Vector2.ClampMagnitude(new Vector2(GetMoveInput(playerIndex), y), 1);
-			}
-		}
-
 		public static bool GetJumpInput (int playerIndex)
 		{
 			if (UsingGamepad)
-				return GetGamepad(playerIndex).leftTrigger.isPressed;
+				return GetGamepad(playerIndex).leftShoulder.isPressed;
 			else
 				return GetKeyboard(playerIndex).wKey.isPressed;
 		}
@@ -250,50 +229,12 @@ namespace TGAOSG
 				return GetKeyboard(playerIndex).eKey.isPressed;
 		}
 
-		public static float GetZoomInput (int playerIndex)
-		{
-			if (UsingGamepad)
-				return GetGamepad(playerIndex).rightStick.y.ReadValue();
-			else
-				return GetMouse(playerIndex).scroll.y.ReadValue();
-		}
-
 		public static bool GetSubmitInput (int playerIndex)
 		{
 			if (UsingGamepad)
 				return GetGamepad(playerIndex).aButton.isPressed;
 			else
 				return GetKeyboard(playerIndex).enterKey.isPressed;
-		}
-
-		public static bool GetArrowActionInput (int playerIndex)
-		{
-			if (UsingGamepad)
-				return GetGamepad(playerIndex).rightTrigger.isPressed;
-			else
-				return GetMouse(playerIndex).leftButton.isPressed;
-		}
-
-		public static int GetSwitchArrowInput (int playerIndex)
-		{
-			if (UsingGamepad)
-				return -1;
-			else
-			{
-				Keyboard keyboard = GetKeyboard(playerIndex); 
-				if (keyboard.spaceKey.isPressed)
-					return 0;
-				else if (keyboard.digit1Key.isPressed)
-					return 1;
-				else if (keyboard.digit2Key.isPressed)
-					return 2;
-				else if (keyboard.digit3Key.isPressed)
-					return 3;
-				else if (keyboard.digit4Key.isPressed)
-					return 4;
-				else
-					return -1;
-			}
 		}
 		
 		public static bool GetSwordInput (int playerIndex)
@@ -309,12 +250,18 @@ namespace TGAOSG
 
 		public static bool GetMagicHatInput (int playerIndex)
 		{
-			return false;
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).rightStickButton.isPressed;
+			else
+				return GetMouse(playerIndex).rightButton.isPressed;
 		}
 
 		public static bool GetDashInput (int playerIndex)
 		{
-			return false;
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).leftTrigger.isPressed;
+			else
+				return GetKeyboard(playerIndex).leftShiftKey.isPressed;
 		}
 		
 		public static bool GetMagicAmuletInput (int playerIndex)
@@ -337,33 +284,6 @@ namespace TGAOSG
 		{
 			return false;
 		}
-		
-// 		public static bool GetArrowMenuInput (int playerIndex)
-// 		{
-// 			if (UsingGamepad)
-// 			{
-// 				Gamepad gamepad = GetGamepad(playerIndex);
-// 				return gamepad.rightShoulder.isPressed || gamepad.leftShoulder.isPressed;
-// 			}
-// 			else
-// 				return GetMouse(playerIndex).rightButton.isPressed;
-// 		}
-
-// 		public static int GetSwitchMenuSectionInput (int playerIndex)
-// 		{
-// 			if (UsingGamepad)
-// 			{
-// 				int output = 0;
-// 				Gamepad gamepad = GetGamepad(playerIndex);
-// 				if (gamepad.rightShoulder.isPressed)
-// 					output ++;
-// 				if (gamepad.leftShoulder.isPressed)
-// 					output --;
-// 				return output;
-// 			}
-// 			else
-// 				return 0;
-// 		}
 
 		public static Vector2 GetAimInput (int playerIndex)
 		{
