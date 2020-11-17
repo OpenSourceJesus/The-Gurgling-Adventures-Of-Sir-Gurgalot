@@ -81,7 +81,7 @@ namespace TGAOSG
 			#endif
 			if (useSeperateTextForGamepad)
 			{
-				usingGamepad = InputManager.inputter.controllers.joystickCount > 0;
+				usingGamepad = InputManager.UsingGamepad;
 				if (usingGamepad != previousUsingGamepad)
 					Translate ();
 				previousUsingGamepad = usingGamepad;

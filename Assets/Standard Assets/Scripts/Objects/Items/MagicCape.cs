@@ -16,17 +16,23 @@ namespace TGAOSG
 		[MakeConfigurable]
 		public float glidingFallRate;
 		public static bool isDashing;
+		bool jumpInput;
+		bool previousJumpInput;
+		bool dashInput;
+		bool previousDashInput;
 
-		void Update ()
+		public override void DoUpdate ()
 		{
-			if (InputManager.inputter.GetButtonDown("Dash") && cooldownTimer <= 0)
+			jumpInput = InputManager.Instance.JumpInput;
+			dashInput = InputManager.Instance.DashInput;
+			if (dashInput && !previousDashInput && cooldownTimer <= 0)
 			{
 				StartCoroutine(Cooldown ());
 				StartCoroutine(Dash ());
 			}
 			if (MagicCapeCanGlide.instance.learned && Player.instance.activityStatus[Activity.Falling].state == ActivityState.Doing)
 			{
-				if (InputManager.inputter.GetButton("Jump"))
+				if (jumpInput)
 				{
 					Vector2 velocity = Player.instance.rigid.velocity;
 					if (velocity.y <= -glidingFallRate)
@@ -38,11 +44,13 @@ namespace TGAOSG
 					else
 						Player.instance.rigid.gravityScale = Player.instance.defaultGravityScale;
 				}
-				else if (InputManager.inputter.GetButtonUp("Jump"))
+				else if (!jumpInput && previousJumpInput)
 					Player.instance.rigid.gravityScale = Player.instance.defaultGravityScale;
 			}
 			else
 				Player.instance.rigid.gravityScale = Player.instance.defaultGravityScale;
+			previousJumpInput = jumpInput;
+			previousDashInput = dashInput;
 		}
 		
 		IEnumerator Dash ()

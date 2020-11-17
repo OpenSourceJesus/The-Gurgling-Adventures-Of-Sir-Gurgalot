@@ -127,11 +127,11 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 
 	public virtual void HandleMovementInput ()
 	{
-		inputDirection = InputManager.GetAxis2D("UI Horizontal", "UI Vertical");
-		if (inputDirection.magnitude > InputManager.instance.JoystickDeadzone)
+		inputDirection = InputManager.GetUIMovementInput(MathfExtensions.NULL_INT);
+		if (inputDirection.magnitude > InputManager.Settings.defaultDeadzoneMin)
 		{
 			controllingWithJoystick = true;
-			if (previousInputDirection.magnitude <= InputManager.instance.JoystickDeadzone)
+			if (previousInputDirection.magnitude <= InputManager.Settings.defaultDeadzoneMin)
 			{
 				HandleChangeSelected (true);
 				ControlSelected ();
@@ -186,7 +186,7 @@ public class UIControlManager : SingletonMonoBehaviour<UIControlManager>
 
 	public virtual void HandleSubmitSelected ()
 	{
-		bool submitButtonPressed = InputManager.inputter.GetButtonDown("UI Submit");
+		bool submitButtonPressed = InputManager.Instance.SubmitInput;
 		if (submitButtonPressed)
 			controllingWithJoystick = true;
 		if (submitButtonPressed || (IsMousedOverSelectable(currentSelected) && Input.GetMouseButtonDown(0)))

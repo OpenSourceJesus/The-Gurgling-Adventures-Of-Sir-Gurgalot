@@ -16,6 +16,8 @@ namespace TGAOSG
 			}
 		}
 		public float addToMoveAxis;
+		bool jumpInput;
+		bool previousJumpInput;
 
 		public virtual void OnEnable ()
 		{
@@ -26,8 +28,9 @@ namespace TGAOSG
 		{
 			if (GameManager.paused)
 				return;
-			move = InputManager.inputter.GetAxis("Move Horizontal");
-			if (Mathf.Abs(move) > InputManager.instance.JoystickDeadzone)
+			jumpInput = InputManager.Instance.JumpInput;
+			move = InputManager.Instance.MoveInput;
+			if (Mathf.Abs(move) > InputManager.Settings.defaultDeadzoneMin)
 				move += MathfExtensions.Sign(move) * addToMoveAxis;
 			else
 				move = 0;
@@ -36,6 +39,7 @@ namespace TGAOSG
 			HandleFacing ();
 			HandleIdle ();
 			HandleJumping ();
+			previousJumpInput = jumpInput;
 		}
 
 		public virtual void OnDisable ()
@@ -75,13 +79,13 @@ namespace TGAOSG
 			{
 				if (activityStatus[Activity.Jumping].state == ActivityState.Doing)
 				{
-					if (InputManager.inputter.GetButtonUp("Jump") && activityStatus[Activity.Falling].canDo && activityStatus[Activity.Falling].state != ActivityState.Doing)
+					if (!jumpInput && previousJumpInput && activityStatus[Activity.Falling].canDo && activityStatus[Activity.Falling].state != ActivityState.Doing)
 						StopJump ();
 				}
 				else
 					rigid.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 			}
-			if (InputManager.inputter.GetButtonDown("Jump") && activityStatus[Activity.Jumping].canDo && activityStatus[Activity.Jumping].state != ActivityState.Doing && activityStatus[Activity.Falling].state != ActivityState.Doing)
+			if (jumpInput && !previousJumpInput && activityStatus[Activity.Jumping].canDo && activityStatus[Activity.Jumping].state != ActivityState.Doing && activityStatus[Activity.Falling].state != ActivityState.Doing)
 			{
 				rigid.velocity += Vector2.up * jumpSpeed;
 				StartJump ();
@@ -90,7 +94,7 @@ namespace TGAOSG
 		
 		public override void FaceDirection (int direction)
 		{
-			if (!InputManager.inputter.GetButton("Sword"))
+			if (!InputManager.Instance.SwordInput)
 				base.FaceDirection (direction);
 		}
 	}

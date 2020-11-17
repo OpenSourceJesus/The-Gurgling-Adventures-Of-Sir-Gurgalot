@@ -6,8 +6,15 @@ using Extensions;
 
 namespace TGAOSG
 {
-	public class AimingVisualizer : MonoBehaviour
+	public class AimingVisualizer : MonoBehaviour, IUpdatable
 	{
+		public bool PauseWhileUnfocused
+		{
+			get
+			{
+				return true;
+			}
+		}
 		public float aimingSensitivity;
 		public Transform aimingReticleTrs;
 		public Image aimingReticleImage;
@@ -21,14 +28,22 @@ namespace TGAOSG
 		public AimMode aimMode;
 		Vector2 aimInput;
 		public float minAngleBetweenMouseDeltas;
-		
-		public virtual void Update ()
+		Vector2 mousePosition;
+		Vector2 previousMousePosition;
+
+		void OnEnable ()
 		{
-			aimingReticleImage.enabled = InputManager.usingJoystick;
-			if (InputManager.usingJoystick)
+			GameManager.updatables = GameManager.updatables.Add(this);
+		}
+		
+		public void DoUpdate ()
+		{
+			mousePosition = InputManager.Instance.MousePosition;
+			aimingReticleImage.enabled = InputManager.UsingGamepad;
+			if (InputManager.UsingGamepad)
 			{
-				aimInput = InputManager.GetAxis2D("Aim Horizontal", "Aim Vertical");
-				if (aimInput.magnitude > InputManager.instance.JoystickDeadzone)
+				aimInput = InputManager.Instance.AimInput;
+				if (aimInput.magnitude > InputManager.Settings.defaultDeadzoneMin)
 				{
 					idealAimDireciton = aimInput;
 					aimDirection += Vector2.ClampMagnitude(idealAimDireciton - aimDirection, aimingSensitivity * Time.deltaTime);
@@ -38,14 +53,13 @@ namespace TGAOSG
 			}
 			else
 			{
-
 				switch (aimMode)
 				{
 					default:
 					case AimMode.Relative:
 						previousAimDirection = aimInput;
-						aimInput = InputManager.inputter.GetAxis2D("Mouse Horizontal", "Mouse Vertical");
-						if (aimInput.magnitude > InputManager.instance.JoystickDeadzone || Vector2.Dot(aimDirection, previousAimDirection) >= minAngleBetweenMouseDeltas)
+						aimInput = mousePosition - previousMousePosition;
+						if (aimInput.magnitude > InputManager.Settings.defaultDeadzoneMin || Vector2.Dot(aimDirection, previousAimDirection) >= minAngleBetweenMouseDeltas)
 						{
 							idealAimDireciton = aimInput;
 							aimDirection = aimInput;
@@ -67,6 +81,12 @@ namespace TGAOSG
 				else
 					aimerLaser.trs.up = previousAimDirection;
 			}
+			previousMousePosition = mousePosition;
+		}
+
+		void OnDisable ()
+		{
+			GameManager.updatables = GameManager.updatables.Remove(this);
 		}
 
 		public enum AimMode

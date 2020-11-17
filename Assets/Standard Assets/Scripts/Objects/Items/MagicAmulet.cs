@@ -18,12 +18,12 @@ namespace TGAOSG
 			aimer.gameObject.SetActive(true);
 		}
 		
-		void Update ()
+		public override void DoUpdate ()
 		{
 			if (GameManager.paused)
 				return;
 			cooldownTimer -= Time.deltaTime;
-			if (InputManager.inputter.GetButton("Magic Amulet") && cooldownTimer <= 0)
+			if (InputManager.Instance.MagicAmuletInput && cooldownTimer <= 0)
 			{
 				cooldownTimer = cooldown;
 				StartCoroutine(Cooldown ());

@@ -83,6 +83,8 @@ namespace TGAOSG
 		public static IUpdatable[] updatables = new IUpdatable[0];
 		public static IUpdatable[] pausedUpdatables = new IUpdatable[0];
 		public static bool isFocused = true;
+		bool menuInput;
+		bool previousMenuInput;
 
 		public override void Start ()
 		{
@@ -135,24 +137,26 @@ namespace TGAOSG
 				return;
 			}
 #endif
-			try
-			{
+			// try
+			// {
+				menuInput = InputManager.Instance.MenuInput;
 				foreach (IUpdatable updatable in updatables)
 					updatable.DoUpdate ();
 				Physics2D.Simulate(Time.deltaTime);
 				ObjectPool.instance.DoUpdate ();
 				GameplayCamera.instance.DoUpdate ();
 				HandlePausing ();
-			}
-			catch (Exception e)
-			{
-				print(e.Message + "\n" + e.StackTrace);
-			}
+				previousMenuInput = menuInput;
+			// }
+			// catch (Exception e)
+			// {
+			// 	print(e.Message + "\n" + e.StackTrace);
+			// }
 		}
 
 		void HandlePausing ()
 		{
-			if (InputManager.inputter.GetButtonDown("Menu") && (Flowchart.instance == null || !Flowchart.instance.gameObject.activeInHierarchy) && (Obelisk.instance == null || !Obelisk.instance.canvasObj.activeInHierarchy) && !SceneManager.GetSceneByName("Skill Tree").isLoaded && !SceneManager.GetSceneByName("Main Menu").isLoaded)
+			if (menuInput && !previousMenuInput && (Flowchart.instance == null || !Flowchart.instance.gameObject.activeInHierarchy) && (Obelisk.instance == null || !Obelisk.instance.canvasObj.activeInHierarchy) && !SceneManager.GetSceneByName("Skill Tree").isLoaded && !SceneManager.GetSceneByName("Main Menu").isLoaded)
 			{
 				if (!paused)
 				{

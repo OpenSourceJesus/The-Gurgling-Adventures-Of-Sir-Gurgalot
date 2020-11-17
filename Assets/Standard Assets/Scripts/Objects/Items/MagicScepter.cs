@@ -41,6 +41,10 @@ namespace TGAOSG
 		float recordStartTime;
 		public float manaBarAlphaWhileEnabled;
 		public float manaBarAlphaWhileDisabled;
+		bool magicScepterInput;
+		bool previousMagicScepterInput;
+		bool cancelMagicScepterInput;
+		bool previousCancelMagicScepterInput;
 		
 		public override void Start ()
 		{
@@ -51,27 +55,29 @@ namespace TGAOSG
 			gamma = 1;
 		}
 		
-		public virtual void Update ()
+		public virtual void DoUpdate ()
 		{
+			magicScepterInput = InputManager.Instance.MagicScepterInput;
+			cancelMagicScepterInput = InputManager.Instance.CancelMagicScepterInput;
 			if (canUse && gamma == 1)
 			{
-				if (InputManager.inputter.GetButtonDown("Magic Scepter"))
+				if (magicScepterInput && !previousMagicScepterInput)
 				{
 					if (inRecordMode)
 						StartRecording ();
 					else
 						StartPlayback ();
 				}
-				else if (InputManager.inputter.GetButton("Magic Scepter"))
+				else if (magicScepterInput)
 				{
 					if (inRecordMode)
 						ContinueRecording ();
 					RemainingUsableTime -= Time.deltaTime;
-					if (RemainingUsableTime == 0 || InputManager.inputter.GetButtonDown("Cancel Magic Scepter"))
+					if (RemainingUsableTime == 0 || (cancelMagicScepterInput && !previousCancelMagicScepterInput))
 					{
 						if (inRecordMode)
 						{
-							if (InputManager.inputter.GetButtonDown("Cancel Magic Scepter"))
+							if (cancelMagicScepterInput && !previousCancelMagicScepterInput)
 								CancelRecording ();
 							else
 							{
@@ -83,7 +89,7 @@ namespace TGAOSG
 							StopPlayback ();
 					}
 				}
-				else if (InputManager.inputter.GetButtonUp("Magic Scepter"))
+				else if (!magicScepterInput && previousMagicScepterInput)
 				{
 					if (inRecordMode)
 						FinishRecording ();
@@ -95,10 +101,11 @@ namespace TGAOSG
 			}
 			else
 			{
-				canUse = !InputManager.inputter.GetButton("Magic Scepter") && gamma == 1;
+				canUse = !magicScepterInput && gamma == 1;
 				if (gamma == 1)
 					RechargeMana ();
 			}
+			previousCancelMagicScepterInput = cancelMagicScepterInput;
 		}
 
 		public virtual void RechargeMana ()
@@ -213,7 +220,7 @@ namespace TGAOSG
 		}
 
 		[Serializable]
-		public class TimelinePoint
+		public struct TimelinePoint
 		{
 			public Vector2 position;
 			public Vector2 movement;

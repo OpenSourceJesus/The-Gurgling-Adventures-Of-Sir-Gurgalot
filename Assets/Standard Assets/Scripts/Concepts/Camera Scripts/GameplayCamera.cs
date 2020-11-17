@@ -89,8 +89,8 @@ namespace TGAOSG
 		
 		public virtual void HandleLooking ()
 		{
-			if (InputManager.usingJoystick)
-				toLookPos = InputManager.GetAxis2D("Aim Horizontal", "Aim Vertical") * lookRange;
+			if (InputManager.UsingGamepad)
+				toLookPos = InputManager.Instance.AimInput * lookRange;
 			else
 			{
 				movement = (camera.ScreenToWorldPoint(Input.mousePosition) - trs.position) * AimingSensitivity;

@@ -1,127 +1,464 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Rewired;
+﻿using UnityEngine;
 using Extensions;
-using Fungus;
+using System;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 namespace TGAOSG
 {
-	public class InputManager : SingletonMonoBehaviour<InputManager>, IUpdatable
+	public class InputManager : SingletonMonoBehaviour<InputManager>
 	{
-		public bool PauseWhileUnfocused
+		public InputSettings settings;
+		public static InputSettings Settings
 		{
 			get
 			{
-				return true;
+				return InputManager.Instance.settings;
 			}
 		}
-		public static Rewired.Player inputter;
-		public static bool usingJoystick;
-		public static int currentJoystickId;
-		public float defaultJoystickDeadzone;
-		public float JoystickDeadzone
+		public static bool UsingGamepad
 		{
 			get
 			{
-				return PlayerPrefs.GetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, defaultJoystickDeadzone);
-			}
-			set
-			{
-				PlayerPrefsExtensions.SetFloat("Joystick Deadzone" + SaveAndLoadManager.KEY_NAME_AND_ACCOUNT_SEPEARATOR + GameManager.accountNumber, value);
+				return Gamepad.current != null;
 			}
 		}
-		public float unhideCursorThreshold;
-		public Timer hideCursorTimer;
-		public Rewired.InputManager rewiredInputManager;
-		
-		public virtual void OnEnable ()
+		public static bool UsingMouse
 		{
-			instance = this;
-			inputter = ReInput.players.GetPlayer("Player");
-			usingJoystick = ReInput.controllers.joystickCount > 0;
-			if (usingJoystick)
-				currentJoystickId = ReInput.controllers.Joysticks[0].id;
-			ReInput.ControllerConnectedEvent += OnControllerConnected;
-			ReInput.ControllerDisconnectedEvent += OnControllerDisconnected;
-			ReInput.ControllerPreDisconnectEvent += OnControllerPreDisconnect;
+			get
+			{
+				return Mouse.current != null;
+			}
+		}
+		public static bool UsingKeyboard
+		{
+			get
+			{
+				return Keyboard.current != null;
+			}
+		}
+		public float MoveInput
+		{
+			get
+			{
+				return GetMoveInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public Vector2 SwimInput
+		{
+			get
+			{
+				return GetSwimInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool JumpInput
+		{
+			get
+			{
+				return GetJumpInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool InteractInput
+		{
+			get
+			{
+				return GetInteractInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public float ZoomInput
+		{
+			get
+			{
+				return GetZoomInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool SubmitInput
+		{
+			get
+			{
+				return GetSubmitInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public int SwitchArrowInput
+		{
+			get
+			{
+				return GetSwitchArrowInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool SwordInput
+		{
+			get
+			{
+				return GetSwordInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool MagicHatInput
+		{
+			get
+			{
+				return GetMagicHatInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool DashInput
+		{
+			get
+			{
+				return GetDashInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool MagicAmuletInput
+		{
+			get
+			{
+				return GetMagicAmuletInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool MagicScepterInput
+		{
+			get
+			{
+				return GetMagicScepterInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool CancelMagicScepterInput
+		{
+			get
+			{
+				return GetCancelMagicScepterInput(MathfExtensions.NULL_INT);
+			}
+		}
+		// public int SwitchMenuSectionInput
+		// {
+		// 	get
+		// 	{
+		// 		return GetSwitchMenuSectionInput(MathfExtensions.NULL_INT);
+		// 	}
+		// }
+		public Vector2 AimInput
+		{
+			get
+			{
+				return GetAimInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public Vector2 UIMovementInput
+		{
+			get
+			{
+				return GetUIMovementInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool MenuInput
+		{
+			get
+			{
+				return GetMenuInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public bool SkillTreeInput
+		{
+			get
+			{
+				return GetSkillTreeInput(MathfExtensions.NULL_INT);
+			}
+		}
+		public Vector2 MousePosition
+		{
+			get
+			{
+				return GetMousePosition(MathfExtensions.NULL_INT);
+			}
+		}
+		
+		// public virtual void Start ()
+		// {
+		// 	InputSystem.onDeviceChange += OnDeviceChanged;
+		// }
+		
+		// public virtual void OnDeviceChanged (InputDevice device, InputDeviceChange change)
+		// {
+		// 	if (device is Gamepad)
+		// 	{
+		// 		if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
+		// 		{
+		// 			GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(false);
+		// 			if (VirtualKeyboard.Instance != null)
+		// 				VirtualKeyboard.instance.outputToInputField.readOnly = true;
+		// 		}
+		// 		else if (change == InputDeviceChange.Removed || change == InputDeviceChange.Disconnected)
+		// 		{
+		// 			GameManager.activeCursorEntry.rectTrs.gameObject.SetActive(true);
+		// 			if (VirtualKeyboard.Instance != null)
+		// 				VirtualKeyboard.instance.outputToInputField.readOnly = false;
+		// 		}
+		// 		foreach (_Text text in _Text.instances)
+		// 			text.UpdateText ();
+		// 	}
+		// }
+		
+		// public virtual void OnDestroy ()
+		// {
+		// 	InputSystem.onDeviceChange -= OnDeviceChanged;
+		// }
+
+		public static float GetMoveInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).leftStick.x.ReadValue();
+			else
+			{
+				int output = 0;
+				Keyboard keyboard = GetKeyboard(playerIndex);
+				if (keyboard.dKey.isPressed)
+					output ++;
+				if (keyboard.aKey.isPressed)
+					output --;
+				return output;
+			}
 		}
 
-		public override void Start ()
+		public static Vector2 GetSwimInput (int playerIndex)
 		{
-			base.Start ();
-			hideCursorTimer.onFinished += HideCursor;
-			GameManager.updatables = GameManager.updatables.Add(this);
-			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			if (UsingGamepad)
+				return Vector2.ClampMagnitude(GetGamepad(playerIndex).leftStick.ReadValue(), 1);
+			else
 			{
-				Flowchart flowchart = Flowchart.instances[i];
-				if (flowchart.HasVariable("hasGamepad"))
-					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
-			}
-		}
-		
-		public virtual void DoUpdate ()
-		{
-			if (GetAxis2D("Mouse Horizontal", "Mouse Vertical").magnitude > unhideCursorThreshold)
-			{
-				Cursor.visible = true;
-				hideCursorTimer.Start ();
+				int y = 0;
+				Keyboard keyboard = GetKeyboard(playerIndex);
+				if (keyboard.wKey.isPressed)
+					y ++;
+				if (keyboard.sKey.isPressed)
+					y --;
+				return Vector2.ClampMagnitude(new Vector2(GetMoveInput(playerIndex), y), 1);
 			}
 		}
 
-		public virtual void HideCursor ()
+		public static bool GetJumpInput (int playerIndex)
 		{
-			if (usingJoystick)
-				Cursor.visible = false;
-			hideCursorTimer.timeRemaining += hideCursorTimer.duration;
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).leftTrigger.isPressed;
+			else
+				return GetKeyboard(playerIndex).wKey.isPressed;
 		}
-		
-		public static Vector2 GetAxis2D (string xAxis, string yAxis)
+
+		public static bool GetInteractInput (int playerIndex)
 		{
-			Vector2 output = inputter.GetAxis2D(xAxis, yAxis);
-			output = Vector2.ClampMagnitude(output, 1);
-			return output;
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).aButton.isPressed;
+			else
+				return GetKeyboard(playerIndex).eKey.isPressed;
 		}
-		
-		public virtual void OnControllerConnected (ControllerStatusChangedEventArgs args)
+
+		public static float GetZoomInput (int playerIndex)
 		{
-			usingJoystick = true;
-			Cursor.visible = false;
-			currentJoystickId = args.controllerId;
-			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).rightStick.y.ReadValue();
+			else
+				return GetMouse(playerIndex).scroll.y.ReadValue();
+		}
+
+		public static bool GetSubmitInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).aButton.isPressed;
+			else
+				return GetKeyboard(playerIndex).enterKey.isPressed;
+		}
+
+		public static bool GetArrowActionInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return GetGamepad(playerIndex).rightTrigger.isPressed;
+			else
+				return GetMouse(playerIndex).leftButton.isPressed;
+		}
+
+		public static int GetSwitchArrowInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return -1;
+			else
 			{
-				Flowchart flowchart = Flowchart.instances[i];
-				if (flowchart.HasVariable("hasGamepad"))
-					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
+				Keyboard keyboard = GetKeyboard(playerIndex); 
+				if (keyboard.spaceKey.isPressed)
+					return 0;
+				else if (keyboard.digit1Key.isPressed)
+					return 1;
+				else if (keyboard.digit2Key.isPressed)
+					return 2;
+				else if (keyboard.digit3Key.isPressed)
+					return 3;
+				else if (keyboard.digit4Key.isPressed)
+					return 4;
+				else
+					return -1;
+			}
+		}
+		
+		public static bool GetSwordInput (int playerIndex)
+		{
+			if (UsingGamepad)
+			{
+				Gamepad gamepad = GetGamepad(playerIndex);
+				return gamepad.rightTrigger.isPressed || gamepad.rightStickButton.isPressed;
+			}
+			else
+				return GetMouse(playerIndex).leftButton.isPressed;
+		}
+
+		public static bool GetMagicHatInput (int playerIndex)
+		{
+			return false;
+		}
+
+		public static bool GetDashInput (int playerIndex)
+		{
+			return false;
+		}
+		
+		public static bool GetMagicAmuletInput (int playerIndex)
+		{
+			if (UsingGamepad)
+			{
+				Gamepad gamepad = GetGamepad(playerIndex);
+				return gamepad.rightTrigger.isPressed || gamepad.rightStickButton.isPressed;
+			}
+			else
+				return GetMouse(playerIndex).leftButton.isPressed;
+		}
+
+		public static bool GetMagicScepterInput (int playerIndex)
+		{
+			return false;
+		}
+
+		public static bool GetCancelMagicScepterInput (int playerIndex)
+		{
+			return false;
+		}
+		
+// 		public static bool GetArrowMenuInput (int playerIndex)
+// 		{
+// 			if (UsingGamepad)
+// 			{
+// 				Gamepad gamepad = GetGamepad(playerIndex);
+// 				return gamepad.rightShoulder.isPressed || gamepad.leftShoulder.isPressed;
+// 			}
+// 			else
+// 				return GetMouse(playerIndex).rightButton.isPressed;
+// 		}
+
+// 		public static int GetSwitchMenuSectionInput (int playerIndex)
+// 		{
+// 			if (UsingGamepad)
+// 			{
+// 				int output = 0;
+// 				Gamepad gamepad = GetGamepad(playerIndex);
+// 				if (gamepad.rightShoulder.isPressed)
+// 					output ++;
+// 				if (gamepad.leftShoulder.isPressed)
+// 					output --;
+// 				return output;
+// 			}
+// 			else
+// 				return 0;
+// 		}
+
+		public static Vector2 GetAimInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return Vector2.ClampMagnitude(GetGamepad(playerIndex).rightStick.ReadValue(), 1);
+			else
+				return Vector2.ClampMagnitude(GameplayCamera.Instance.camera.ScreenToWorldPoint(GetMousePosition(playerIndex)) - Player.instance.trs.position, 1);
+		}
+
+		public static Vector2 GetUIMovementInput (int playerIndex)
+		{
+			if (UsingGamepad)
+				return Vector2.ClampMagnitude(GetGamepad(playerIndex).leftStick.ReadValue(), 1);
+			else
+			{
+				Keyboard keyboard = GetKeyboard(playerIndex);
+				int x = 0;
+				if (keyboard.dKey.isPressed)
+					x ++;
+				if (keyboard.aKey.isPressed)
+					x --;
+				int y = 0;
+				if (keyboard.wKey.isPressed)
+					y ++;
+				if (keyboard.sKey.isPressed)
+					y --;
+				return Vector2.ClampMagnitude(new Vector2(x, y), 1);
 			}
 		}
 
-		public virtual void OnControllerDisconnected (ControllerStatusChangedEventArgs args)
+		public static bool GetMenuInput (int playerIndex)
 		{
-			usingJoystick = ReInput.controllers.joystickCount > 0;
-			if (usingJoystick)
-				currentJoystickId = ReInput.controllers.Joysticks[ReInput.controllers.joystickCount - 1].id;
-			Cursor.visible = true;
-			for (int i = 0; i < Flowchart.instances.Count; i ++)
+			if (UsingGamepad)
 			{
-				Flowchart flowchart = Flowchart.instances[i];
-				if (flowchart.HasVariable("hasGamepad"))
-					flowchart.SetBooleanVariable("hasGamepad", usingJoystick);
+				Gamepad gamepad = GetGamepad(playerIndex);
+				return gamepad.startButton.isPressed || gamepad.selectButton.isPressed;
 			}
+			else
+				return GetKeyboard(playerIndex).escapeKey.isPressed;
 		}
-		
-		public virtual void OnControllerPreDisconnect (ControllerStatusChangedEventArgs args)
+
+		public static bool GetSkillTreeInput (int playerIndex)
 		{
-			OnControllerDisconnected (args);
+			if (UsingGamepad)
+			{
+				Gamepad gamepad = GetGamepad(playerIndex);
+				return gamepad.startButton.isPressed || gamepad.selectButton.isPressed;
+			}
+			else
+				return GetKeyboard(playerIndex).escapeKey.isPressed;
 		}
-		
-		public virtual void OnDestroy ()
+
+		public static bool GetLeftClickInput (int playerIndex)
 		{
-			ReInput.ControllerConnectedEvent -= OnControllerConnected;
-			ReInput.ControllerDisconnectedEvent -= OnControllerDisconnected;
-			ReInput.ControllerPreDisconnectEvent -= OnControllerPreDisconnect;
-			hideCursorTimer.onFinished -= HideCursor;
-			GameManager.updatables = GameManager.updatables.Remove(this);
+			if (UsingMouse)
+				return GetMouse(playerIndex).leftButton.isPressed;
+			else
+				return false;
+		}
+
+		public static Vector2 GetMousePosition (int playerIndex)
+		{
+			// if (UsingMouse)
+				return GetMouse(playerIndex).position.ReadValue();
+			// else
+				// return GameManager.activeCursorEntry.rectTrs.position;
+		}
+
+		public static Vector2 GetWorldMousePosition (int playerIndex)
+		{
+			return CameraScript.Instance.camera.ViewportToWorldPoint(GetMousePosition(playerIndex));
+		}
+
+		public static Gamepad GetGamepad (int playerIndex)
+		{
+			Gamepad gamepad = Gamepad.current;
+			if (Gamepad.all.Count > playerIndex)
+				gamepad = Gamepad.all[playerIndex];
+			return gamepad;
+		}
+
+		public static Mouse GetMouse (int playerIndex)
+		{
+			Mouse mouse = Mouse.current;
+			// if (Mouse.all.Count > playerIndex)
+			// 	mouse = (Mouse) Mouse.all[playerIndex];
+			return mouse;
+		}
+
+		public static Keyboard GetKeyboard (int playerIndex)
+		{
+			Keyboard keyboard = Keyboard.current;
+			// if (Keyboard.all.Count > playerIndex)
+			// 	keyboard = (Keyboard) Keyboard.all[playerIndex];
+			return keyboard;
 		}
 	}
 }

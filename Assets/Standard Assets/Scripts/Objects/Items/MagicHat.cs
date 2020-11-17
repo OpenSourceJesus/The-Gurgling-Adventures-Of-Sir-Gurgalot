@@ -79,6 +79,8 @@ namespace TGAOSG
 		public bool justTeleported;
 		[HideInInspector]
 		public bool previousJustTeleported;
+		bool magicHatInput;
+		bool previousMagicHatInput;
 		
 		public override void Start ()
 		{
@@ -96,15 +98,16 @@ namespace TGAOSG
 			aimHelper.positionCount = aimHelperPosCount;
 		}
 		
-		void FixedUpdate ()
+		public override void DoUpdate ()
 		{
+			magicHatInput = InputManager.Instance.MagicHatInput;
 			if (GameManager.paused || !Player.instance.enabled)
 				return;
-			if (!isAiming && !rigid.simulated && InputManager.inputter.GetButtonDown("Magic Hat"))// && Player.instance.activityStatus[Activity.Attacking].state != ActivityState.Doing)
+			if (!isAiming && !rigid.simulated && magicHatInput && !previousMagicHatInput)// && Player.instance.activityStatus[Activity.Attacking].state != ActivityState.Doing)
 				TakeOffHead ();
-			if (isAiming && InputManager.inputter.GetButtonUp("Magic Hat"))
+			if (isAiming && !magicHatInput && previousMagicHatInput)
 				Throw ();
-			if (rigid.simulated && cooldownTimer <= 0 && InputManager.inputter.GetButtonDown("Magic Hat") && Physics2D.OverlapCapsule(playerBounds.bounds.center, playerBounds.bounds.size - (Vector3.one * reducePlayerBoundsAmount), CapsuleDirection2D.Vertical, 0, Player.instance.whatICollideWith) == null)
+			if (rigid.simulated && cooldownTimer <= 0 && magicHatInput && !previousMagicHatInput && Physics2D.OverlapCapsule(playerBounds.bounds.center, playerBounds.bounds.size - (Vector3.one * reducePlayerBoundsAmount), CapsuleDirection2D.Vertical, 0, Player.instance.whatICollideWith) == null)
 			{
 				StartCoroutine(Cooldown ());
 				PlayerTeleportToMe ();
@@ -121,12 +124,13 @@ namespace TGAOSG
 			}
 			else
 				aimHelper.enabled = false;
-			if (InputManager.inputter.GetButtonDown("Interact"))
+			if (InputManager.Instance.InteractInput)
 			{
 				PutBackOn ();
 				//if (rigid.simulated && Physics2D.OverlapCapsule(Player.instance.colliderBounds.center, Player.instance.colliderBounds.size, CapsuleDirection2D.Vertical, 0, gameObject.layer))
 				//	PutBackOn ();
 			}
+			previousMagicHatInput = magicHatInput;
 		}
 		
 		void PlayerTeleportToMe ()

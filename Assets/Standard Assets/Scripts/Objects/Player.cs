@@ -276,7 +276,7 @@ namespace TGAOSG
 					attackReloadTimer -= Time.deltaTime;
 				if (attackReloadTimer <= 0)
 					activityStatus[Activity.Attacking].canDo = true;
-				if (InputManager.inputter.GetButton("Sword") && activityStatus[Activity.Attacking].canDo)
+				if (InputManager.Instance.SwordInput && activityStatus[Activity.Attacking].canDo)
 					Attack ();
 			}
 			else

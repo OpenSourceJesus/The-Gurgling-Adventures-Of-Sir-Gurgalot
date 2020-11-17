@@ -13,6 +13,8 @@ namespace TGAOSG
 		float holdTimer;
 		public AutoClickButton triggerButton;
 		public bool oneUse;
+		bool interactInput;
+		bool previousInteractInput;
 		
 		public virtual void Start ()
 		{
@@ -21,15 +23,16 @@ namespace TGAOSG
 		
 		public virtual void Update ()
 		{
+			interactInput = InputManager.Instance.InteractInput;
 			if (Time.timeScale == 0)
 				return;
-			if (InputManager.inputter.GetButtonDown(interactButton) && buttonState == HotkeyState.Down)
+			if (interactInput && !previousInteractInput && buttonState == HotkeyState.Down)
 				Interact ();
-			else if (InputManager.inputter.GetButtonUp(interactButton) && buttonState == HotkeyState.Up)
+			else if (!interactInput && previousInteractInput && buttonState == HotkeyState.Up)
 				Interact ();
 			else if (buttonState == AutoClickButton.HotkeyState.Held)
 			{
-				if (InputManager.inputter.GetButton(interactButton))
+				if (interactInput)
 				{
 					holdTimer -= Time.deltaTime;
 					if (holdTimer < 0)
@@ -41,6 +44,7 @@ namespace TGAOSG
 				else
 					holdTimer = holdTime;
 			}
+			previousInteractInput = interactInput;
 		}
 		
 		public virtual void Interact ()
